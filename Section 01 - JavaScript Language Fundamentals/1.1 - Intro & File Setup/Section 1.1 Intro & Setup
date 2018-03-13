@@ -1,0 +1,40 @@
+Section 1.1. Introduction & Setup:
+
+--------------------------------------
+Sandbox Environment
+--------------------------------------
+The js_sandbox folder contains 2 files:
+1. index.html
+2. app.js
+
+This is our default sandbox environment that we will use throughout this course when we learn the fundementals of JavaScript.
+
+
+--------------------------------------
+Connecting JavaScript to HTML Document
+--------------------------------------
+There are two methods in which we can connect our JavaScript code to our html document:
+1. Internally within our html file.
+2. Externally by creating a .js file and adding a link within our html file.
+
+
+--------------------------------------
+Examples:
+--------------------------------------
+Method 1 - Script tags within HTML docuemnt (Internal):
+   <script>
+      //Insert JavaScript code directly e.g. 
+      alert("Hello");
+   </Script>
+
+Method 2 - Script source tag linking to a external .js file (External):
+   <script src:"app.js"></script>
+
+[Note: if the app.js was in another folder called js we would have to write "js/app.js"]
+
+
+--------------------------------------
+Final Note:
+--------------------------------------
+
+It is recommended to avoid Method 1 unless it is one or two lines of JavaScript code being used. We will be using Method 2 throughout this course when we write our JavaScript code.
