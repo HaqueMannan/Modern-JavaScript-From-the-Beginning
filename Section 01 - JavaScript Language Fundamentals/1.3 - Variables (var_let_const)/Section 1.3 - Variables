@@ -1,0 +1,106 @@
+Section 1.3. Variables:
+
+--------------------------------------
+Variables & Declaration
+--------------------------------------
+There are 3 possible keywords for declaring a variable within JavaScript.
+1) Var
+2) Let
+3) Const
+
+Var has been around since the beginning of JavaScript, Let & Const were introduced in ES2015 (a.k.a ES6) which was an update to the JavaScript language that included many new features. Let and const are now fully supported in brosers and we should try to stay away from var for modern day JavaScript.
+Let and const have a big advantage when it comes to block level scope (we will go over this in section 1.17).
+
+
+--------------------------------------
+How to Create a Variable?
+--------------------------------------
+To declare a variable we will need to use one of the keywords mentioned above, followed by the varialbe name, followed by the equal (=) sign. 
+For example:
+   var name = "John Doe";
+
+We have created a string variable (we will go over Data Types in section 1.4). 
+A strings can be written in single ('') or double ("") quotation marks. 
+
+We can now use this variable within our JavaScript code. For example:
+   console.log("name");
+
+This will print out John Doe in the browser console.
+
+You can also create a variable without assigning any value. This will create an unassigned variable. 
+For Example:
+   var greeting;
+
+We can assign a value later. For example:
+   greeting = "Hello"
+
+One of the reasons for why we would initialise variables is, if we need a variable for conditionals, such as an If Statement which will set the variable depending on the if consition (we will go over If Statements in section 1.12).
+
+--------------------------------------
+Reassign a Variable?
+--------------------------------------
+When we assign a value for a variable we can then reassign the variable value. This only applies to var and let keywords and not const.
+
+
+--------------------------------------
+Variable Rules and Conventions
+--------------------------------------
+1) variable name can include letters, numbers, underscore(_) and dollar sign($).
+2) variable cannot start with a number.
+
+Multi-Word Conventions (Programming in General):
+1) var firstName = 'John';       Camel case (recommended convention)
+2) var first_name = 'Sara';      Underscore
+3) var FirstName = 'Tom';        Pascal case (*recommended in Object Oriented Programming (OOP))
+4) var firstname;                lower case
+
+*For example: when creating constructor function or ES6 classes.
+
+
+--------------------------------------
+Let Keyword
+--------------------------------------
+The let variable works very similar to the var variable and is identical in the global scope; however, it has advantages over var when it comes to the block scope (we will go over this in section 1.17).
+
+The syntax for let variables is exactly the same as var variables and we can init/reassign variables the same as var above. 
+For example:
+   let name = "John Doe";
+or
+   let name;
+   name = "John Doe";
+   name = "Steve Smith";
+
+
+--------------------------------------
+Const Keyword
+--------------------------------------
+Const stands for constant and this means the value for the variable cannot change/reassigned a new value.
+Const variables cannot:
+1) have to assign a value i.e. cannot init a const variable unlike var and let.
+2) cannot reasign a value for the const variable unlike var and let.
+
+However, when we use Const variables for Arrays, Objects and other types of data that are primitive like strings and numbers (i.e things that can change but cannot be reassigned), we are able to change the const variable values. We cannot reassign the value but we can change/mutate array/object properties. 
+
+For Example:
+   const numbers = [1,2,3,4,5];
+   numbers.push(6);
+
+We can add/change the array/objects; however, we cannot reassign/re-declare the array or object for example:
+   const numbers = [1,2,3,4,5];
+   numbers = [1,2,3,4,5,6];
+This is trying to create a whole new array rather than change the existing values within the array.
+
+Refer to the js_sandbox_1.3 folder for examples (including examples for the above).
+
+
+--------------------------------------
+Conclusion & Recommendation
+--------------------------------------
+It is you as the developer to make a decision as to when to use let and const within your code and how to declare your variable within your code. It is all preference.
+
+What is recommended is that you should use const unless:
+1) the value is changing, 
+2) you need to init a variable or 
+3) unless your using the variable in a iterator for a loop.
+
+Using const lets your program or anyone else who is looking at your code, know that the variable should not be reassigned. It can be mutated if its an array or object but it cannot be reassigned as a new primitive value. This will make your code more robust, secure and more readable.
