@@ -1,0 +1,63 @@
+Section 1.2. Using the Console:
+
+--------------------------------------
+Accessing the JavaScript Console
+--------------------------------------
+The console provides us with a way to utput our code on the console to test things and debug our code.
+
+You can use the alert() function in JavaScript to send out an alert messagebox in the browser; however, this is not a great way to do things and we can now use the JavaScript console to debug/test our code.
+
+In Chrome, F12 key (OSX ⌥⌘J) allows you to open the JavaScript console - by default it will be on the Element tab but we can select Console.
+
+
+--------------------------------------
+JavaScript Console Basics
+--------------------------------------
+You can write and execute JavaScript code within the broswer console itself. 
+
+- Type alert("Hello"); in the console and press enter. This should alert a messagebox with the text Hello in the browser.
+- The "undefined" means nothing was returned from the alert function.
+- If you type 4 it will return 4. If you type 4+4 it will return 8.
+- You can select from the DOM e.g. if we you type document and press enter it will return the HTML document structure.
+
+Whatever you can do within your JavaScript file, you can do within the JavaScript console.
+Whenever you reload, the JavaScript code will go away, however, we can use this for testing/debugging JavaScript code before committing it to your JavaScript file.
+
+
+--------------------------------------
+JavaScript Comments
+--------------------------------------
+// Single line comments.
+/* Multi-line comments */
+
+
+--------------------------------------
+Console.log and other functions
+--------------------------------------
+Syntax
+   console.log();
+This default JavaScript function allows us to log to the console. 
+Please refer to the js_sandbox_1.2 folder to view examples within the browser's console.
+
+We can console log many data types within this function and we will use this function alot within JavaScript when testing and debugging our codes.
+
+Other functions Syntax
+   - console.table();                        create a table for objects.
+   - console.error();                        create an error log.
+   - consoe.warn();                          create a warn log.
+   - console.clear();                        clear the console.
+   - console.time(); and console.timeEnd()   calculate the time it takes to execute the code.
+
+In Chrome (and maybe other browsers):
+1) Number and Boolean values are in blue text, other (e.g. Strings) are in black text.
+2) Arrays, Objects, Tables, Error, Warnings have an arrow which allows you to view more information within the console.
+
+For example: in the error log if we click the arrow, this will show us more details (anonymous) @ app.js:22 the app.js:22 - We can click on the blue link to go to the sources tab to view the error within the source file i.e app.js at line 22. (This is the same for the warn log).
+
+3) The timer function is useful in timing how long it takes to execute your code and this allows for testing and optimising your code so that your code executes faster leading faster loading of your webapp/website. 
+console.time() and console.timeEnd() must be used together to test how long it takes to execute the block of code witin the two functions. The identifier must be the same within the parentheses/brakcets of the two function.
+
+For example: 
+   console.time("Timer")
+   console.timeEnd("Timer")
+The identifier = Timer
