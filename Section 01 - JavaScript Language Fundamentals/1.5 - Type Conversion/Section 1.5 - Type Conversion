@@ -1,0 +1,52 @@
+Section 1.5. Type Conversion:
+
+--------------------------------------
+What is Type Conversion?
+--------------------------------------
+Type conversion is the process of taking a variable and changing its data type.
+
+--------------------------------------
+Converting to a String
+--------------------------------------
+There are two ways in which we can convert data types into strings:
+1) String(); function
+2) .toString(); method
+
+We can convert the following data types to a string:
+- numbers (and expressions)
+- booleans
+- dates
+- arrays
+
+The .legnth property only works on string data types and returns the number of characters within a string data type.
+
+--------------------------------------
+Converting to a Number
+--------------------------------------
+There are two ways in which we can convert data types into number:
+1) Number(); function
+2) parseInt(); & parseFloat(); methods
+
+We can convert the following data types to a number:
+- strings
+- boolean (1 = true, 0 = false)
+- Null (0)
+
+The .tofixed() property only works on Number data types and returns the number as a decimal/float number based on the number within the parentheses (if left blank then no decimal point).
+
+NaN stands for Not a Number and will apply to when we try to convert a string such as 'Hello' or an array such as [1,2,3] to a number.
+
+parseInt() will return a integer number whereas parseFloat() will return a decimal number.
+
+
+--------------------------------------
+Type Coercion
+--------------------------------------
+This is where we try to convert a data type to another data type; however, we allow JavaScript to do this for us. For example: we try to add a string to a number
+
+'5' + 6 = 56 (JavaScript Coercion)
+typeOf = string
+JavaScript will coercion for us automatically as a string. Note we can convert this into a number using the number() function.
+
+
+Please refer to the js_sandbox_1.5 folder for examples of all above.
