@@ -1,0 +1,53 @@
+Section 1.4. Data Types:
+
+--------------------------------------
+Data Types in JavaScript
+--------------------------------------
+There are a bunch of different data types but there are two types of data types:
+- Primitive Data Types
+- Reference Data Types
+
+
+--------------------------------------
+Primitive Data Types
+--------------------------------------
+- Stored directly in the location the variable accesses.
+- Stored on the stack 
+When you access a primitive data type you access it by its actual value.
+
+6 Primitive Data Types:
+1) String - sequence of characters.
+2) Number - a number (integers, decimals, floats are all consindered as numbers).
+3) Boolean - true or false (1 or 0).
+4) Null - intentional empty value.
+5) Undefined - a variable that has not been assigned a value.
+6) Symbols (ES6).
+
+
+--------------------------------------
+Reference Data Types
+--------------------------------------
+- Objects accessed by reference
+- Objects that are stored on the heap
+- A pointer to a location in memory
+The data isn't actually stored in the variable its stored in what is called the heap (to do with dynamically allocated memory - advanced topic to research after you have a grasp of the JavaScript language).
+
+Reference Data Types are not accessed by the actual (primitve) value, they are accessed by reference. They are also considered as objects.
+
+5 Reference Data Types:
+- Arrays
+- Object Leterals
+- Functions
+- Dates
+- Anything else
+
+
+--------------------------------------
+Dynamically Typed Language
+--------------------------------------
+- Types are associated with values not variables.
+- The same variable can hold multiple types (e.g. variable can hold a string then set to a number without any errors or issues).
+- We do not need to specify types.
+- Most other languages are statically typed (Java, C#, C++).
+- There are superets of JavaScript and addons to allow static typing (TypScript, Flow).
+
