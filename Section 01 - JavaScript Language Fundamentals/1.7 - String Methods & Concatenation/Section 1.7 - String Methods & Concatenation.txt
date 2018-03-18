@@ -1,0 +1,26 @@
+Section 1.7. String Methods & Concatenation:
+
+--------------------------------------
+String Methods
+--------------------------------------
+A String is a sequence of characters. To create a string variable we will use single or double quotes.
+Note: you should be consistant when using quotes within your code. You will need to use escaping (use a backslash (\)) if you plan on using single quotes.
+
+Appending means to add onto a variable and not changing the variable. To append a variable we will use += in JavaScript to indicate an append.
+
+Similar to numbers, JavaScript have built in String Methods and Properties within the language that we can use on strings for example .toUpperCase();
+
+To distinguish a property from a method:
+- Properties do not have opening and closing parentheses at the end, for example .length; is a property.
+- Methods have opening and closing parentheses at the end, for example .toUpperCase(); is a method.
+
+--------------------------------------
+Concatenation
+--------------------------------------
+Concatenation allows you to join string variables together. To do this in JavaScript we would use the plus (+) sign within our code to indicate a concatenation. 
+Note: you can concatenate different data types together and does not necessarily have to be a string data type.
+
+In ES6 (ES2015), it introduced template literals a.k.a template strngs to make concatenation easier which we will learn in section 1.8 - Template Literals.
+
+
+Please refer to js_sandbox_1.7 folder for demonstrations of String Methods & Concatenation.
