@@ -1,0 +1,43 @@
+Section 1.8. Template Literals:
+
+--------------------------------------
+Template Literals
+--------------------------------------
+Template literals are part of ES6 - ES6 is now compatible with most browsers.
+
+You will be inserting HTML from JavaScript in a lot of your projects for example when you want to fetch data through ajax and you want to put it in an unordered list or a table (wth dynamic data), you are going to do that through JavaScript. You will usually have to create some kind of HTML string - concatenating with the HTML and dynamic data that you want to insert.
+
+Example of a HTML String (ES5):
+html = "<ul><li>Name: " + name + "</li><li>Age: " + age + "</li><li>Job: " + job + "</li><li>City: " + city + "</li></ul>";
+
+or alternatively (more readable):
+html = "<ul>" +
+   "<li>Name: " + name + "</li>" +
+   "<li>Age: " + age + "</li>" +
+   "<li>Job: " + job + "</li>" +
+   "<li>City: " + city + "</li>" +
+   "</ul>";
+
+The above is the (ES5) old way of concatenating HTML strings which you can see is a very long-winded task. 
+
+ES6 Template Literals (template strings) have fixed this.
+Instead of using single or double quotes we will use back-ticks (`) to indicate a Template Literal. Anything with the back-ticks can be written as normal HTML tags. For example:
+
+htmlAlt = `
+   <ul>
+      <li>Name: ${name}</li>
+      <li>Age: ${age}</li>
+      <li>Job: ${job}</li>
+      <li>City: ${city}</li>
+  </ul>
+`;
+
+To enter a JavaScript variable within our HTML string we would use the syntax of ${variableName} and do not require concatenation plus signs (+).
+
+We can also add JavaScript: 
+- Expressions, for example ${2+2} or 
+- Functions, for example ${hello()} or
+- Conditionals, for example ${age > 30 ? "Over 30" : "Under 30"}
+? = conditional (ternary) operator i.e. a shortcut for JavaScript if statement.
+
+Template Literals (template strings) method allows for easy concatenation of HTML strings and the syntax is more cleaner and readable.
