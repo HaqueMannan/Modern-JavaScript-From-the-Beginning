@@ -1,0 +1,28 @@
+Section 1.6. Numbers & Math Object:
+
+--------------------------------------
+Basic Maths with Numbers
+--------------------------------------
+We can perform basic maths operators on numbers:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Modulus
+
+
+--------------------------------------
+Math Objects
+--------------------------------------
+Math Objects allows us to do math functions such as round a number, find the absolute, powers, generate random numbers etc.
+
+Math is an Object and Objects in JavaScript have properties and functions. The Math Object have methods and functions built into the JavaScript language which we can utilise when we call the Math Object.
+
+A Property is an attribute.
+A Method is a function inside of an object.
+
+Therefore,
+
+Math.PI; will return PI i.e. 3.14159265359.
+
+There are many Math Object methods. Please refer to the js_sandbox_1.6 folder for examples of basic maths and the math object.
