@@ -1,0 +1,55 @@
+Section 1.9. Arrays & Array Methods:
+
+--------------------------------------
+Arrays
+--------------------------------------
+Arrays are important to many programming languages. It allows us to store multiple values in one variable, they can be mutated and iterated through and also used in some complex algorithms.
+
+We will not get into iteration and looping in this section, this will be covered later in Section 1.15 - General Loops.
+
+To create an array object we would insert multiple data within square brackets ([]) and this will be seen by JavaScript as an array. Each data within the array is separated by a comma (,). 
+
+There are two ways to create an array:
+1) Create a variable and assign values within the square brackets, for example:
+   const variable = [1, 2, 3, 4];
+2) Using an array constructor to create an array object, for example:
+   const variable = new Array(1, 2, 3, 4);
+
+The first method of creating an array object is the preferred method. 
+
+
+--------------------------------------
+Arrays Indexing
+--------------------------------------
+Arrays use zero indexing meaning that the first data within the array object is indexed at 0, the second data is indexed at 1, third data indexed at 2, and so on. Visual example below:
+
+const numSeq = [7, 3, 6, 1, 9];
+index:   0   1   2   3   4
+value:   7   3   6   1   9
+
+
+--------------------------------------
+Array Methods
+--------------------------------------
+Just as we have seen for numbers and strings in previous sections, we have built in properties and methods for array objects within the JavaScript language that we can utilise.
+
+for example:
+.length; property allow us to get the length of an array object whereas Array.isArray(); method will check if the variable is an array and return a true or false answer.
+
+There are many useful array methods and properties. Please refer to the js_sandbox_1.9 folder for examples.
+
+
+--------------------------------------
+Array Mutation
+--------------------------------------
+Arrays are not immutable, meaning that we can insert, delete and change array values.
+There are many array methods for mutating arrays - please refer to the js_sandbox_1.9 folder for examples.
+
+Array Mutation:
+1) .push() method adds a value to the end of an array.
+2) .unshift() method adds a value to the front of an array.
+3) .pop() method removes a value to the end of an array.
+4) .shift() method removes a value to the front of an array.
+5) .splice(x,y) method splices/removes values from the array, x and y relate to the index position of the start and end data to be removed e.g. (1,2) will splice/remove the second and third data from an array.
+6) .reverse() method reverses the ordering of the array data.
+7) .concat() method allows us to concatenate arrays together.
