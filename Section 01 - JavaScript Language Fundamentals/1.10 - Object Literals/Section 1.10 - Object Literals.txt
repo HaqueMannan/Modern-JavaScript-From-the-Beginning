@@ -1,0 +1,71 @@
+Section 1.10. Object Literals:
+
+--------------------------------------
+Object Literals
+--------------------------------------
+In this section we will be looking at Object Literals. We will not go over Object Oriented Programming (OOP) yet so this section will not cover constructors or prototypes or anything in relation to OOP just yet (this will be covered in Section 05 - Object Oriented JavaScript - ES5 & ES2015).
+
+To create a Object we would have to create a variable and place the values within curly braces ({}) which defines the variable as an object, for example:
+
+   const person = {
+      Key:Value
+   }
+
+Note: we can add arrays within Objects, embed Objects within Objects and add functions within objects, for example:
+
+   const person = {
+      Array: [1,2,3],
+      Object:{
+         Obj1: 'a',
+         Obj2: 'b'
+      },
+      Function: function(){}
+   }
+
+We can also create arrays of objects, for example:
+
+   const people = [
+      {firstName: 'John', lastName: 'Doe'},
+      {firstName: 'Mike', lastName: 'Watson'},
+      {firstName: 'Marie', lastName: 'Anne'}
+   ];
+
+
+--------------------------------------
+Key:Value Pairs
+--------------------------------------
+In Object Literals we use what is called Key:Value pairs, for example:
+   const person = {
+      firstName: "John",
+      lastName: "Doe"
+   }
+
+To access a specific property within the Object, we can access using the key, for example:
+
+Method 1:
+   val = person.firstName;
+Method 2:
+   val = person["firstName"];
+
+console.log(val); will return John because John is paired with the keyword firstName.
+Note: Method 1 is the preferred syntax.
+
+
+--------------------------------------
+This keyword
+--------------------------------------
+We can use functions within our object, and in order for our functions within our object to access the property values within our object, we must use the 'this.' keyword followed by the Key of the value we are trying to access. The 'this' keyword relates to the object the function is within, for example:
+
+   const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 20,
+      getBirthYear(){
+         return 2018 - this.age;
+      }
+   }
+
+The syntax this.age; can be broken down to mean:
+   - this. = relates to the person object.
+   - age = relates to the age Key within the persons object.
+This will therefore return the paired value to the age key which is 20.
