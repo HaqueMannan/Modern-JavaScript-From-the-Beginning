@@ -1,0 +1,134 @@
+Section 1.12. If Statements & Comparison Operators:
+
+--------------------------------------
+If Else Statements
+--------------------------------------
+If Statements are used to evaluate some kind of condition and to then do something based on that condition being met or doing something else if the condition is not met.
+1) If Statements
+2) If Else Statements
+
+Syntax:
+if(something){
+   do something
+} else {
+   do something else
+}
+
+We can read the syntax above to mean:
+If the condition returns TRUE, then run the first block code.
+Else if the condition returns FALSE, then run the second block of code.
+
+If statements do not require an else statement i.e. when you want to run a block of code, only when the condition returns TRUE. We can omit the Else clause.
+
+
+--------------------------------------
+Else If Statements (Nesting)
+--------------------------------------
+Else If Statements are used when you want to test more than one condition i.e. nesting multiple conditions.
+
+if(something){
+   do something
+} else if (something){
+   do something else
+} else {
+   do something else
+};
+
+We can use the else if statements to capture multiple conditions and run block of codes when the conditions are met (i.e. TRUE). If all the conditions run FALSE we can use the else clause to run block code.
+
+
+--------------------------------------
+Logical Comparison Operators
+--------------------------------------
+
+EQUAL TO VALUE ONLY (==):
+We use double equal (==) to indicate the Equal To operator and not to confuse with assigning a new value (=) to a variable. This will compare the two data to see if they equal to each other as the condition.
+
+NOT EQUAL TO VALUE ONLY (!=):
+This will compare the two data to see if they do not equal to each other as the condition.
+
+c.f.
+
+EQUAL TO VALUE & TYPE (===):
+This will compare two data to see if the value and the data type are the same. 
+So a string type of '100' is not the same as a number type of 100 which will return FALSE if we are testing for this condition.
+
+NOT EQUAL TO VALUE & TYPE (!==):
+This will compare two data to see if the value and the data type are not the same (opposite of the above).
+So a string type of '100' is not the same as a number type of 100 which will return TRUE if we are testing for this condition.
+
+GREATER THAN (>) / LESS THAN (<)
+This will compare two data to see if the value is greater than or less than each other.
+This will only work with both data being the type of number.
+
+GREATER THAN OR EQUAL TO (>=) / LESS THAN OR EQUAL TO (<=)
+This will compare two data to see if the value is Greater Than or Equal To or Less Than or Equal To each other. The above will not return FALSE if the two data are the same i.e. Equal To each other.
+This will only work with both data being the type of number.
+
+
+Best Practice: It is advisable to always test for Value and Type in your comparison condition statements.
+
+Note: to add JavaScript variables within our console.log strings we can use Template Strings e.g. console.log(`The id = ${id}`); or alternatively concatenate e.g. console.log('The id = ' + id); 
+(refer to the Section 1.8. Template Literals).
+
+We can also test to see if a variable does not exist or whether the variable does exist but is undefined (initialised variable without value) or the variable has NULL value using the typof operator (refer to Section 1.4. Data Types in Javascript).
+
+
+
+--------------------------------------
+Combining Logical Comparison Operators
+--------------------------------------
+Logical Operators allows us to test more than one condition in our If/Else If Statements.
+
+AND (&&):
+Requires both condition to be TRUE to run the block code.
+
+Condition: A && B
+   A        B        Result:
+   TRUE     TRUE     TRUE
+   FALSE    FALSE    FALSE
+   TRUE     FALSE    FALSE
+   FALSE    TRUE     FALSE
+
+c.f.
+
+OR (||):
+Requires one condition to be TRUE to run the block code.
+
+Condition: A || B
+   A        B        Result:
+   TRUE     TRUE     TRUE
+   FALSE    FALSE    FALSE
+   TRUE     FALSE    TRUE
+   FALSE    TRUE     TRUE
+
+
+--------------------------------------
+Ternary Operators (?)(:)
+--------------------------------------
+Ternary Operators allow us to write shorthand conditionals (and is available in most programming languages).
+
+The Ternary Operator symbol representing If = question mark (?)
+The Ternary Operator symbol representing Else = colon (:)
+
+For Example:
+console.log(id === 100 ? "Correct" : "Incorrect"); 
+
+c.f.
+
+if(id === 100){
+   console.log("Correct");
+} else {
+   console.log("Incorrect");
+}
+
+--------------------------------------
+Syntax Without Braces
+--------------------------------------
+The curly braces ({}) are optional syntax within JavaScript; however, it is highly recommended to use the curly braces within your syntax.
+
+Example If Statement:
+if(something)
+   do something;
+else
+   do something else;
