@@ -1,0 +1,29 @@
+Section 1.13. Switches:
+
+--------------------------------------
+Switches
+--------------------------------------
+Switches are another way to validate conditions.
+Switches are similar to If Else Statements.
+
+Syntax:
+switch(condition){
+   case 'something':
+      do something;
+      break;
+   case 'something':
+      do something;
+      break;
+   default:
+      do something;
+}
+
+Inside of the switch statement we want to define the different cases. The code will go through each case to see if it matches the switch condition and execute the block of code where there is a match. 
+
+The break; line in JavaScript allows you to break out of the Switch Statement. If there is no break; code then the browser will continue to go through all the switch cases even if it find a match to the condition.
+
+The default will execute the block of code if there is no case match.
+
+As you can see this is similar to if statements but a different way of doing the same thing. It is recommended to use Switch Statements when you have many different cases rather than using else if to nest all the different conditions as switches are better in those situations.
+
+Please refer to the js_sandbox_1.13 folder for two examples of using switch statements.
