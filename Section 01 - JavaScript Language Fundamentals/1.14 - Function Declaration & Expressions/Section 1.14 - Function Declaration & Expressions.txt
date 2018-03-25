@@ -1,0 +1,114 @@
+Section 1.14. Function Declaration & Expressions:
+
+--------------------------------------
+Function Declaration & Expressions
+--------------------------------------
+Functions are blocks of code that can be defined and then called on at a later time or in some cases defined and called on at the same time.
+
+There are a few different types of functions or different ways of writing functions in JavaScript:
+1) Function Declaration
+2) Function Expressions
+3) Immediate Invocable Function Expressions (IFFE)
+4) Property Methods
+
+
+--------------------------------------
+Function Declaration
+--------------------------------------
+Syntax:
+   function functionName(){
+      function code;
+   }
+
+- Any code inside the curly braces is the function scope.
+- When we create a function, all we are doing is declaring a function.
+- we have to call the function by calling the function name followed by the parentheses:
+
+   functionName();
+
+- usually you would return something from a function rather than console.log within a functions. We would wrap the function within the console log to return the value in the console.
+
+   console.log(functionName())
+
+- All functions declarations and expressions can take in parameters (also called arguments). 
+
+   function greet(firstName, lastName){
+      return "Hello " + firstName + " " + lastName;
+   }
+
+- we can pass in the arguments when we call on the function.
+
+   console.log(greet('John', 'Doe'));
+
+- We can also set default parameter/argument values should no arguments passed through the parentheses when calling on the function. ES6 introduces an easier way to set a default value.
+
+   function greet(firstName = "John", lastName = "Doe"){
+      return "Hello " + firstName + " " + lastName;
+   }
+
+   console.log(greet());
+
+- If we pass anything in the parameters when calling the function, this will override the default values.
+
+
+
+--------------------------------------
+Function Expressions
+--------------------------------------
+- A Function Expressions is putting a function as a variable assignment.
+- A Function Expression can be named or anonymous (usually you have a named variable with a anonymous function):
+
+   const square = function(){}; 
+   or
+   const square = function square(){};
+
+- Again as above we can have a variable passed in as an argument and we can set a default variable.
+- In most cases using Function Declaration or Function Expression will not make much of a difference, but there are times when Function Expressions have some benefits to them when it comes to hoisting, closures and more advance features.
+
+
+
+--------------------------------------
+Immediate Invocable Function Expressions
+--------------------------------------
+- IIFE is a function that you declare and run at the same time.
+- We need to put the function within parentheses:
+
+   (function(){
+      IIFE code to run;
+   })();
+
+- To make the function run we need to add the parentheses at the end of the function as seen above.
+- IFFE can also take in parameters which can be passed in the second set of run parentheses:
+
+   (greet(name){
+      console.log('Hello ' + name);
+   })('Sue');
+
+- We declare the function and then run the function at the same time of declaring the function.
+- IFFEs are very useful when it comes to certain design patterns such as module design pattern.
+
+
+--------------------------------------
+Property Methods
+--------------------------------------
+- A Property Method is a function within an object as opposed to in the global scope (we saw a little of this in Section 1.10. Object Literals).
+- When a function is put inside of an object its called a Method.
+
+   const todo = {
+      add: function(){
+      console.log("Add todo..");
+      }
+   }
+
+- To call on the method we would call on the mothod on the objct.
+
+   todo.add();
+
+- You can also define functions for an object outside of the object itself:
+
+   todo.update = function(){
+      function code for the update method;
+   };
+
+
+Please refer to the js_sandbox_1.14 folder for JavaScript example codes for all the above.
