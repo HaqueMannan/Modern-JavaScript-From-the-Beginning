@@ -1,0 +1,171 @@
+Section 1.15. General Loops:
+
+--------------------------------------
+General Loops
+--------------------------------------
+- We will look at Loops and Iterations.
+- A loop is an instruction that repeats until a specific condition is reached (e.g. at the end of an array or a certain number is reached). 
+- Loops are used to run a block of code using different values each time.
+
+There are multiple ways to run loops and iteration (as with any other programming language). The three most popular general loops in JavaScripts are:
+1) For Loops
+2) While Loops
+3) Do While Loops
+
+
+--------------------------------------
+Continue & Break Keywords
+--------------------------------------
+To skip an iteration within a loop and continue with the next iteration we can combine an if statement along with the keyword continue; which will skip the iteration when the if statement condition is TRUE and move onto the next iteration of the loop.
+
+To break out of a loop we can combine an if statement along with the break; keyword which will break out of the loop when the if statement condition is TRUE. 
+
+It is important to understand how to use these keywords within loops. Both keywords can be used in all the loops.
+
+
+--------------------------------------
+For Loop
+--------------------------------------
+General rule: use a For Loop when you know the number of iteration for the loop.
+
+Syntax:
+   for(a; b; c){
+      do something (block code);
+   }
+
+The for loop has three parameters/arguments:
+   (a) Parameter 1 - declaration of a variable 
+         Use var or let and not const because the value will keep changing as we loop through.
+
+   (b) Parameter 2 - the condition
+
+   (c) Parameter 3 - increment/decrement of the variable value through each iteration
+         i++ will increase i by +1 (it is the same as saying i = i + 1)
+         i-- will decrease i by -1 (it is the same as saying i = i - 1)
+
+The for loop will keep iterating/looping until the condition (parameter 2) is no longer true.
+
+
+--------------------------------------
+While Loop
+--------------------------------------
+General rule: use a While Loop when you dont know (or unclear) the number of iteration for the loop.
+
+Syntax:
+   let i = 0;
+
+   while(condition){
+      do something (block code);
+      i++;
+   }
+
+The while loop syntax can be broken down to:
+   1) Set the variable outside of the loop
+   2) Create the condition in the while parameter.
+   3) Add the increment/decrement inside the while loop for iterations.
+
+
+--------------------------------------
+Do While Loop
+--------------------------------------
+Do while loops will always run once no matter what, and then loop through when the condition is TRUE.
+
+Syntax:
+   let i = 100;
+
+   do {
+      do something (block code);
+      i++;
+   }
+
+   while(condition);
+
+The while loop syntax can be broken down to:
+   1) Set the variable outside of the loop
+   2) Add the increment/decrement inside the do loop for iterations.
+   3) Create the condition in the while parameter.
+
+
+
+--------------------------------------
+Looping Through Arrays
+--------------------------------------
+Arrays have specific methods for looping through which you should use over the the general loops mentioned above, but it is possible to use them within Arrays.
+
+There are 3 specific loops for Array Objects.
+1) For Each
+2) Map
+3) For In
+
+--------------------------------------
+For Each Array Loop
+--------------------------------------
+Syntax:
+   arrayName.forEach(function(a, b, c){
+      do something (block code);
+   });
+
+The forEach method takes in a callback function (it takes an anonymous function), and that function() can take 3 parameters:
+   (a) Parameter 1 - Iterator
+      This is mandatory argument (iterator can be anything e.g. car, cur, current etc.)
+   (b) Parameter 2 - Index
+      This is a optional argument (this will return the index number of the array)
+   (c) Parameter 3 - Array
+      This is an optional argument (this will return the whole array)
+
+The iterator is mandatory whereas the other two parameters are optional. Therefore we can use all 3 parameters, 2 parameters (one must be the iterator), or the 1 mandatory parameter in our function call back method parentheses.
+
+--------------------------------------
+Map Array Loop
+--------------------------------------
+We can use the map to create another array from an existing array object. For example:
+
+   const users = [
+      {id: 1, Name: Person 1},
+      {id: 2, Name: Person 2},
+      {id: 3, Name: Person 3}
+   ];
+
+   const ids = users.map(function(cur){
+      return cur.id;
+   })
+
+Analysis:
+- In the above we want to store the users.id in a new array object using the Map loop.
+- A new variable needs to be created in order to store the new array object (const id).
+- Using the original array object (users) we can call on the map method to run a loop (users.map()).
+- The map method takes in a function() call back as a parameter/argument.
+- The function() requires an iterator (cur - ths can be anything e.g. user, current, i etc.).
+- Each time it map loops through the iterator (cur) and will return the the users.id into the new array object called ids.
+- console.log(ids) will log the new array for ID's.
+- We can do the same for the Names by returning the cur.name when map looping from the users array.
+
+--------------------------------------
+For In Array Loop
+--------------------------------------
+We can use the For In loop to loop through an array object to get all the key value of an array. For example:
+
+   const user = {
+      firstName: "John", 
+      lastName: "Doe",
+      age: 40
+   }
+
+   for(let x in user){
+      console.log(x);
+   }
+
+Analysis:
+- Starts out as a for loop.
+- Declare a variable (x).
+- Use the in keyword to do a for in loop.
+- The name of the array object to loop through (user).
+- Run block code (console.log(x)).
+- x will return the keys from the array object (i.e. firstName, lastName, age)
+- To get the Key:Value pairs logged we can use the the template literal:
+
+   for(let x in user){
+      console.log(`${x} : ${user[x]}`);
+   }
+
+- user[x] will return the value from the key:value pairs i.e. it is the same as console logging user.firstName, user.lastName and user.age to get the value from the array object.
