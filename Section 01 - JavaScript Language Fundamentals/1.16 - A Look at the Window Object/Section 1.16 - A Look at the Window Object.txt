@@ -1,0 +1,81 @@
+Section 1.16. A Look at the Window Object:
+
+--------------------------------------
+Window Object
+--------------------------------------
+The document object is part of the window object as with many other things.
+The window/browser is the global object in client side JavaScript. 
+Node JS and Chrome use the same JavaScript engine called V8 and they both work the same way, it's just in different global environment (Node JS works on your computer whereas Chrome works in the browser window).
+
+If we type window in the JavaScript console (in your browser) we can click the arrow to see all the parts of the window e.g. alert method, document, fetch API, localStorage etc.
+
+There are many things to the Window Object. Please refer to the js_sandbox_1.16 folder for Window Method, Object and Properties.
+
+--------------------------------------
+Window Method | Object | Properties
+--------------------------------------
+
+ALERT = A box appears on screen with the alert message.
+Syntax:
+   window.alert();
+   alert();
+
+PROMPT = Similar to alert but it takes in an input from the user.
+Syntax:
+   const input = prompt();
+
+CONFIRM = Message box to confirm the action of a user e.g. deleting something.
+   if(confirm("Are you sure")){
+      console.log("YES");
+   } else {
+      console.log("NO");
+   }
+OK button relates to the first block of code of the if statement whereas the else clause block code relates to the cancel button of the confirm message box.
+
+OUTER/INNER HEIGHT & WIDTH = Properties of the Browser.
+Syntax:
+   window.outerHeight
+   window.outerWidth
+   window.innerHeight
+   window.innerWidth
+
+SCROLL POINTS = Figure out where you are in terms of scrolling.
+Syntax:
+   window.scrollY;         Vertical scrollbar
+   window.scrollX;         Horizontal scrollbar
+These are used on sites where animation occurs when you scroll down to a certain scroll section.
+
+LOCATION OBJECT = Get back information about the location of the web page and also run methods on the location object such as redirect and reload etc.
+Syntax:
+   window.location;
+   window.location.hostname;
+   window.location.port;
+   window.location.href;
+   window.location.search;
+There are many more - window.location will show all method,properties for the location object.
+
+REDIRECT = Set a href to another http website so that on refresh it will load/redirect to another web page.
+Syntax:
+   window.location.href = "http://google.com";     internal or external URLs.
+
+RELOAD = Reload the web page.
+Syntax:
+   window.location.reload();
+You would use the reload in a function and not in the global scope which will constantly reload the web page.
+
+
+HISTORY OBJECT = Get the browser history.
+Syntax:
+   window.history.go();             Negative number moves the browser back the number of pages.
+   window.history.length;           Number of websites behind the current page.
+
+NAVIGATOR OBJECT = In relation to the actual browser itself (not the window or the environment) e.g. Chrome, Safari, Mozilla, Edge etc.
+Navigator is named after the old Netscape Navigator browser. 
+Syntax:
+   window.navigator;
+   window.navigator.appName;
+   window.navigator.appVersion;
+   window.navigator.userAgent;
+   window.navigator.platform;
+   window.navigator.vendor;
+   window.navigator.language;
