@@ -1,0 +1,21 @@
+Section 1.17. Block Scope With Let & Const:
+
+--------------------------------------
+Block Scope With Let & Const
+--------------------------------------
+You should now know about functions, if statements and loops. In this section we will be looking at scope and Let & Const vs Var.
+
+Global Scope means that you are not within anything i.e any functions, if statements or loops.
+
+Function Scope is code within the function.
+
+Variables created in the Global Scope are seen as different from the variables created in the Function Scope - please refer to the js_sandbox_1.17 folder for demonstration.
+
+Block Scope means you are within a if statement, loop etc. (anything wrapped within curly braces).
+
+VAR - Block Scope variable value (if the variable shares the same name as the Global Scope var variable) will change the Global Scope var variable value.
+LET & CONST - Block Scope variable value will not affect the Global Scope let and const variable value (variable with the same name in Global and Block scope) - please refer to the js_sandbox_1.17 folder for demonstration.
+
+LET & CONST have a Block Level Scope whereas VAR has a Function Level Scope.
+
+
