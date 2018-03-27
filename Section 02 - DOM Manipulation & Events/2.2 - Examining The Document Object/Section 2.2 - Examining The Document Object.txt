@@ -1,0 +1,34 @@
+Section 2.2. Examining the Document Object:
+
+--------------------------------------
+Examining the Document Object
+--------------------------------------
+In Section 1.16 we briefly looked at the Window Object which is basically the global object of the browser environment. We saw that the document is actually a property of that window object. In this section we are going to examine the document object (not the methods it offers but the properties which are basically attributes of the document).
+
+In Section 2.3 and 2.4 we will be looking at selectors like getElementById which are methods of the document object, but in this section we are only going to look at some of the properties of the document object. Note: it is not recommended but it is possible to select elements without the use of selectors (which is useful to know that it is possible to do). 
+
+In the js_sandbox_2.2 folder we have a html user interface, we will use this html web page to do our exploration for this section, it gives us a DOM tree to work with and explore. The HTML page is purely UI and does not actually do anything, but we are going to use this as our interface to explore/traverse the DOM and learn about it.
+
+The HTML document uses materialize cdn (UI), font awesome cdn (Icons), jQuery cdn (only because it is a dependency of materialize) and our app.js (vanilla JavaScript) file.
+
+--------------------------------------
+Document Object
+--------------------------------------
+If we type window in the console we can see the window object and within the window object we can find the document property. Pressing the triangle expand button we can expand to see all the document properties. We can write document. followed by any of the attributes/properties.
+
+In our app.js file if we init a variable and assign the value to document and console log variable - in the console we can see the whole HTML document from HTML tags to Head and Body tags and every other elements/tags within those two tags.
+
+   val = document;
+   console.log(val);
+
+We can get all the tags within the HTML page as an array object by using:
+   val = document.all;
+   console.log(val);
+We can call on these array object using the zero indexing e.g:
+   val = document.all[0];
+   console.log(val);
+
+By default, you cannot run loops on HTML collections. You must convert them into an array in order to use loops such as for each loops etc.
+
+
+There are many more document properties - please refer to the js_sandbox_2.2 folder files and explore the DOM in the browser and look at the app.js file to see what each document properties returns in the browser console.
