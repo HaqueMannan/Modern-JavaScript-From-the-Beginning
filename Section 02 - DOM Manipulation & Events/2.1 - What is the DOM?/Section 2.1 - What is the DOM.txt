@@ -1,0 +1,44 @@
+Section 2.1. What is the DOM?:
+
+--------------------------------------
+DOM Introduction
+--------------------------------------
+In Section 1 we learned all about the main fundamentals of the JavaScript language such as working with the console, looking at conditionals and variables, arrays etc. which are the building blocks of the language.
+
+We are now going to get to use these fundamentals in combination with the browser (with the DOM).
+
+--------------------------------------
+Document Object Model
+--------------------------------------
+The DOM is a structured representation of a HTML document.
+- Tree of nodes/elements (tags) created by the browser
+- JavaScript can be used to read/write/manipulate the DOM
+- The DOM is Object Oriented Representation (each node has its own set of properties and methods)
+
+DOM Diagram:
+                                 Document
+                                    |
+                              Root Element
+                      ___________ <html> ______________
+                     |                                 |
+                  Element:                          Element:
+                  <head>                             <head>
+                     |                            _____|_____
+                  Element:                       |           |
+                  <title>         Attribute:----Element:    Element:
+                     |              <href>        <a>         <h1>
+                    Text:                          |           |
+                  "My title"                     Text:        Text:
+                                                "My link"   "My header"
+
+The browser gives us a window object and inside that we have a document object. The diagram above represents the loaded documents web page.
+- We have a root element which is the <html> element
+- Below we have the <head> and <body> tag which are both siblings (i.e. on the same level) in the tree.
+- In the <head> we have things like the meta tags, title etc.
+- In the <body> we have our output such as h1, HTML5 header/footer, links tags etc.
+- We can manipulate the elements using JavaScript.
+- There are libraries such as jQuery which technically make it a little easier to manipulate the DOM. But it is worth learning how to do these stuff using vanilla JavaScript (especially as you can do a lot of things now in JavaScript without jQuery). Not using jQuery makes your web page faster as it does not have the overhead of loading in the jQuery library.
+
+Analogy: when you use jQuery to select elements from the DOM its kind of like using a sledge hammer to kill a mosquito.
+
+- We are going to learn strictly vanilla JavaScript.
