@@ -1,0 +1,46 @@
+Section 2.3. DOM Selectors for Single Elements:
+
+--------------------------------------
+DOM Selectors for Single Elements
+--------------------------------------
+DOM Element Selectors are object methods that allow us to pull things from the DOM and then we can manipulate and do different things to the elements or nodes. JQuery was used for a very long time for DOM selection and DOM manipulation; however, Vanilla JavaScript has made it easier to work with the DOM and jQuery is no longer required (and adds unnecessary bloat to your application).
+
+Note: jQuery is useful for quick simple plugins and/or scripts for specific actions. You should no longer use it for DOM manipulation.
+
+Vanilla JavaScript has two two types of selectors:
+   1) Single Element Selectors, and
+   2) Multiple Element Selectors.
+
+Single Element Selectors allows you to grab a single element by its id/class and it can only store one element. If you use a single element that appears more than once in the DOM, it will only grab the single first instance of the element. In contrast, Multiple Element Selector will grab all the elements with the class and return a HTML collection or a node list depending on which selector you use.
+
+In this section we will focus on Single Element Selectors - please refer to the js_sandbox_2.3 folder.
+There are two types of Single Element Selectors.
+
+
+--------------------------------------
+document.getElementById() Selector Type
+--------------------------------------
+The document.getElementById() syntax will grab a single element from the DOM by its id name. You cannot select a class or a tag or anything similar with this single element selector type.
+
+You can get certain things from the element such as returning the id or class as an example.
+You can manipulate the element and change the styling of the HTML element for example its background colour, text colour, padding etc. Anything you can do in CSS you can do in JavaScript.
+
+You can use Single Element Selector with JavaScript to manipulate elements on a HTML page for example by hiding an element on a click event.
+
+You would use JavaScript for dynamic events or functionality and not just for styling of the HTML (CSS is usd for styling, JavaScript is used for manipulation/interactions).
+
+Sometimes you may wish to insert HTML for example you may want to fetch something through the fetch API (e.g. Ajax) and then you want to insert a chunk of HTML - this is when the document.getElementById().innerHTML will be used.
+
+You should cache the document.getElementById() into a variable and call on the variable each time you require for example:
+   const taskTitle = document.getElementById('task-title');
+   taskTitle.innerHTML = "Task List"
+
+
+--------------------------------------
+document.querySelector() Selector Type
+--------------------------------------
+The document.querySelector() is newer and much more powerful than the above Single Element Selector type because we do not need to select a single element by its id. We can query by anything, it works exactly like jQuery and you can put any CSS selector.
+
+Note: if there are more than one element on the page, it will only get the first instance it finds within the DOM. However, you can target a specific element even if there is more than one in the DOM by using the CSS :first-child/:last-child/:nth-child() sudo element within the querySelector.
+
+Important Note: The Single Element Selector will only select the first instance/occurrence of the element (unless a specific single element is targeted using the :nth-child), this rule also applies to "li:nth-child(odd)" and "li:nth-child(even)". We will look at selecting multiple element in the Section 2.4 - DOM Selectors for Multiple Elements.
