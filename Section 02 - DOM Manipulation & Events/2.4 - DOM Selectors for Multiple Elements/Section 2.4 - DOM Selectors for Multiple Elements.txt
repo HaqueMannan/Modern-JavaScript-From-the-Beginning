@@ -1,0 +1,57 @@
+Section 2.4. DOM Selectors for Multiple Elements:
+
+--------------------------------------
+DOM Selectors for Multiple Elements
+--------------------------------------
+DOM Element Selectors are object methods that allow us to pull things from the DOM and then we can manipulate and do different things to the elements or nodes. JQuery was used for a very long time for DOM selection and DOM manipulation; however, Vanilla JavaScript has made it easier to work with the DOM and jQuery is no longer required (and adds unnecessary bloat to your application).
+
+Note: jQuery is useful for quick simple plugins and/or scripts for specific actions. You should no longer use it for DOM manipulation.
+
+Vanilla JavaScript has two two types of selectors:
+   1) Single Element Selectors, and
+   2) Multiple Element Selectors.
+
+Single Element Selectors allows you to grab a single element by its id/class and it can only store one element. If you use a single element that appears more than once in the DOM, it will only grab the single first instance of the element. 
+
+In contrast, Multiple Element Selector will grab all the elements with the class name and return a HTML collection or a node list depending on which selector you use. Both HTML collections and node list are similar to arrays except that there are certain things we cannot do compared to what we can do with a regular array (e.g. loops). However, we can convert HTML collections and node list into arrays easily.
+
+In this section we will focus on Multiple Element Selectors - please refer to the js_sandbox_2.4 folder.
+
+
+--------------------------------------
+document.getElementByClassName() Selector Type
+--------------------------------------
+The document.getElementByClassName() syntax will grab a multiple element from the DOM by its class name. This will return a HTML collection of all the elements with the class name and each item will be in an index just like an array. We can look inside each of the object to see all the different properties and methods that are available. We can access a specific HTML collection by calling on its index number as we would an array.
+
+The above syntax will call the class from the global scope; however, we can use the querySelector combined with the getElementByClassName() to select multiple elements within a block scope for example:
+
+   const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
+
+This will select elements with the class name 'collection-item' from within the ul list items only.
+
+
+--------------------------------------
+document.getElementByTagName() Selector Type
+--------------------------------------
+The document.getElementByClassName() syntax does exactly the same as the above but selects multiple elements by HTML tag names and returns a HTML Collections.
+
+
+--------------------------------------
+Converting HTML Collections into Arrays
+--------------------------------------
+HTML Collections look similar to arrays but are not arrays and therefore there are some methods than cannot be performed on a HTML Collection compared to an array (i.e. loops). We can convert HTML Collections into an array by using the syntax:
+   Array.from();
+
+Once the HTML Collection has been converted into an array we are now able to use ForEach loop & reverse array functions/methods.
+
+
+--------------------------------------
+querySelectorAll
+--------------------------------------
+The querySelectorAll() function is the same as the above; however, it returns what is known as a Node List and not a HTML Collection. 
+
+The difference between a Node List and a HTML Collection, Node list counts not just elements but also things like text nodes and it also allows us to do things such as forEach loops and other array methods without having to convert it into an array first.
+
+Note: We can change the style for all the odd and even nth-child items background colour using the Multiple Element Selector (querySelectorAll) which will apply to all odd/even elements. Compare this to Section 2.3 - DOM Selectors for Single Elements, where we could only change the first instance of the element.
+
+Important Note: the for loop will work with both HTML Collections and Node Lists (because you can still use .length method on a HTML collection and access the item using the index) whereas the forEach loop will only work with Node List and not with HTML Collections.
