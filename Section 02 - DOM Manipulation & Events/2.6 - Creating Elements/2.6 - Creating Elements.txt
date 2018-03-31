@@ -1,0 +1,27 @@
+2.6. Creating Elements:
+
+--------------------------------------
+Creating Elements & Element Properties
+--------------------------------------
+In this section we will look at creating an element and then adding extra classes, id and attributes etc. to the new element. Essential we can create a new element and insert it into the DOM. We are going to explore this concept in this section by adding in a new/extra li list element/item to our list using JavaScript.
+
+Please refer to the js_sandbox_2.6 folder for examples and explanations on this section.
+
+Note: To view the creation and adding values to the element within the app.js file:
+1) Comment out the whole code except for the create element and console.log. Step through each code by uncomment the code and viewing the output in the browser's JavaScript console.
+
+
+--------------------------------------
+Step Guide to Creating & Appending Elements to the DOM
+--------------------------------------
+Step 1:
+Create Element
+
+Step 2 (Optional):
+Add Id/Classes/Attributes to the Element
+
+Step 3 (Optional):
+Add Text Node (& Append to Element)/InnerHTML
+
+Step 4:
+Append the new Element to the DOM as child element node.
