@@ -1,0 +1,68 @@
+Section 2.5. Traversing the DOM:
+
+--------------------------------------
+Traversing the DOM
+--------------------------------------
+What is meant by traversing the DOM? Itt is the action of moving up and down the DOM object and dealing with specific parent and children nodes or whatever it is that we select.
+
+There are different properties attached to the document items/nodes and it all depends on whether we select the parent or child of these nodes.
+
+Please refer to the js_sandbox_2.5 folder for detailed examples and explanation of traversing the DOM and looking a Child Node and Children Element properties.
+
+--------------------------------------
+Child Node vs Children Element Node
+--------------------------------------
+The .childNode; property returns a list of child nodes, this includes text nodes which represents the line breaks within the HTML document. e.g.
+   HTML:
+   <li class="collection-item">
+      ...
+   </li>
+   <li class="collection-item">
+      ...
+   </li>
+   <li class="collection-item">
+      ...
+   </li>
+
+This will return 3 text nodes with 3 li elements within the child nodes list because there are 3 </li> tags on line breaks. However, if we were to remove the line breaks then this will return 0 text nodes for example:
+
+   HTML:
+   <li class="collection-item">
+      ...
+   </li> <li class="collection-item">
+      ...
+   </li> <li class="collection-item">
+      ...</li>
+This will return fewer/no Text nodes within the child node list. Text nodes only appear where there is a line break in the HTML document.
+
+The .children; property in contrast to the above will return only the li list elements and no text nodes. The returned list is a HTML Collection and not a Node List in contrast to the above.
+
+The .childNode property will return different types of nodes and not just the element whereas the .children property will only return the element nodes.
+
+--------------------------------------
+Node Type - Reference Lookup Table
+--------------------------------------
+The .nodeType will return a number for the node selected. The below table provides the key:pair values as a value lookup reference.
+
+1 = Element
+2 = Attribute (deprecated)
+3 = Text node
+8 = Comment
+9 = Document itself
+10 = Doctype
+
+
+--------------------------------------
+.nextElementSibling and .previousElementSibling
+--------------------------------------
+The .nextElementSibling; property allows us to move down the DOM, from within the element node. We can combine the property to move multiple times down for example:
+   .nextElementSibling.nextElementSibling;
+This will traverse down 2 sibling elements.
+
+The .previousElementSibling; property allows us to move up the DOM, from within the element node. We can combine this property to move back up the DOM for example:
+   .nextElementSibling.nextElementSibling.previousElementSibling;
+This will traverse down 2 sibling elements and then traverse up 1 sibling element.
+
+We can combine these to move up and down and element node. Note we can all Traverse up and down Child Nodes using .nextSibling and .previousSibling (but note Child Nodes contain other nodes other than elements).
+
+This is what we mean by Traversing the DOM.
