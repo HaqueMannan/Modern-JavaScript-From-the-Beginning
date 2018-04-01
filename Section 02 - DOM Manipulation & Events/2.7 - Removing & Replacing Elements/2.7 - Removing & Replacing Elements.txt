@@ -1,0 +1,52 @@
+2.7. Removing & Replacing Elements:
+
+--------------------------------------
+Removing & Replacing Elements
+--------------------------------------
+In this section we will look at removing and replacing an existing element, how to work with classes, how to manipulate classes and attributes.
+
+Please refer to the js_sandbox_2.7 folder for examples and explanations on this section.
+
+Note: to view the process step by step:
+1) Comment out the whole code except for the first line of code and console.log. Step through each code by uncommenting the code and viewing the output in the browser's JavaScript console.
+
+
+--------------------------------------
+Step Guide to Replacing an Element
+--------------------------------------
+app.js Example: changing the <h5 id="task-title">Tasks</h5> from a <h5> to a <h2> tag:
+
+Step 1:
+- Create a element using a variable (please refer to Section 2.6. Creating Elements).
+- Add id/class/attributes/textNodes to the element.
+
+Step 2:
+- Locate the old heading we would want to replace and add it to a variable. 
+- Get the parent element of the old heading element and store it in a variable. The .replaceChild; method requires a parent object to call on the method.
+
+Step 3:
+- Replace the old heading with the new heading using the .replaceChild method e.g.
+   parentVariable.replaceChild(newHeading, oldHeading);
+
+
+--------------------------------------
+Step Guide to Removing an Element
+--------------------------------------
+app.js Example: Removing the list items from the ul element.
+
+Step 1:
+- Create a variable to store all the li elements using querySelectorAll() method.
+- Create a variable to store the ul (parent) element of the li element.
+
+Step 2:
+There are two ways in which we can remove a child element from the DOM.
+- The first variable in step 1 allows us to select a li using the index number and then followed by the .remove() method to remove the element.
+- Alternatively we can use the second variable and remove by child element using the parent and calling on the .removeChild() method and then passing in the first variable with the index number as the parameter/argument for the removeChild() method.
+
+We can use remove or removeChild to delete elements.
+
+
+--------------------------------------
+Classes & Attributes
+--------------------------------------
+We can add/remove classes and attributes for elements - please refer to js_sandbox_2.7 folder app.js file.
