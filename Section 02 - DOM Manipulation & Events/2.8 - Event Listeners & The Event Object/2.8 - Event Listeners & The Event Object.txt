@@ -1,0 +1,37 @@
+2.8 - Event Listeners & The Event Object:
+
+--------------------------------------
+Event Listeners & The Event Object
+--------------------------------------
+Events listeners & the event object allows us to have interactivity on our web page. We can listen to Events on any element/anything in the DOM.
+
+Please refer to the js_sandbox_2.8 folder for example and explanation of the Event Listener & Event Objects.
+
+--------------------------------------
+Step Guide to Event Listeners
+--------------------------------------
+Step 1:
+- Query Select an element in the DOM we wish to listen to events on.
+
+Step 2:
+- Add the .addEventListener() method to listen to the element.
+- this method takes in two parameters: 
+   1) an event action, and 
+   2) a function.
+- the function can either be an unnamed function or a named function.
+
+
+Note: some HTML elements have default behaviours, for instance a form will try to submit to a page, a link will try to redirect to somewhere else etc. If we want to stop the default behaviour we can do this in two ways:
+1) add # to the href attribute - for example:
+   <a class="clear-tasks btn black" href="#">Clear Tasks</a>
+2) pass an event object in an unnamed function and on the event object call on the .preventDefault() method for example:
+   document.querySelector().addEventListener('click', function(e){
+      e.preventDefault();
+   });
+
+Both methods described above will prevent the default behaviour of a HTML element.
+
+--------------------------------------
+The Event Object
+--------------------------------------
+We can pass in an event object within our functions. This event object has many properties that we can utilise when the event action occurs for example we can get the Time Stamp, Event Type, Event Target Element and many more properties.
