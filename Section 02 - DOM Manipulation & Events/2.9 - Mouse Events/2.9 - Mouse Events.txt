@@ -1,0 +1,22 @@
+2.9. Mouse Events:
+
+--------------------------------------
+Mouse Events
+--------------------------------------
+In Section 2.9. Mouse Events we looked at the .addEventListener method and looked at the event object and some of the things it offers. In this section we are going to look at the mouse events and in Section 2.10. Keyboard Events, we will look at keyboard and input events.
+
+Please refer to the js_sandbox_2.9 folder for examples on Mouse Events.
+
+--------------------------------------
+Mouse Events Types
+--------------------------------------
+Mouse Events"     |  JavaScript Syntax:      |  Description:
+1) Click          |  'click'                 |  Left click on the mouse.
+2) Double-Click   |  'dblclick'              |  Double click on the mouse.
+3) Mouse Down     |  'mousedown'             |  Left click and hold.
+4) Mouse Up       |  'mouseup'               |  Release the click of the mouse.
+5) Mouse Enter    |  'mouseenter'            |  When the mouse enters the main HTML element.
+6) Mouse Leave    |  'mouseleave'            |  When the mouse leaves the main HTML element.
+7) Mouse Over     |  'mouseover'             |  Same as mouse enter but also applies to child elements.
+8) Mouse Out      |  'mouseout'              |  Same as mouse leave but also applies to child elements.
+9) Mouse Move     |  'mousemove'             |  Any mouse movement inside the HTML element.
