@@ -1,0 +1,47 @@
+2.11. Event Bubbling & Event Delegation:
+
+--------------------------------------
+Event Bubbling
+--------------------------------------
+Event Bubbling is the bubbling up of events through the DOM. When an event occurs in a particular element in the DOM, it will bubble up through its parent. For instance:
+
+If we were to put a click event on the the <span> element in the below HTML snippet, the event will bubble up to the parent elements i.e. up the 5 div elements until it reaches the main parent.
+
+HTML Snippet:
+<body>
+   <div class="container">
+      <div class="row">
+         <div class="col s12">
+            <div id="main" class="card">
+               <div class="card-content">
+                  <span class="card-title">Task List</span>
+                  <div class="row">
+
+
+--------------------------------------
+Event Delegation
+--------------------------------------
+Event Delegation is almost quite the opposite of Event Bubbling. It is where we put the .addEventListener on the parent element and use logic/condition on the Event Handler (function) to target the actual child element we would want the event action (e.g. 'click') to be applied/targeted to. For instance:
+
+We put the .addEventListener on the UL parent element and target a li child element that we actually want for the event action. Since all li elements are the same, we would need event delegation with an if statement to target the desired list item we would want the event action to be apploed to.
+
+
+HTML Snippet:
+   <ul class="collection">
+      <li class="collection-item">
+         List Item
+         <a href="#" class="delete-item secondary-content">
+            <i class="fa fa-remove"></i>
+         </a>
+      </li> 
+      <li class="collection-item">
+         List Item
+         <a href="#" class="delete-item secondary-content">
+            <i class="fa fa-remove"></i>
+         </a>
+      </li>
+
+We would use event delegation for situations such as deleting a specific/selected list item (if we do not use event delegation, the event will only apply to the first instance of the list element and not to the other list elements) or when we would want to dynamically insert something into the DOM through JavaScript for example if we insert a new list item that was not there originally when the page loaded, we would then require the use of event delegation.
+
+
+Please refer to js_sandbox_2.11 folder for Event Bubbling & Event Delegation examples.
