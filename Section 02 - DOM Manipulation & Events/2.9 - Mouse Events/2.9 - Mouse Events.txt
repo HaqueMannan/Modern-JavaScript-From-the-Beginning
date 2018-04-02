@@ -3,9 +3,9 @@
 --------------------------------------
 Mouse Events
 --------------------------------------
-In Section 2.9. Mouse Events we looked at the .addEventListener method and looked at the event object and some of the things it offers. In this section we are going to look at the mouse events and in Section 2.10. Keyboard Events, we will look at keyboard and input events.
+In Section 2.8. Event Listener & The Event Object we looked at the .addEventListener method and looked at the event object and some of the things it offers. In this section we are going to look at the various mouse events.
 
-Please refer to the js_sandbox_2.9 folder for examples on Mouse Events.
+Please refer to the js_sandbox_2.9. folder for examples on Mouse Events.
 
 --------------------------------------
 Mouse Events Types

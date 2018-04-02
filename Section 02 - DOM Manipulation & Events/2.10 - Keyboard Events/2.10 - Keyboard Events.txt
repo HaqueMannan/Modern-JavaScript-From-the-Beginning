@@ -1,0 +1,28 @@
+2.10. Keyboard Events:
+
+--------------------------------------
+Keyboard Events
+--------------------------------------
+In Section 2.9. Mouse Events we looked at the various Mouse Events available to use to trigger the Event Handler. In this section we are going to look at the keyboard and input events.
+
+Please refer to the js_sandbox_2.10. folder for examples on Keyboard Events.
+
+--------------------------------------
+Keyboard Events Types
+--------------------------------------
+Keyboard Events:  |  JavaScript Syntax:      |  Description:
+1) Key Down       |  'keydown'               |  Keyboard key pressed down.
+2) Key Up         |  'keyup'                 |  Keyboard key released up.
+3) Key Press      |  'keypress'              |  Generalised key event when we press keys on the keyboard.
+4) Focus          |  'focus'                 |  When you click inside of an input field i.e. focus.
+5) Blur           |  'blur'                  |  When you click out of an input field (opposite of focus).
+6) Cut            |  'cut'                   |  When you cut text in an input field (includes ctrl+X).
+7) Paste          |  'paste'                 |  When you paste text into an input field (includes ctrl+V).
+8) Input          |  'input'                 |  Triggers on any of the keyboard input events.
+
+
+--------------------------------------
+Other Input Field/Forms Events Types
+--------------------------------------
+0) Submit Button  |  'submit'                |  When the submit button is clicked.
+9) Select List    |  'change'                |  When a select list option is changed.
