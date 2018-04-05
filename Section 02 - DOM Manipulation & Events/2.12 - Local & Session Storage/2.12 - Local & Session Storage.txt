@@ -1,0 +1,120 @@
+2.12. Local & Session Storage:
+
+--------------------------------------
+Local & Session Storage
+--------------------------------------
+- Local Storage API is part of the browser window object (view the windows object in the browser and you will see the Local Storage API along with all the available methods).
+- Essentially we can store key:value pairs into local storage, however, it is important to note that the value mist be a string. 
+- We can save arrays and objects but we must convert them into a string using the JSON.stringify() method.
+- When we want to pull the data out of storage we would need to parse it back using the JSON.parse() method.
+
+Local Storage vs Session Storage:
+- Local storage will stay until you manually clear it out in your settings or your program.
+- Session storage will go away when the browser is closed i.e. session ends.
+- Other than the differences mentioned above the API for both are the same.
+
+--------------------------------------
+Local & Session Storage Methods
+--------------------------------------
+- Key:Value pairs required when storing data - syntax:
+
+1) Setting Item to Storage:
+   localStorage.setItem('key', 'value');
+   sessionStorage.setItem('key', 'value');
+
+2) Get Item from Storage:
+   const name = localStorage.getItem('key');
+   const name = sessionStorage.getItem('key');
+
+3) Clear Local Storage:
+   localStorage.clear();
+   sessionStorage.clear();
+This will clear the values and make them null, but the key will remain.
+
+4) Remove Item from Storage:
+   localStorage.removeItem('key');
+   sessionStorage.removeItem('key');
+Closing the browser to remove all data from the session storage (this does not remove all data from the Local Storage which must be done either through the browser or using the removeItem method).
+
+
+
+--------------------------------------
+DEV TOOLS
+--------------------------------------
+In the browsers dev tools: Applications, go down to Storage. There are a few ways to store data in your browser, but we should be able to see:
+- Local Storage
+- Session Storage
+We can see what is stored in storage by clicking on these and we should be able to see the Key:Value pairs.
+Note you can clear the storage through the browser DEV tools for both Local and Session Storage.
+
+
+// -----------------------------
+// JSON.Stringify & JSON.parse
+// -----------------------------
+Please view the js_sandbox.2.12 folder for the JavaScript code. Below is a breakdown of the code:
+
+   document.querySelector('form').addEventListener('submit', function(e){
+      const task = document.getElementById('task').value;
+      let tasks;
+
+This line of code is using a .querySelector() method to look at the DOM to find the form and then adding an .addEventListener() method to listen for the submit button i.e. add button on the form to be clicked for the undefined function to run. The undefined function has a event object called e.
+
+The const task variable is used to store the value typed within the form input field which has the HTML element name of 'task'. Therefore, whatever is typed by the user in the task input field will now be stored in the task variable.
+
+The const variable will only save one task at a time and any new task will replace the existing value in the local/session storage. Therefore, we init a let tasks variable so that we can store an array of objects.
+
+
+      if(localStorage.getItem('tasks') === null) {
+         tasks = [];
+      } else {
+         tasks = JSON.parse(localStorage.getItem('tasks'));
+      }
+
+We want to check the condition to see if there is anything within the local/session storage:
+- If there is nothing in the storage we will create a new empty array, which we can will add the task in the empty array.
+- Else we will pull ou whatever value is in the storage and add to it.
+
+We are using the tasks variable to store the array task list.
+The problem we have with the else statement; localStorage.getItem('tasks') will return a string so we will need to parse the string into a JSON/object that we can use for our array object. Thus, we would use the JSON.parse() method to convert the .getItem() string into a usable object.
+
+
+      tasks.push(task);
+
+.push() method = we are pushing the const 'task' variable that is coming through the form (i.e. user input) onto the let 'tasks' variable. This will not reset the localStorage value.
+
+
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      alert('Task saved');
+      e.preventDefault();
+   });
+
+Now that we have a new variable value for 'tasks', we can now reset/override the existing storage key value with the new value. However, storage requires a string for the key:value pairs and so we have to convert the 'tasks' array into a string using the JSON.stringify() method.
+
+Once saved, an alert box will indicate to the user that the new task entered on the form has been saved to storage.
+
+The preventDefault() on the e event object prevents the default behaviour of the submit button which is to refresh the page.
+
+
+
+// -----------------------------
+// For Each loop
+// -----------------------------
+
+In order to do a forEach loop on a stored data we would need to parse the storage into a JSON object, otherwise we will get an error because we cannot use the forEach loop on a string data.
+
+   const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+   tasks.forEach(function(task){
+      console.log(task);
+   });
+
+The above code creates a const variable called 'tasks' which we will use for the forEach loop.
+The localStorage.getItem('tasks') will get back the value pair for 'tasks' (Note: 'task' is the Key). However, the returned value is a string value and we must convert this into an object in order to use the forEach loop. Therefore, we will use JSON.parse() to convert the string into an object.
+The const 'task' object now stores the array for us to perform the forEach loop on.
+
+function(task) - we used task as the variable but this can be anything. Each time it loops we are console logging the task value. Each item within 'tasks' array is now logged in the console on separate lines.
+Try changing the variable for the function to something else - you should still receive the same results:
+
+   tasks.forEach(function(x){
+      console.log(x);
+   });
