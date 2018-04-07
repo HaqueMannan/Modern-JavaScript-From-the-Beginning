@@ -1,0 +1,37 @@
+Section 3.3. DOM Project - Task List:
+
+--------------------------------------
+Task List Persist to Local Storage - app.js
+--------------------------------------
+function loadEventListeners()
+- Added 1 new DOM event listener.
+- The Event listener is on the document object and is triggered by the 'DOMContentLoaded' which will run the getTasks() function.
+
+
+3 New Functions Added:
+1) function getTasks()
+   - This will check to see if there are any tasks in local storage; if not create an empty array in the 'tasks' variable else set the 'tasks' variable with the existing local storage value.
+   - We will use a forEach loop to loop through each tasks that are in local storage and create/add the <li> Task List item elements within the DOM, the same function as adding a new list item.
+
+
+
+2) function storeTaskInLocalStorage(task)
+   - In the addTask(e) function we created another function called storeTaskInLocalStorage(taskInput.value); to add the taskInput value into local storage.
+   - Whenever we add a new item this will trigger the above function:
+   - variable 'tasks' is initialised
+   - if statement to check if 'tasks' variable is equal to Null and if not this will create an new empty array object, else this will parse the local storage tasks list as a JSON array object.
+   - We will then push the tasks object onto the task function event object.
+   - Finally, this will be converted back into a string using JSON.strngify() method so that we can store the tasks back into local storage again with the new value(s).
+
+
+3) function removeTaskFromLocalStorage(taskItem)
+   - In the removeTask(e) function we created another function called removeTaskFromLocalStorage(e.target.parentElement.parentElement);
+   - The above parameter will feed through to this function and if we were to console.log(task) when we click on the remove icon this would log the <li> element for the selected item.
+   - If statement checks to see if local storage is null or has values first.
+   - We then use a forEach loop to loop through the tasks and use a if statement to check to see if the taskItem.textContent matches the current task iterator variable. If there is a match we will splice using the index to remove/delete 1 item from the array.
+   - After the forEach loop we would set the local storage again with the tasks value using JSON.stringify() method.
+
+
+4) function clearTasksFromLocalStorage()
+   - In the clearTasks() function we created another function called clearTasksFromLocalStorage();
+   - The function above will clear the local storage using localStorage.clear(); method.
