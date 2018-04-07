@@ -1,0 +1,50 @@
+Section 3.2. DOM Project - Task List:
+
+--------------------------------------
+Task List Delete & Filter Tasks - app.js
+--------------------------------------
+function loadEventListeners();
+- Added 3 new event listeners to the function
+   1) Click on Task List Remove (x) link.
+   2) Click on the Clear Task button.
+   3) Keyup on the Filter Task input.
+
+- We used event delegation for Remove Task event listener because the <li> are dynamic and have many child elements with the same class name so we added the event listener on the taskList <ul> to delegate down to the child <li> elements.
+- Keyup will trigger when the key is released on the element the eventListener is on.
+
+3 New Functions Added:
+1) function removeTask(e)
+   - When the function is called by the listener we want to make sure that it is called when the user clicks on the x icon.
+   - If statement to see if the element clicked on is an <a> link element with the class of 'delete-item' and we do this using the parentElement of the <i> element (we want the the <a> link element and not the <i> icon element):
+      e.target.parentElement.classList.contains('delete-item')
+   - If the statement is true, we have another if statement for confirm() for the user to confirm the remove element function.
+   - If yes then we want to remove the parentElement of the parentElement i.e. remove the parent <li> element of the <a> parent element (note <a> is the parent of the <i> element which is the e.target.value). This will delete the specific li element from the list.
+
+2) function removeChild()
+Click the clear task button to clear all the Task Lists items. Two ways to do this:
+   1) taskList.innerHTML = ''
+      - making the innerHTML of the taskList variable to null will clear the list.
+   2) Use a While loop and remove each li element. This second method is much faster.
+         while(taskList.firstChild)
+      - while there is a firstChild in the taskList variable value then loop through the code i.e. delete the firstChild element:
+         taskList.removeChild(taskList.firstChild)
+      - This is faster because it will continue to loop only if there is a firstChild element (i.e. when the condition returns true).
+
+View: https://jsperf.com/innerhtml-vs-removechild to see the difference in speed.
+
+Either method for clearing the list can be used,. You will not see much difference in time for clearing a list using either methods.
+
+
+3) function filterTasks(e):
+   - Variable 'text' to store the filter input value:
+      The e.target.value will return whatever is being entered by the user in the filter form.
+      The .toLowerCase() method will convert the text to lower case. This will help matching correctly.
+   - querySelectorAll('collection-item') to return a nodeList of all the list items so that we can perform a forEach loop on the elements.
+   - In our forEach loop we pass in a function(task) - variable of task as our iterator.
+   - creating another variable called item which is set to the current iterator .firstChild.textContent
+   - If else statement to check if item.toLowerCase (converting to lower case) and .indexOf(text) which is the filtered text = both matches (i.e. != -1):
+      Match will return 1
+      No match will return -1
+   - If there is a match display = block i.e. show element (CSS Styling).
+   - Else if there is no match display = none i.e. hide element.(CSS Styling).
+This will act as a filter to show only matching <li> elements with the filtered text.
