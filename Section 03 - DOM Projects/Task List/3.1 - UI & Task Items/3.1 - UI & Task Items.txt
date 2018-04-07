@@ -1,0 +1,37 @@
+Section 3.1. DOM Project - Task List:
+
+--------------------------------------
+Task List UI & Task Items - index.html
+--------------------------------------
+- MaterializeCSS used for UI element.
+- jQuery is a dependency for MaterializeCSS
+- Bootstrap font-awesome used for the x icon.
+
+- 2 div class: card-content & card-action
+- card-content holds the Task Submission Form
+- card-action holds the Task Filter & ul List Items.
+
+
+--------------------------------------
+Task List UI & Task Items - app.js
+--------------------------------------
+- Created variables to use in our app.
+- EventListener required on the submit form. Instead of putting the eventListener on the global scope we are using a function to call all eventListeners.
+
+Function 1 - loadEventListener():
+- Using the the form variable, we are using the .addEventListener to listen to when the submit button of the form is clicked and this will call on another function called addTask().
+
+Function 2 - addTask(e):
+- If statement to see if taskInput variable value is empty, if true an alert message will be displayed and will break out of the function.
+- If the statement is false, then function will the: 
+   create a <li> element, add a class = "collection" and add a text node of the taskInput variable value.
+   create a <a> element for the x icon and append to the <li> element.
+   Append the <li> element to the <ul> element.
+   Clear the taskInput variable value.
+   Prevent the default submit form button action.
+
+
+--------------------------------------
+Additional Notes:
+--------------------------------------
+Remember to use console.log(li) to view/test the code to see how the new element is formatted and whether it is correct before appending it to your HTML.
