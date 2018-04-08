@@ -1,0 +1,29 @@
+Section 3.6. DOM Project - Loan Calculator:
+
+--------------------------------------
+Loan Calculator - Loader & UX - index.html
+--------------------------------------
+- Uncommented the loader image element html code.
+- Using CSS in the HTML to add <style> tag within the <head> tags to initially hide the the Load and Results element when we open the Loan Calculator for the first time (UX)
+- Such little amount of CSS and so does not require a separate .css file (although good practice is to store CSS styles in a separate .css file and load into HTML).
+
+
+--------------------------------------
+Loan Calculator - Loader & UX - app.js
+--------------------------------------
+- Updated the Submit event listener because previously this will call the calculateResults function straight away. We are now calling a new function(e) to delay the calculateResults function:
+   - added e eventHandler and e.preventDefault(); and console.log('Calculating...'); codes to the EventListener function.
+   - 1) We make sure the results are hidden when we click the submit button (display:none style).
+   - 2) We show the loader as soon as the submit button is clicked by changing the display style to block.
+   - 3) The setTimeout(calculateResults, 2000); will call the calculateResults() function after 2 seconds.
+
+- Updated the calculateResults() function:
+   - Removed the e eventHandler on the calculateResults() function and removed the e.preventDefault(); and console.log('Calculating...'); codes.
+   - Added to the if statement:
+      1) To show the results we changed the display style to block.
+      2) To hide the loader we changed the display style to none.
+
+- Updated the showError(error) function:
+   - At the top we added code to hide the loader & results by changing display style to none.
+
+This completes the User Experience of the Loan Calculator.
