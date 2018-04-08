@@ -1,0 +1,21 @@
+Section 3.4. DOM Project - Loan Calculator:
+
+--------------------------------------
+Loan Calculator - UI - index.html
+--------------------------------------
+- Creating a single form UI app.
+- Using Bootstrap v4.0 CDN
+- Bootstrap 4 Starter Template as base HTML - includes Bootstrap CDN & JavaScript file for Bootstrap and 2 dependencies: jQuery & PopperJS.
+- img folder container loader .gif image to be used as UX later.
+
+Bootstrap HTML Layout:
+- using Bootstrap CSS to add a dark background to the body.
+- Added Bootstrap container to add auto margin on the sides.
+- using grid system inside the container div, adding a 6 column grid and using class to auto margin to centre the content.
+- Finally we will create a card inside the div element for our content.
+- We then add headings and the fields for the loan calculator.
+- Added the Loader image HTML element but commented out for now.
+
+
+Reference:
+https://getbootstrap.com/
