@@ -1,0 +1,69 @@
+Section 3.5. DOM Project - Loan Calculator:
+
+--------------------------------------
+Loan Calculator - Calculate & Error - app.js
+--------------------------------------
+- Created app.js file and added script src to the HTML to link the JavaScript file to our HTML.
+- addEventListener on the Submit form button to listen to when the submit button is clicked. This will trigger the function calculateResults();
+- Created 3 functions for the calculator:
+
+
+1) function calculateResults(e)
+   - e.preventDefault to prevent the default submit behaviour. Used console.log to test it was working.
+   - Created UI variables to grab all the user inputs on the form fields to be stored in variables so that we can use them for loan calculations.
+   - We used getElementById because all UI elements have id's.
+   - parseFloat() method converts a number into a decimal number.
+   - We have variables that will store calculated values for the loan calculator.
+   - Compute monthly payments using the variable above.
+   - If statement to check 'monthly' variable is a finite number using the isFinite() method. 
+      If finite number display Monthly Value as a decimal value (toFixed(2) = 2 decimal places), the Total Payment value as a decimal value & Total Interest as a decimal value. 
+      Else (not a finite number) - execute the showError() function below.
+
+
+2) function showError(error)
+   - Create a element to show the error using JavaScript & the DOM.
+   - 1) Create <div> element
+   - 2) Added Bootstrap class "alert alert-danger" to the new <div> element to format the alert message red.
+   - 3) Create text node for the error text and append to <div> element.
+*Important Note: The error message is whatever was passed into error. Therefore, when we called the showError('Please check your numbers') function in the calculateResults(e) function we passed in 'Please check your numbers' as the error value used in this function.
+
+   - We want to insert the above new <div> element into the DOM. 
+   - 1) Two variables created to store the parent card element and the h1 heading element. We would like to insert the error message in the card but above the heading element.
+   - 2) using the two variables we can insert the error message above the heading element. To do this we took the parent card and called InsertBefore() method to insert the error above the heading.
+*Important Note: the insertBefore() method is called on a parent element and has two parameters:
+   a = the element you want to put in e.g. the new error <div> 
+   b = the element you want to insert it before e.g. heading as the two parameters.
+
+   - In the JavaScript windows object there is a method called setTimeOut() where we can have something happen after a certain amount of seconds. We use this method to trigger the clearError() function below.
+*Important Note: setTimeout() method has two parameters to pass in:
+   a = a function/named function - we used a named function called clearError() created below.
+   b = milliseconds e.g. 3000 milliseconds = 3 seconds
+
+
+3) function clearError()
+   - Simple function to clear the error message element above.
+
+
+--------------------------------------
+Additional Notes:
+--------------------------------------
+Amortisation is a method of calculating loans & interest. For example: £5,000.00 loan on a 5% interest to be paid over 12 months will accumulate £136.45 in interest and not £250.00.
+The principle balance is paid down each month along with interest. After the first monthly payment of £428.04 (Principal: £407.21 + Interest:£20.83), the principal balance is no longer £5,000.00 it is £4,592.79 - the interest is no longer 5% on a £5,000.00 loan anymore.
+
+During the second month, since the principal balance is now £4,592.79 the interest payment is lower.
+
+This continues throughout each month on the interest amount and principal balance going down in tandem each month. Since there are twelve monthly payments, the interest goes down each month and at the end of the loan term the total interest payment of £136.45 ends up being significantly lower than the expected £250.00.
+
+Test this out at:
+https://en-gb.calculatestuff.com/financial/loan-amortization-calculator
+
+
+Annuity formula:
+A = K * S
+   A - monthly annuity payment;
+   K - annuity rate
+   S - total credit sum
+
+K = i * (1 + i)^n / ((1 + i)^n - 1)
+   i - monthly credit % (year % / 12 months). Example: 10% payment = (10 / 100) / 12
+   n - number of payment periods (years cnverted to total months). Example: 3 years = 3 * 12
