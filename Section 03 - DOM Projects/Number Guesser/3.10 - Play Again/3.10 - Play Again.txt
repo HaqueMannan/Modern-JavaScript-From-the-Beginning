@@ -1,0 +1,22 @@
+Section 3.10. DOM Project - Number Guesser:
+
+--------------------------------------
+Number Guesser - 3.10 - Play Again - app.js
+--------------------------------------
+- Update the gameOver() function to update the submit button text to "Play Again?" and add/append a new className of "play-again" for the submit button.
+- Created an Event Listener on the "play-again" button. Need to use event delegation i.e. event listener on a parent because the Play Button is added after the page has loaded and then search for the target class of play again.
+- We used the mousedown rather than click event on our event listener because the click button will automatically refresh the page when we won without showing the win message or play again button. The mousedown allows us to see the win message and have the option to press the play again button.
+- Created a getRandomNum() function to generate a random number between the min and max variable numbers and then to set the value to the winningNum variable to create a dynamic winning number each time we play.
+- addWinningNum() takes in two parameters of min and max:
+   Math.random()*(max-min+1) will return a random number between 0 and 10 because 10-1=9+1=10. The random number will be a decimal number.
+   Math.random()*(max-min+1)+min will make sure the number is not 0 i.e. number between 1 and 10.
+   Math.floor will round the decimal number down to a whole number.
+   Return will allow us to put the number generated from the function into our winningNum variable.
+
+
+--------------------------------------
+Additional Notes
+--------------------------------------
+In many other programming languages you must define the function first before you can call on it (use the function). However, in JavaScript you can call on a function from the top that has not been defined and then at the bottom of your code define the function.
+
+JavaScript hoist functions which means the functions are put to the top when the execution context runs. Therefore, we can call on functions before we declare them.
