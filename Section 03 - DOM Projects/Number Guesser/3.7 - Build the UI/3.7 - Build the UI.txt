@@ -1,0 +1,16 @@
+Section 3.7. DOM Project - Number Guesser:
+
+--------------------------------------
+Number Guesser - UI - index.html
+--------------------------------------
+- Creating a single form UI app.
+- Using Skeleton as the CSS framework which is a very bare-bones CSS framework.
+- Using a CDN rather than downloading the framework.
+- Simple UI Using a <h1> <p> <span> and <input> tags to create the UI.
+- Fixed numbers in <span> tags but later on these numbers will be dynamic using JavaScript.
+- <p> with a class of 'message' will be used to insert our message from JavaScript.
+
+
+Reference:
+http://getskeleton.com/
+https://cdnjs.com/libraries/skeleton
