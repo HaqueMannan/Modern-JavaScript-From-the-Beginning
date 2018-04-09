@@ -1,0 +1,20 @@
+Section 3.9. DOM Project - Number Guesser:
+
+--------------------------------------
+Number Guesser - 3.9 - Lose Case & Game Over - app.js
+--------------------------------------
+- Continue on the event listener unnamed function - adding the Lose Case. 
+- In the validate condition, added return false; to step out of the function when the validation is true else this will continue to run the code below which will override the validation code preventing the message from displaying and counting the invalid number towards the guess.
+- Updated the winning condition If Statement by adding the code to the else statement to add the Game Over lose case condition.
+   If false - subtract from the guesses left and display a message. Nested If Statement to check for number of remaining guesses = 0 for the Game Over condition:
+      If True - Game Over message with the correct number displayed using the setMessage() function.
+      If False - game continues, border = red, clear input field and display message using the setMessage() function.
+
+- Optimized the code as we had a lot of repeating code for the setMessage() condition i.e. disable input field, border colour, text colour and message.
+- Created a function called gameOver() which takes in two parameters (1. If they won (true or false) and 2. the message).
+   - variable for colour
+   - ternary operator for the conditional: if won is true then colour = green else colour = red.
+   - disable the input field.
+   - set the borderColour to the colour variable.
+   - set the message for the setMessage() function.
+- Replaced the win case and lose case codes with a call to the gameOver() function passing in the variables i.e. true or false & message.
