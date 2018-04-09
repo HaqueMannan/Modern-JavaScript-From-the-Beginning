@@ -1,0 +1,35 @@
+Section 3.8. DOM Project - Number Guesser:
+
+--------------------------------------
+Number Guesser - 3.8 - Validation & Winning Case - index.html
+--------------------------------------
+- added script src app.js to the html file.
+- removed the 1 and 10 text from the <span> element. The app.js file will now assign the numbers in the <span> tags by updating the textContent.
+
+--------------------------------------
+Number Guesser - 3.8 - Validation & Winning Case - app.js
+--------------------------------------
+- Added note on the main rules and function of the game for reference.
+- Created Variables for:
+   1) Let - Game Values: let min, max, winningNum & guessesLeft. We have fixed the winningNum for now but will later make this dynamic.
+* Important Note: we can create multiple variables (of the same variable type) by using a comma (,) instead of a semicolon (;) - this means we do not need to constantly write let, const or var each time when we declare multiple variables of the same variable type. We add the semicolon (;) on the last variable we create of the variable type (please view app.js for example code). This is the convention you should use when structuring your code.
+
+   2) Const - UI elements: game, minNum, maxNum, guessBtn, guessInput & message. We used querySelector to store the html element.
+
+- Assigning the Min & Maximum number so that whatever appears in the app.js let variable of mix & max values, this will update the UI of the <span> default text of 1 and 10. Therefore, we can update the min and max numbers in the app.js file and this will update the numbers displayed in the game UI app.
+   minNum.textContent = min;
+   maxNum.textContent = max;
+- The minimum and maximum numbers are not dynamic.
+
+- Created and event listener on the submit button for the guess.
+- Created a unnamed function:
+   1) parsesInt the guessInput user input field value (string data type) so that we are returned with a number data type which is required for us to do a comparison. Stored this value in a variable.
+   2) Validate the user input field with an If statement to make sure it is not blank (isNaN()), now below the minimum (<min) and not above the maximum (>max).
+   NaN = not a number. This is where JavaScript is expecting a number but a number is not passed through e.g. blanks/chars values are considered as NaN.
+      If True - then we will call a function called setMessage().
+      If False - then do nothing as the user has entered a valid number for the game.
+   3) Check to see if the guess matches the winningNum for the winning condition using an If Statement:
+      If True - disable input, set the border colour to green for UI/UX and call the setMessage function to set a message.
+
+- Created a setMessage() function which takes in two parameters of message and colour which will insert the message in the <p class=message> tags and format the colour of the text using CSS.
+
