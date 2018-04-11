@@ -1,0 +1,64 @@
+Section 4.3. Prototypes Explained:
+
+--------------------------------------
+Prototypes Explained
+--------------------------------------
+- Each object in JavaScript has a prototype and a prototype is an object in itself.
+- All object inherit their properties and methods from their prototypes.
+- When dealing with object literals you are inheriting from a prototype called object.prototype.
+- When dealing with objects created from a constructor for example the Person constructor from the previous section, it is inheriting from a prototype called person.prototype.
+- There is something called the prototype chain where you have the constructor prototype but ypu can also go upto the main object.prototype
+
+
+Please refer to js_sandbox_4.3 folder for demonstration on the Prototypes concept.
+
+Below is a constructor for Person and we use the constructor to create 2 people object for John and Mary:
+   function Person(firstName, lastName, dob) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.birthday = new Date(dob);
+      this.calculateAge = function(){
+         const diff =  Date.now() - this.birthday.getTime();
+         const ageDate = new Date(diff);
+         return Math.abs(ageDate.getUTCFullYear() - 1970);
+      }
+   }
+
+const john = new Person('John', 'Doe', '8-12-90');
+const mary = new Person('Mary', 'Johnson', 'March 20 1978');
+(Note: we can pass any date format into the date constructor, this will still return the d.o.b).
+
+If we console.log(mary) or console.log(john) in the browser we can view the sudo property/pointer called __proto__ which is the Person.prototype and if we were to inspect that property/pointer we can see another __proto__ for the Object.prototype at the top of the chain which has its own properties and methods.
+
+It is clear that each person has to have their own firstname, lastname and birthday - i.e. actual properties of this object. However, calculateAge is going to be the same for every person i.e. there is no difference in mary's or john's calculateAge method (it's going to look at their birthday and return their age). This is something that we should put in the prototype and not directly in into the object. The way we would do that is as follows:
+
+   function Person(firstName, lastName, dob) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.birthday = new Date(dob);
+   }
+
+   Person.prototype.calculateAge = function(){
+      const diff =  Date.now() - this.birthday.getTime();
+      const ageDate = new Date(diff);
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+   }
+
+   const john = new Person('John', 'Doe', '8-12-90');
+
+The calculateAge will no longer appear in the object properties, however, when we look at the Person.prototype (__proto__) we can see the calculateAge method. We have now moved the function into the prototype. Note: we can still use this method as we did before for example:
+
+   console.log(john.calculateAge());
+
+
+We are no longer flooding our constructors with functions as we are placing the functions in the prototypes.
+
+The Object.prototype has its own default functions that we can call such as hasOwnProperty(). This will check if a object has its own property for example:
+
+   console.log(john.hasOwnProperty(firstname));
+
+This will return true in the console because the john object has its own firstname as a property i.e John whereas if we console.log the below:
+
+   console.log(john.hasOwnProperty(calculateAge));
+
+This will return false in the console because it is in the prototype and not part of its own property. Although the calculateAge can be used by the object, it is not part of the object as its own property.
