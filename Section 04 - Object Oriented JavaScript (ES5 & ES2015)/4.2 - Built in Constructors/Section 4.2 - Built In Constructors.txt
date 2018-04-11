@@ -1,0 +1,12 @@
+Section 4.2. Built In Constructors
+
+--------------------------------------
+4.2 - Built In Constructors
+--------------------------------------
+In the previous section on constructors we came across the Date() object which is a core JavaScript object which had its own constructor (i.e. new Date()). There are other core objects in JavaScript that have constructors as well; however, most are not advisable to use. 
+
+Primitive types such as strings, numbers, booleans etc. can be created as constructor objects instead of primitives. There are more reason for not using constructors instead of primitives compared to the reason for using it: it slows down execution speed, more code, confusing and issues when using operators to compare values.
+
+Note: these core object constructor exist in JavaScript but not something you will use often - this chapter is for demonstration of what is possible in JavaScript for knowledge.
+
+Please refer to the js_sandbox_4.2 folder for the app.js file showing the various examples of core constructor objects.
