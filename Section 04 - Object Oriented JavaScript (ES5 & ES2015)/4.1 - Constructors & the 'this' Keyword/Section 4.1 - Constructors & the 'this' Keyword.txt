@@ -1,0 +1,81 @@
+Section 4.1. Constructors & the 'this' Keyword:
+
+--------------------------------------
+Constructors & the 'this' Keyword
+--------------------------------------
+In Section 4 we will be looking at Object Oriented Programming (OOP) in JavaScript.
+One of the most fundamental/important subject in OOP (and in any programming language) is the constructor and the 'this' keyword. 
+
+Important Note: we will look at ES6 classes and constructors in a later section, however, in this section we will focus on how constructors operates under the hood with ES5. ES6 is syntactical easier way of writing OOP code similar to programming languages that uses classes such as Java, C# and PHP etc.
+
+We have already looked at Object Literals in Section 1.10 where we can create key:value pairs for an object
+
+Previously we have seen object literals and how we can store key:value pairs in an object. This works fine in cases where you want to deal with one instance of the object but if you want to create multiple instances of a certain type of object then we would want to create a constructor.
+
+--------------------------------------
+Constructors 
+--------------------------------------
+To create a constructor we first need to: 
+- define a function. Constructors should always start with a capital letter. for example: 
+   function Person()
+
+- add an argument/parameter in the function - for example:
+   function Person(name)
+
+- using the 'this' keyword create key:value pairs, the value being either a hard coded value or the parameter/argument - for example:
+   function Person(name){
+      this.name = name;
+   }
+
+We have created a constructor that we can use multiple times. To instantiate a new object from the constructor we will use the 'new' keyword to make a new Person object using the constructor. For example:
+   const John = new Person('John');
+   const Alan = new Person('Alan');
+
+If we console.log(John) and console.log(Alan) this will return an object of: 
+   Person {name: 'John'}
+   Person {name: 'Alan'}
+Notice how this.name has created a Key of name and the value pair is the (name) value we passed in as our argument (this makes up our Key:Value pair for our constructor objects).
+
+
+--------------------------------------
+The 'this' Keyword
+--------------------------------------
+The 'this' keyword is very important and what this does is that it refers to the current instance of the object, so in the above example the 'this' keyword would pertain to the Person/function scope.
+
+However, if we were to use the 'this' keyword in the global scope this will pertain to the windows object. Therefore in the global scope we can write something like this.alert('Hello World'); which will print an alert message in the browser.
+
+
+--------------------------------------
+Constructors & Methods within a Constructor
+--------------------------------------
+You can call constructors within a constructor object for example:
+   function Person(name, dob){
+      this.name = name;
+      this.birthday = new Date(dob);
+   }
+
+Notice how we have called a new Date() object which is a core object of JavaScript which also has a constructor. We are passing in the dob string argument into the Person costructor which is then passed into the new Date(dob) constructor to return a string date into a date data type value - for example:
+   const sue = Person(Sue, '01-15-2000');
+   console.log(sue);
+This will return in the console:
+   Person {name: "Sue", birthday: Sat Jan 01 2000 00:00:00 GMT}
+
+
+You can create methods within a constructor object. A method is a function that is inside of an object. For example:
+   function Person(name, dob){
+      this.name = name;
+      this.birthday = new Date(dob);
+
+      this.calculateAge = function(){
+         const diff = Date.now() - this.birthday.getTime();
+         const ageDate = new Date(diff);
+         return Math.abs(ageDate.getUTCFullYear() - 1970);
+      }
+   }
+
+The calculateAge uses a callback function (note: there are many ways in which we could have coded the calculation of the age). We can now create multiple instances of this People object and each object will have a name, birthday and the calculateAge() method associated with them. For example:
+
+   const amy = new Person(Amy, '9-10-1981');
+   console.log(amy.calculateAge());
+
+The object method will return the age of the amy object i.e. 36 (as of 08/04/2018) in the console.
