@@ -1,0 +1,52 @@
+Section 4.7. Sub Classes:
+
+--------------------------------------
+Sub Classes
+--------------------------------------
+- We took a look at ES5 inheritance syntax in section 4.4 - Prototypal Inheritance.
+- In this section we will look at ES6 Sub Class syntax (i.e. ES6 version of inheritance).
+- Please refer to js_sandbox_4.7 folder for example demonstration on Sub Classes.
+
+Example Summary:
+1) We created a Person class with properties and methods.
+
+   class Person {
+      constructor(firstName, lastName) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+      }
+
+      greeting() {
+         return `Hello there ${this.firstName} ${this.lastName}`;
+      }
+   }
+
+2) We then created a Customer class which extends from the Person Class. Syntanx example:
+
+   class Customer extends Person {
+      ...
+   }
+
+As you can see the customer class is extending from the person class.
+
+3) When we instantiate a Customer, since it is extending a Person we want to call the Person constructor and to do this we would use a function called super(). We would have to call the parameters from the parent object i.e. Person object parameters. Any extra properties in relation to the Customer class we will define as normal within the constructor() method using the 'this' keyword.
+
+   class Customer extends Person {
+      constructor(firstName, lastName, phone, membership) {
+         super(firstName, lastName);
+
+         this.phone = phone;
+         this.membership = membership;
+      }
+   }
+
+4) We can also instantiate any methods from the Person class even though they are not within the Customer class, this is because the Customer class extends from the Person Class. For example:
+
+   const john = new Customer('John', 'Doe', '555-555-5555', 'Standard');
+   console.log(john.greeting());
+
+We can use the greeting method from the Person class.
+
+5) We can create Customer methods as well (this also includes static methods). 
+
+Important Note: we can use Person properties and methods in the Customer class because we extended Person class, but we cannot use Customer properties and methods in Person (the opposite way round) unless we extend the Customer class in the person class. Sub Classes extends one way only.
