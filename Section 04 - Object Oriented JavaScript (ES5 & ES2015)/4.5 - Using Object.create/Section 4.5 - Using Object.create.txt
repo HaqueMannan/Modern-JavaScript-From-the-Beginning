@@ -1,0 +1,23 @@
+Section 4.5. Using Object.create:
+
+--------------------------------------
+Using Object.create
+--------------------------------------
+- This section will explore an alternative way of creating an object using something called Object.create.
+- We can create prototype inside of a kind of parent object and then have different properties with different prototype methods/prototype functions.
+
+- Please view the js_sandbox_4.5 folder for examples of using the Object.create to create objects and prototypes.
+
+- Step 1 create a parent function that is a object with the different prototype methods.
+- Step 2 create a variable to create a new object using the Object.create() passing in the parent function created in step 1.
+- Step 3 - add properties to the new object. There are two syntax for this:
+
+   x.firstName = 'John'
+   x.lastName = 'Doe'
+or
+   firstName: {value: 'John'},
+   lastName: {value: 'Doe'}
+
+- Step 4 we can also call on the prototype methods on these objects as you normally would do for example:
+
+   console.log(x.greeting());
