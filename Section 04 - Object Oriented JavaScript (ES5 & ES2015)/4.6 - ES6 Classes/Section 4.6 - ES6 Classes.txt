@@ -1,0 +1,49 @@
+Section 4.6. ES6 Classes:
+
+--------------------------------------
+ES6 Classes
+--------------------------------------
+- Other programming languages such as Java, C#, PHP, Python etc. uses something called classes when creating objects.
+- We create a class, constructors, have methods and properties inside of our class.
+
+Syntax:
+
+   Class ClassName {
+      constructor(property){
+         this.properties = property;
+      }
+
+      methodName(){
+         return properties;
+      }
+
+      static functionName(){
+         standalone function;
+      }
+   }
+
+As you can see we can create a class, set the constructor and properties for the class and also create the class methods (i.e. object prototypes/functions) all within our class.
+
+We can now create a new class based on the ES6 class object by calling new ClassName() and passing in the parameters. We can also call on the Class methods on the new class object.
+
+Please refer to the js_sandbox_4.6 folder for example demonstration on ES Classes.
+
+
+Important Note: under the hood in the JavaScript engine ES6 classes works almost exactly the same way as ES5 Constructors & Prototypes (i.e. you still have the __proto__ object which has your class constructors and methods). This is why ES6 Classes is considered a syntactic sugar/convenience syntax i.e. its basically changing the way we write them and not the way it operates in the underlying engine/language.
+
+
+Static Methods - able to use without instantiating an object i.e. we do not need to create an object to use the method. For example we do not need to do the below:
+
+   const mary = new Person('Mary', 'Williams', '11-13-1980');
+
+If we wanted to add two numbers together we do not need specific object properties i.e. it is a standalone method. To create a static method we would use the 'static' keyword for example:
+
+   static addNumbers(){
+      standalone function;
+   }
+
+In order to use this static method we do not need to create a variable, rather we would use the ClassName. followed by the static functionName and passing in any properties for the function - for example:
+
+   console.log(Person.addNumbers(1,2));
+
+You would generally use static function where you do not use the 'this' keyword in the method within the class object because you do not require the properties of the class for the function to work i.e. this is a standalone function.
