@@ -1,0 +1,47 @@
+Section 4.4. Prototypal Inheritance:
+
+--------------------------------------
+Prototypal Inheritance
+--------------------------------------
+- Prototypal Inheritance is where one object type inherits from another object type.
+- Refer to js_sandbox_4.4. folder for example of Prototypal Inheritance.
+
+Summary:
+- We created two constructor objects: Person and Customer.
+- Person has its own prototype method called greeting.
+- the .call() function allows us to call another function from somewhere else in the current context.
+   The first parameter is going to be the 'this' keyword followed by whatever properties we are inheriting as the additional parameters/arguments. For example:
+
+      function Person(firstName, lastName) {
+         this.firstName = firstName;
+         this.lastName = lastName;
+      }
+
+      function Customer(firstName, lastName, phone, membership) {
+      Person.call(this, firstName, lastName);
+      ...
+      }
+
+   The Customer constructor firstName and lastName is inheriting from Person firstName and lastName through the person.call() function. The first parameter 'this' relates to the Person object and all other parameters are referencing the Person properties (i.e. we want to inherit the Person properties which happen to have the same name as our Customer properties).
+
+   The extra properties for the Customer i.e. phone and membership we will assign as we would do normally:
+      function Customer(firstName, lastName, phone, membership) {
+         Person.call(this, firstName, lastName);
+         this.phone = phone;
+         this.membership = membership;
+      }
+
+   We can now create a new Customer record using the above constructor.
+      const customer1 = new Customer('Tom', 'Smith', '555-555-5555', 'Standard');
+
+- Note we cannot call on the person greeting method - if we tried running:
+      console.log(customer1.greeting)
+   This will return, TypeError: customer1.greeting is not a function. 
+
+- The Customer object is not yet inheriting the Person prototype. To make the Customer object inherit the Person prototype we will need to code:
+   Customer.prototype = Object.create(Person.prototype);
+   Customer.prototype.constructor = Customer;
+The first line of code will create a person prototype while the second line will create a customer constructor within the person prototype.
+
+- We can override the Person prototypes with new prototypes for example if we would like to create a separate greeting for a customer we are able to do that.
+- Note: any new methods in the Person.prototype will be accessible to the Customer object through inheritance.
