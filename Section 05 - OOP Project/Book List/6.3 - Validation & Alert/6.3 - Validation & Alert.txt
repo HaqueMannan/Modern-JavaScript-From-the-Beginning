@@ -1,0 +1,26 @@
+Section 6.3. OOP Project - Book List:
+
+--------------------------------------
+Book List - Validation & Alert - app.js
+--------------------------------------
+- Added UI prototype showAlert method:
+   > function(message, className) - takes in two parameters.
+   > Created <div> element and store const variable.
+   > Add class name to the <div> element of 'alert' & className (parameter).
+   > Add/appendChild the text node to the <div> element and the text to be the message (parameter).
+   > Get the parent element with the class 'container' and store in a const variable.
+   > Get the form element with the id 'book-form' and store in a const variable.
+   > Insert the alert by taking the parent 'container' and insertBefore(div, form) - two parameters:
+      - insert the new div element
+      - before the form element. 
+   > setTimeout() of the <div> element with class of 'alert' to disappear within 3 seconds.
+   > This prototype method can be called on in our EventListener and we can output our alert message which takes in two parameters of the alert message and the css class .alert or .success. which will format the alert message colour and text content and display above the form.
+
+- Updated the Event Listener
+   > Add a validation rules using If Statement:
+      - If title, author or isbn is nothing then call the UI prototype method showAlert (error message)
+      - else call the UI prototype methods: 
+         addBookToList, 
+         showAlert (success message), and 
+         clearFields.
+   > Moved the addBookToList and clearFields into the validation.
