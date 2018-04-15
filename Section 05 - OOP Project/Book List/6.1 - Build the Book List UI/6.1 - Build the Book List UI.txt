@@ -1,0 +1,14 @@
+Section 6.1. OOP Project - Book List:
+
+--------------------------------------
+Book List - Build UI - index.html
+--------------------------------------
+- Using Skeleton.css framework
+https://cdnjs.com/libraries/skeleton
+
+- CSS in html, not best practice but because we have very little CSS it is OK to add in the html file.
+
+- Container to centre content of application with auto padding to the left and right.
+- Simple UI of Form fields and submit button
+- Simple UI of Table to display book data.
+- The <tbody id="book-list"></tbody> will have no content, but we will use the id 'book-list' to dynamically add data in the body tags of added books.
