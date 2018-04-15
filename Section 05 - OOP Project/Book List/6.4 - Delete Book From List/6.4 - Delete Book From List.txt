@@ -1,0 +1,23 @@
+Section 6.4. OOP Project - Book List:
+
+--------------------------------------
+Book List - Delete Book From List - app.js
+--------------------------------------
+- Added deleteBook method to the UI prototype
+   > function(target) - takes in the parameter of the target element i.e. clicked element.
+   > If statement to check if the target parameter class name is 'delete' then DOM traversing the parent of <td> which is <tr> and remove element.
+   > This will delete the <tr> element that holds the book details when we click on the X button (event delegation).
+
+
+- Created Event Listener to listen for the parent element 'book-list' for the click to execute the function.
+   > function(e)
+   > Instantiate the UI prototype and store in 'ui' const variable.
+   > Call the deleteBook() method from the UI prototype and pass in e.target as the parameter. The method will trigger if the e.target has a class name of 'delete' i.e. if X button is clicked.
+   > Call the showAlert(message, className) to create an alert message when the book is removed. 
+   > Prevent the default using the e event object.
+
+
+--------------------------------------
+Additional Notes
+--------------------------------------
+Event delegation is used when we have something on our web page that shows up more than once with the same class or something that is not there when the page loads but it is dynamically added.
