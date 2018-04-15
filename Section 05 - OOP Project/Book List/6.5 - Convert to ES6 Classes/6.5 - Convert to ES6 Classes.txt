@@ -1,0 +1,11 @@
+Section 6.5. OOP Project - Book List:
+
+--------------------------------------
+Book List - Convert to ES6 Classes - appES6.js & index.html
+--------------------------------------
+- Converted everything created in app.js into ES6 classes for comparison.
+- Functionality is exactly the same.
+- Removed the constructor and prototypes and created classes for the book and UI. All the methods are in the UI Class and there is no need for separate prototypes.
+- Event listener is exactly the same as the app.js file and nothing has changed.
+- index.html updated to now point towards the appES6.js file.
+- console.log(ui) added to code to show the UI __proto__ sudo object. ES6 classes operates exactly the same as ES5 constructors and prototypes and does not change the the process under the hood. ES6 is considered a syntactical sugar as it looks cleaner and easier to write objects similar to that of other programming languages such as Java, C#, PHP and Python etc.
