@@ -1,0 +1,54 @@
+Section 6.2. OOP Project - Book List:
+
+--------------------------------------
+Book List - Add Book to List - index.html
+--------------------------------------
+- Added src to app.js in the HTML file.
+Important Note: This app.js file will use ES5 conventions for objects & constructors. We will later create a appES6.js to convert into ES6 conventions for objects & constructors. This will help contrast the two methods we have learnt on Object Oriented Programming in Section 5.
+
+
+--------------------------------------
+Book List - Add Book to List - app.js
+--------------------------------------
+Step 1) Create Constructor:
+   - Book Constructor: to hand the creation of the actual book object
+      > Parameters this constructor takes in are: title, author & isbn number
+
+   - UI Constructor: set of prototype methods to deal with UI such as add the book to the book list table, delete the book from the book list table, clear the fields, show the alert message etc. These are things to do with the UI/UX of the application.
+      > An empty function/constructor that does not take any parameters in.
+
+Step 2) Create Prototypes:
+   - addBookToList prototype method created for the UI constructor.
+      > function(book) - the function takes in a book object as its parameter.
+      > We are grabbing the <tbody> with an id of 'book-list' to add the 'book' object to the book list.
+      > Creating a new table row <tr> element.
+      > Insert innerHTML elements using the book object i.e. <td> elements for title, author & isbn columns using template literals. We can get the this.book data because we passed the 'book' object in the function. We used an <a> tag with a class of Delete for the X button link.
+      > Append the new <tr> element to the table body <tbody> element that has the class of 'book-list'.
+      > This will add the submitted form data into the table list below in the application UI.
+      > The prototype method is now part of the UI constructor and can be called on by the UI object.
+
+   - clearFields prototype method created for the UI constructor.
+      > function() - this function does not take in any parameter.
+      > getElementById of title, author & isbn and then set the value to equal nothing (value = '').
+      > This will clear the Form fields.
+      > The prototype method is now part of the UI constructor and can be called on by the UI object.
+
+Step 3) Create Event Listeners:
+   - Listen for the submit button to be clicked to execute the event.
+   - The function(e) takes in an e event object. The function will execute the event:
+      > Create const variables to store data from the fields values - title, author and isbn.
+      > Instantiate the Book Object using the new Book() function and store it into const variable 'book'. We will pass in the const variables of title, author & isbn into the Book(title, author, isbn) parameters. This will now create a new book object based on the user fields.
+      > Instantiate a UI Object using the new UI() function and store it into const variable 'ui'. This will now create a new ui object.
+      > Call the UI prototype method of addBookToList() and bass in the new 'book' object created above as the parameter of the addBookToList(book) function parameter.
+      > Call the UI prototype method of clearFields() to clear the fields once the book has been added to the list.
+      > e.preventDefault() - using the 'e' event object to prevent the default submit button behaviour of submitting the form i.e. refreshing the html page.
+
+
+--------------------------------------
+Additional Notes
+--------------------------------------
+You can preserve the console.log even if the page refreshed by going into the browser, open the JavaScript console and go to the Console tab, select the cog wheel icon to open up the console tab options and checking the preserve log check box. 
+
+This will now preserve any console.log() messages in the console even after the browser refreshed. This will help with debugging error messages where they flash and disappear when the page reloads.
+
+You can un-check the preserve option so that the messages do not keep adding up after you have debugged the error code.
