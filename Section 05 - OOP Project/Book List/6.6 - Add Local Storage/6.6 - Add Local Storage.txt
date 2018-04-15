@@ -1,0 +1,36 @@
+Section 6.6. OOP Project - Book List:
+
+--------------------------------------
+Book List - Add Local Storage - appES6.js
+--------------------------------------
+Persist the data to local storage. Using ES6 version (appES6.js) for the JavaScript file. Creating extra Store class to push, fetch and remove from local storage. We made all the classes methods static, meaning we do not need to instantiate the object i.e. we can use it directly.
+
+- Created Local Storage Class Object with Methods:
+   > static getBooks()
+      1) initialise a let variable called 'books'
+      2) Use If statement to check local storage. If localStorage 'books' item is null then 'books' equal an empty array else books will equal to the localStorage 'books' item. We have wrapped this in JSON.parse to make the localStorage 'books' item an array object.
+      3) Return the 'books' array.
+   Whenever we want to get something from local storage we can call this static function of getBook(), which we will use in the below methods.
+
+   > static displayBooks()
+      1) const 'books' variable to equal the Store.getBooks() method i.e. get books item from local storage and set it to the 'books' const variable.
+      2) forEach() loop through books - callback function(books) using books as the parameter, instantiate the new UI class and store it in 'ui' const variable and then add book to the UI using the addBookToList() UI Class method.
+   Created DOM Event Listener to add/display the books to the list when the DOM Content Loads i.e. this static function is called by the Event Listener when the DOM Content Loads.
+
+   > static addBook(book)
+      1) const 'books' variable to equal the Store.getBooks() method i.e. get books item from local storage and set it to the 'books' const variable.
+      2) taking the 'books' variable we are going to push the addBook(book) parameter onto the 'books' array.
+      3) set the local storage as (books, JSON.stringify(books)) - creating key of 'books' and value of the const 'books' variable which we have converted back from an array into a string object using JSON.stringify in order to save it to local storage.
+
+   > static removeBook(isbn)
+   This is a little tricky because we do not have an unique ID, so we are going to use the isbn as the unique key. The isbn number will come from a little DOM trick within the delete book event listener.
+      1) const 'books' variable to equal the Store.getBooks() method i.e. get books item from local storage and set it to the 'books' const variable.
+      2) ForEach() loop through books - callback function(books, index) using books as the parameter. If statement to see if the book.isbn is equal to the isbn that has been passed in the method then remove/delete the book from the books array using splice(index, 1) - the 1 resembles one item to delete starting from the index.
+      3) set the local storage as (books, JSON.stringify(books)) - creating key of 'books' and value of the const 'books' variable which we have converted back from an array into a string object using JSON.stringify in order to save it to local storage.
+
+- Added DOM Event listener:
+   > addEventListener when DOMContentLoaded then call the Store.displayBooks static function.
+
+- Updated Event Listener for adding books
+   > Added Store.addBook(book) - static method can be called without instantiating it, and passing the book object as the parameter for the addBook() method.
+   > Added Store.removeBook(e.target.parentElement.previousElementSibling.textContent) - static method can be called without instantiating it, and passing the isbn data as the parameter for the removeBook() method. We called the preveiousElement which is the <a> tag and then we called the previousElementSibling to select the <td> of the previous sibling which is the isbn <tr> and then we want to grab te text content which would give us the isbn data to pass through as the removeBook() parameter. This will then allow us to delete the correct book data from local storage that has the unique isbn number as we do not have any other unique key in our dataset.
