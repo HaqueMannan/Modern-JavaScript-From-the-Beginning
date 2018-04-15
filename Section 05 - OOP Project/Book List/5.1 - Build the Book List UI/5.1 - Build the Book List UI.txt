@@ -1,4 +1,4 @@
-Section 6.1. OOP Project - Book List:
+Section 5.1. OOP Project - Book List:
 
 --------------------------------------
 Book List - Build UI - index.html

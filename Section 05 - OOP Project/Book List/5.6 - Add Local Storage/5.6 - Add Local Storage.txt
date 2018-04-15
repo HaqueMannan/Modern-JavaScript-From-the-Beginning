@@ -1,4 +1,4 @@
-Section 6.6. OOP Project - Book List:
+Section 5.6. OOP Project - Book List:
 
 --------------------------------------
 Book List - Add Local Storage - appES6.js

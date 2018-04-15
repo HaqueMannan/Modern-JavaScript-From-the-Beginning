@@ -1,4 +1,4 @@
-Section 6.2. OOP Project - Book List:
+Section 5.2. OOP Project - Book List:
 
 --------------------------------------
 Book List - Add Book to List - index.html
