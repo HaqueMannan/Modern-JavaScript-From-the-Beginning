@@ -1,0 +1,64 @@
+Section 6.5. Data From an External API - Chuck Norris Project:
+
+--------------------------------------
+Data From an External API - Chuck Norris Project
+--------------------------------------
+In this section we are creating a mini project where we are going to fetch data from an external API using Ajax and the XHR Object.
+
+We have already explored getting a text/JSON file and bringing it into our web page asynchronously. Usually, we are going to be dealing with some kind of API whether that's our own API or external API for example this Chuck Norris Jokes API (http://www.icndb.com/api/) we will be using for this mini project.
+
+Every API is different i.e. how it takes request and how it responds, and they all will have their own documentations on how to use the API. We will learn more about API in section 6.6 - REST APIs & HTTP Requests.
+
+The application we have built has a form where the user can select the number of jokes they want to request from the API which will return the number of Chuck Norris Jokes. 
+
+Note: you can paste the API into the browser to get back the results directly in the browser. We are going to use Ajax to build this application that will go out and get these jokes, return them and then we will display them in the browser using the DOM techniques that we hav already learnt previously.
+
+
+--------------------------------------
+index.html
+--------------------------------------
+- Basic HTML file using skeleton.css framework.
+- Created a <div> with the class on container to auto centre the contents.
+- Created a form and number input for the user to select a number in the field.
+- Form button to get jokes from the API.
+- <ul class="jokes"> to display the API jokes using DOM techniques.
+
+
+--------------------------------------
+app.js
+--------------------------------------
+- eventListener on the .get-jokes button for the click event to call the getJokes() event function.
+- getJokes(e) function{
+   > e event object used to prevent the default behaviour of the form button.
+   > variable const number to store the number of jokes value from the input[type=number].value field (note: only 1 input field but to be specific we added the [type=number] to grab that particular input type).
+   > create variable xhr = new XMLHttpRequest() constructor object
+   > xhr.open() to request - instead of a file we can put in the URL.
+      - http://api.icndb.com/jokes/random/ taken from API documentation for the URL link for multiple jokes.
+      - we want the number at the end of the URL to be dynamic, based on the user input on the form and therefore we will need to use template literal within out paramters to take the number stored in the const number variable. For Example:
+            xhr.open('GET', `http://api.icndb.com/jokes/random/${number}`, true);
+   > xhr.onload = function (){...} this is where we add what we want to do (within the function) when we actually get the data requested.
+      - if statement to check HTTP Status === 200 (OK)
+      - create const response variable to store the this.responseText. The responseText is a JSON String object and so we will need to convert this into a JavaScript Object that we can actually do things with such as loop through and selecting object properties etc. We will use the JSON.parse to wrap the this.responseText. For example:
+            const response = JSON.parse(this.responseText);
+         > If we were to console.log(response) we will see this as a object format with the type of "success" and value in an array of the joke object.
+         > The process of getting the joke from the API is complete, we are now going to work on putting it inside the DOM of our web page.
+      - create a let output variable and set it to '' (nothing).
+      - if statement to check the condition that the type === success. For example:
+            if(response.type === 'success'){...}
+         > if true, then we would want to do a forEach loop on the response.value to append each joke into the output variable. For example:
+            response.value.forEach(function(joke){
+               output += `<li>${joke.joke}</li>`;
+            });
+      - else set the output variable and append: output += '<li>Something went wrong</li>';
+      - Outside the If statement we are going to use the output variable to set the innerHTML for the <ul> element with the class of "jokes". for example:
+            document.querySelector('.jokes').innerHTML = output;
+   > xhr.send() to finalise the request.
+
+
+
+Important Note:
+We did not do a forEach loop on the response object (i.e. response.forEach) because the response is an object that has type and value and therefore we are not going to loop through an object with the type and value, we want to loop through the value only which holds the array of jokes. Therefore, we used response.value.forEach()
+
+This is why API are all formatted differently because you may get some API that will return the array in the response and hence you can use response.forEach loop. So it all depends on how the API is formatted, whether its your own or an external API.
+
+${joke.joke} - joke represents the current iteration and .joke is the Key name that holds the joke value. Therefore, we will pull the joke value through each joke iteration through the forEach loop.
