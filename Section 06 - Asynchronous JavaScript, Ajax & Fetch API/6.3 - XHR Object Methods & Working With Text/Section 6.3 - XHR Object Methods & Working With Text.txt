@@ -1,0 +1,107 @@
+Section 6.3. XHR Object Methods & Working With Text:
+
+--------------------------------------
+XHR Object Methods & Working With Text
+--------------------------------------
+In this section we will learn how to get data from a text file and load it into the web application asynchronously using the XHR object.
+
+Please refer to the js_sandbox_6.3 folder for example reference.
+
+We have a simple HTML file that has a single button. The app.js file has an eventListener on the button to run on click of the button to run the loadData() function. This function uses a 'GET' connection to read data.txt file and display the text content in the be page as a <h1> element.
+
+The loadData() function in the app.js file contains the XHR Object and we will examine each XHR Object Method in details:
+
+Step 1 - Create XHR Object:
+   Create the XHR/XMLHttpRequest Object by using the new newHttpRequest() constructor and store it in a variable e.g. normally seen as either const xml or const xmlHttp. Note: we are instantiating the XHR object as we would normally do with any object constructor.
+
+
+Step 2 - .open Object Method:
+   Open a connection using the .open() method. This takes in 3 parameters:
+      > Request Method e.g. 'GET'
+      > The data source e.g. 'data.txt'
+      > asynchronous connection = true
+
+         xhr.open('GET', 'data.txt', true)
+
+   The 'GET' request method will allow us to read a file. When we open the connection this will return a Ready State value of 1 i.e. server connection established provided our HTTP Status is 200 (OK).
+   To test this:
+         console.log('READYSTATE', xhr.readyState);
+   This should return ready state of 1 in the console.
+
+Step 3 - .onprogress Object Method:
+   We can use the .onprogress method if we would want to create some form of spinner/loader UI/UX element on our web page to indicate to our use that something is happening. 
+   
+         console.log('READYSTATE', xhr.readyState);
+   
+   This will return ready state of 3 in the console i.e. processing request.
+   This is optional and not required.
+
+
+Step 4 - .onload Object Method:
+   In the .onload callback function we can set whatever we need to do with the data we get. We would need to use a if statement first to check that our HTTP status is 200 (OK). If the condition is true then we can do what we would like to do with the data i.e. in the app.js file we are getting the elementById of 'output' and using the data.txt content to add as a <h1> element in the innerHTML using template strings.
+   The this.responseText property will get all the text within the data.txt file.
+
+   When we run the .onload method the readyState is already at 4 i.e. request finished and response ready.
+   To test this:
+         console.log('READYSTATE', xhr.readyState); 
+   This should return ready state of 4 in the console.
+
+   The .onload object method is a fairly new method. Previously we had to use .onreadystatechange method and we had to check using a the if statement for both the HTTP Status of 200 (OK) and READYSTATE of 4 - example of previous syntax:
+
+         xhr.onreadystatechange = function() {
+            console.log('READYSTATE', xhr.readyState);
+            if(this.status === 200 && this.readyState === 4){
+            console.log(this.responseText);
+            }
+         }
+         The console.log() would return state 1, 2, 3 and 4.
+
+   Important Note: we should avoid this old syntax and should now use the new easier .onload method as the ready state is already at 4 i.e. response ready state.
+
+
+Step 5 - .onerror Object Method:
+   This method is used if something was to go wrong. The code will only run if there is an error - for example: 
+         console.log('request error...') 
+
+
+Step 6 - .send() Object Method:
+   To finalise everything above we need to use the .send() method on the XHR object - for example:
+         xrh.send()
+   There are no page refresh and everything occurs behind the scenes due to asynchronous code.
+
+
+Additional XHR Object Methods:
+.readyState = return the ready state number, we can use console.log in our code to see the various states.
+this.responseText = returns all the text content within the specified data file.
+
+
+--------------------------------------
+Common HTTP Status
+--------------------------------------
+200: "OK"
+403: "Forbidden"
+404: "Not Found"
+
+For more HTTP Status: https://httpstatuses.com/
+
+
+--------------------------------------
+Ready State Values
+--------------------------------------
+0: request not initialized 
+1: server connection established
+2: request received 
+3: processing request 
+4: request finished and response is ready
+
+
+--------------------------------------
+Request Types
+--------------------------------------
+GET request = request data from a specified source (i.e. you want to read the file)
+HEAD request = same as GET but returns HTTP headers and no document body.
+POST request = used to submit an entity to the specified resource, often causing a change in state or side effects on the server
+PUT request = replaces all current representations of the target resource with the request payload.
+DELETE request = 	Deletes the specified resource
+
+For more Request Types: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
