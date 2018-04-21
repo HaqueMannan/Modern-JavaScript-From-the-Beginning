@@ -1,0 +1,110 @@
+Section 6.4. Working With Ajax & JSON:
+
+--------------------------------------
+Working With Ajax & JSON
+--------------------------------------
+In this section we are still going to work with Ajax and XHR but we will be working with JSON data instead of plain text.
+
+Please refer to the js_sandbox_6.4 folder for example reference.
+
+In the index.html we have a simple web page with 2 buttons that will get data from the two JSON files. The app.js will grab the data (depending on the button clicked) from either the customer.json or customers.json files.
+
+The customer.json has a single customer object while the customers.json file has an array of customers objects.
+
+
+--------------------------------------
+JSON Files
+--------------------------------------
+JSON stands for JavaScript Object Notation.
+The JSON notation is very similar to JavaScript object, the only difference is that the Key and Values must be wrapped in in double quotes (unless the data is a number) - for example:
+
+   {
+      "id": 1,
+      "firstName": "Harry",
+      "lastName": "Long"
+   }
+
+A JSON array will wrap the objects in square brackets. Each object will have a comma (,) to separate each object (except the last object) - for example:
+[
+   {
+      "id": 1,
+      "firstName": "Harry",
+      "lastName": "Long"
+   },
+   {
+      "id": 2,
+      "firstName": "Amy",
+      "lastName": "Sanders"
+   }
+]
+
+You can validate your JSON data using online websites such as: https://jsonlint.com/
+
+JSON data are JSON strings and are not JavaScript Objects. Therefore, we must parse the JSON string in order to use the JSON string data as a JavaScript Object (this is important for accessing object properties and using forEach loops on objects).
+
+
+--------------------------------------
+App.JS and XHR Object Methods on JSON Data
+--------------------------------------
+We have two eventListeners on both button, one will call loadCustomer() event when button1 is clicked and the other will call loadCustomers() event when button 2 is clicked.
+
+loadCustomer(e) & loadCustomers(e) functions have the same XHR format:
+   Step 1)
+      Create a new XMLHttpRequest constructor object and assign it to a variable i.e. const xhr
+   Step 2)
+      On the const xhr object call the .open method, pass in the 3 parameters:
+         xhr.open('GET', 'customer.json', true);
+   Step 3)
+      On the const xhr object call the .open method and use the callback function to set what you wish to do with the data from the customer.json file.
+         xhr.onload = function(){...}
+         > use if statement to check HTTP Status of 200 (OK)
+   Step 4)
+      On the const xhr object call the .send() method to finalise the XHR request.
+
+The only difference is on Step 3 where we define what we want to do with the JSON data when the if condition returns true to execute the code block which we will examine below.
+
+
+--------------------------------------
+.onload Method & Parsing JSOM String Data
+--------------------------------------
+loadCustomer(e)
+   - if we console.log(this.responseText), this will return the JSON object in the console for the single customer.
+   - to add this JSON object to the <div id="Customer"> element we would:
+      > Create a const variable to store the parsed JSON object. We would need to parse the JSON String into a JavaScript object in order to access the properties of the object in our template literal further below. To parse the JSON string into an object we would use the following syntax:
+
+         const customer = JSON.parse(this.responseText);
+
+      > Create a const variable to store the output data. We can use the parsed JSON object properties in our template literals - for example:
+
+         const output = `
+         <ul>
+         <li>ID: ${customer.id}</li>
+         <li>Name: ${customer.name}</li>
+         <li>Company: ${customer.company}</li>
+         <li>Phone: ${customer.phone}</li>
+         </ul>
+         `;
+
+      Note: using template literal we are adding HTML elements and accessing the customer object properties (i.e. const customer variable = JSON object).
+
+      > We can now output the template literal variable into the browser by adding the variable to the innerHTML of the <div id="Customer"> element - for example:
+
+         document.getElementById('customer').innerHTML = output;
+
+
+loadCustomers(e) function is similar to the above function, the only difference is that we used a let variable instead of a const variable for 'output' because we are going to reassign the variable in the forEach loop. We also used a forEach loop to loop through each customer in the JSON array and we are using the append (+=) on the output variable so that on each iteration the new customer data is being added to the existing template literal and therefore the final template literal will have all the <ul><li> elements for each customer which we can use to output in the innerHTML of the <div id=customers> element.
+
+         let output = '';
+
+         customers.forEach(function(customer){
+            output += `
+            <ul>
+            <li>ID: ${customer.id}</li>
+            <li>Name: ${customer.name}</li>
+            <li>Company: ${customer.company}</li>
+            <li>Phone: ${customer.phone}</li>
+            </ul>
+            `;
+         });
+
+         document.getElementById('customers').innerHTML = output;
