@@ -1,0 +1,38 @@
+Section 6.1. What Is Asynchronous Programming?
+
+--------------------------------------
+What Is Asynchronous Programming?
+--------------------------------------
+- In Section 6 we will be looking at asynchronous JavaScript and other technologies such as AJAX and the Fetch API which are used to make HTTP request to files, API's and services whether your own or external REST API.
+- Ajax & XMLHttp request objects are older technologies but are very reliable and Fetch is a newer standard and we will be working with both.
+
+
+Synchronous Code Example:
+   posts = loadPostsSync();
+      // ... wait until posts are fetched
+      // ... do something with posts
+
+   doTheNextThing(); // has to wait until posts load.
+
+In the example above a variable is set to a function called loadPostSync(). This function fetches post from some server somewhere. We do not know how long it might take to get these posts and could take couple of seconds or more (depending on whatever the reason may be e.g. low bandwidth or slow network). Only after the loadPostsSync() has completed its function can the code move onto the doTheNextThing() function. This is known as blocking code, where the previous code is blocking the next code from running until the first code has completed running.
+
+
+Asynchronous Code Example:
+   loadPostsAsync(function() {
+      // ... wait until posts are fetched
+      // ... do something with posts
+   });
+
+   doTheNextThing(); // does not have to wait until posts load.
+
+In this example which is the same as above but an asynchronous version. In this case instead of just pulling the post out of a synchronous function we are passing in a callback function which is just one method for handling asynchronous code. This callback will run and fetch the post and allow us todo something with the post but the doTheNetThing() function does not have to wait until the posts are fetched and loaded. Therefore the program is not blocked and it will simply keep going even if it take a while for the post to be fetched, it is not going to stop the next function from running. This is much faster which is the beauty of asynchronous JavaScript and asynchronous programming in general.
+
+Most Async code we will be working with will be part of an API or library - The below are all Async technologies:
+   > XMLHttpRequest & Fetch
+   > jQuery Ajax, Axios, other HTTP lirbraries
+   > Node.js fs (file system) module
+
+There are a few ways to work with Async code:
+   > Callbacks
+   > Promises
+   > Async/Await
