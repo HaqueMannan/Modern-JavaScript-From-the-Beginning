@@ -1,0 +1,91 @@
+Section 6.8. Custom HTTP Library (Ajax With Callbacks) Part 1:
+
+--------------------------------------
+Custom HTTP Library (Ajax With Callbacks) Part 1
+--------------------------------------
+- We are creating a custom Ajax library called easyHTTP.
+- In order to build this HTTP Library we will need something to test it with; we are going to use a website called https://jsonplaceholder.typicode.com/ which is a fake online REST API for testing and prototyping.
+- The fake rest API does not allow you to actually modify data on their server i.e. create a post and have it appear on their server. What it does do, it returns a successful response and it responds with your new post so that we are able to see it in our application (the same with PUT and DELETE).
+
+--------------------------------------
+index.html
+--------------------------------------
+- a simple HTML file with a <h1> deader title.
+- x2 <script> tags linking to the easyhttp.js and app.js JavaScript files.
+- The order of the <script> tags is very important because the library is a dependency for the app.js file and therefore the easyhttp.js script tag should come first before the app.js script tag.
+
+
+--------------------------------------
+easyhttp.js
+--------------------------------------
+- Our HTTP Library file.
+- Initially created as a ES5 prototype library using Ajax (but later this will remake this to use Fetch API instead of Ajax and use ES6 classes i.e. an updated version of the library).
+- We created a new constructor XMLHttpRequest object and assigned it to this.http.
+- We will use the object method the same way we have done in previous sections; however, we will be using this.http rather than the const xhr variable.
+
+GET Prototype Method:
+- easyHTTP.prototype.get = function(url, callback)
+   > This takes in a url - we do not want to hard-code the url, we want the user to be able to to pass the url in when they use the library (as they may want to use a different API).
+- this.http.open('GET', url, true);
+   > This is the same syntax methods we have used previously but we are using the this.http object (object oriented programming otherwise we would have used const xhr variable).
+- this.http.onload = function()
+   > what we want to do with the data.
+
+   Important Note:
+   The below code will not work and throw a "TypeError: cannot read property 'status' of undefined" message because the 'this' keyword pertains to the function() nd therefore is within a different scope of the other this.http scope.
+      this.http.onload = function() {
+         if(this.http.status === 200) {
+            console.log(this.http.responseText);
+         }
+      }
+
+   Arrow functions fixes this issue, however, we will learn more about arrow functions later. 
+
+   A common way to fix this issue in ES5 without using arrow function is to create a variable (usually called self or that) and assign it this value so that we can capture the 'this' keyword. We can now use the self variable within the function scope.
+      let self = this;
+      this.http.onload = function() {
+         if(self.http.status === 200) {
+            console.log(self.http.responseText);
+         }
+      }
+
+   > we are using the callback() to be able to asynchronously callback our response otherwise we will get undefined as a result because the data is being returned before the response has finished processing due to the synchronous coding.
+   > The if statement will return the responseText if status is 200 else it would return Error followed by the HTTP error status.
+      let self = this;
+      this.http.onload = function() {
+         if(self.http.status === 200) {
+            callback(null, self.http.responseText);
+         } else {
+            callback('Error: ' + self.http.status);
+         }
+      }
+
+- this.http.send();
+   > finalise the request.
+
+
+--------------------------------------
+app.js
+--------------------------------------
+- The app.js will use the easyhttp.js library.
+- This will be used to test out our library.
+- Everything will be done through the console.
+- instantiate a new easyHTTP object and assign it to a const http variable.
+- console.log responses for error and post.
+- app.js can use a callback() function as a parameter and this can be named anything e.g. post, response, something etc. This will return the responseText asynchronously.
+      http.get('https://jsonplaceholder.typicode.com/posts', function(posts){
+         console.log(posts);
+      }
+- The callback(null, self.http.responseText) function takes in two parameters and therefore we must pass in two paramters in our callback function above otherwise this will return only the first parameter i.e. null value. We must change this to:
+      http.get('https://jsonplaceholder.typicode.com/posts', function(err, posts){
+         console.log(posts);
+      }
+- We can use a if statement in our callback function to check for error and return the error message:
+      // Get Posts
+      http.get('https://jsonplaceholder.typicode.com/posts', function(err, posts) {
+         if(err) {
+            console.log(err);
+         } else {
+            console.log(posts);
+         }
+      });
