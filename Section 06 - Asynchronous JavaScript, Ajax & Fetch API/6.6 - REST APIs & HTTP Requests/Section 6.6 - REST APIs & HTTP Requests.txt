@@ -1,0 +1,50 @@
+Section 6.6. REST APIs & HTTP Requests:
+
+--------------------------------------
+What is an API
+--------------------------------------
+- Application Programming Interface (API).
+API is a very broad term and there are all kinds of API such as web API, computer OS API, smartphone API and many more devices have many different API.
+- API is essentially a contract provided by one piece of software to another.
+- It usually consists of a structured request and structured response.
+
+Example API:
+The Chuck Norris Joke API takes in a request and responds with jokes.
+
+--------------------------------------
+What is REST
+--------------------------------------
+- Representational State Transfer (REST).
+- Architectural style for designing networked applications.
+- Relies on a stateless, client-server protocol, almost always HTTP.
+- Treat server objects as resources that can be read, created, updated or destroyed (e.g. blog post by a user which is stored in a database).
+- Since REST operated using just on HTTP request and usually some standard like JSON, it can be used by virtually any programming language.
+- The API is the messenger and REST lets us use HTTP request to format that message.
+- All APIs have their own rules and structures.
+
+--------------------------------------
+HTTP Request
+--------------------------------------
+HTTP Request:     Description:
+GET               Retrieve data from a specified resource.
+POST              Submit data to be processed to a specified resource.
+PUT               Update a specified resource.
+DELETE            Delete a specified resource.
+
+HEAD              Same as GET but does not return a body.
+OPTIONS           Returns the supported HTTP method.
+PATCH             Update partial resources.
+
+--------------------------------------
+API Endpoints
+--------------------------------------
+When you have some kind of API, you will have something called an Endpoints to access the URL to do certain things. Common API Endpoints Example:
+
+HTTP REQUEST METHOD:    URL/API ENDPOINTS:                  DESCRIPTION:
+GET                     https://someurl.com/api/users       // Get all users
+GET                     https://someurl.com/api/users/1     // Get single user
+POST                    https://someurl.com/api/users       // Add user
+PUT                     https://someurl.com/api/users       // Update user
+DELETE                  https://someurl.com/api/users       // Delete user
+
+Important Note: you can have the same URL but with different HTTP request methods. The POST, PUT and DELETE methods would also require you to send across data along with the request because it would need to know what data requires submitting, updating or deleting.
