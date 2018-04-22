@@ -1,0 +1,9 @@
+Section 6.7. Callback Functions:
+
+--------------------------------------
+Callback Functions
+--------------------------------------
+- A callback function is simply a function that is passed in as a parameter to another function and then it's run in the function body.
+- We have synchronous and asynchronous callbacks functions (e.g. setTimeout uses asynchronous callback function whereas our forEach loops in previous sections used synchronous callback functions).
+
+Please refer to the js_sandbox_6.7 folder for example and commentary of the callback() functions. In the app.js file we mimic a server and database application for a blog post. This will demonstrate essentially how callback function works (a function that can be passed into another function and then called within that function).
