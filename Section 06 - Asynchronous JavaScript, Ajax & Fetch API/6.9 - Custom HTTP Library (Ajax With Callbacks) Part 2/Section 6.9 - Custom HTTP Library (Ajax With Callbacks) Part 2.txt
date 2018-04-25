@@ -1,0 +1,65 @@
+Section 6.9. Custom HTTP Library (Ajax With Callbacks) Part 2:
+
+--------------------------------------
+Custom HTTP Library (Ajax With Callbacks) Part 2
+--------------------------------------
+- Continue from Part 1 where we created our EasyHTTP AJax Library GET Method. We can get data from an external API.
+- In this section we completed the POST, PUT and DELETE methods for our EasyHTTP Ajax Library using ES5 syntax and OOP.
+
+
+--------------------------------------
+easyhttp.js
+--------------------------------------
+POST REQUEST:
+- easyHTTP.prototype.post = function(url, data, callback)
+   > takes in 3 parameters, the url, the data you want to send to save/update, callback for asynchronous.
+   > POST works similar to the GET request i.e. 
+      - this.http.open('POST', url, true);
+      Same as the GET method, instead we use POST.
+      - this.http.setRequestHeader('Content-type', 'application/json')
+      Set the content type before the .onload object method. This is done in the HTTP Header, we are setting the data type to a JSON file type.
+      - let self = this;
+      Since we are not using arrow functions we need to create the variable within the function scope to equal 'this' in order to avoid unidentified error.
+      - this.http.onload = function()
+      We do not need to check for the status on a POST request therefore there is no need for a if statement for the function. Instead we will run the callback function:
+      - callback(null, self.http.responseText);
+      - this.http.send(JSON.stringify(data));
+      We need to convert the JSON object into a JSON string in order to save (send) the data.
+
+
+PUT REQUEST:
+- easyHTTP.prototype.put = function(url, data, callback)
+   > PUT works similar to the POST request above, the only difference is in the PUT request, the .open object method has PUT as the request method:
+   - this.http.open('PUT', url, true);
+
+
+DELETE REQUEST:
+- easyHTTP.prototype.delete = function(url, callback)
+   > DELETE works similar to the GET request, the only difference is the DELETE request, the .open object method has DELETE as the request method:
+   - this.http.open('DELETE', url, true);
+   > We would check for the status of 200 (OK) using as if statement. If the condition is true then call a callback error of null followed by 'Post Deleted' in the console.
+   - callback(null, 'Post Deleted');
+   > If the statement is false then we will return 'Error:' followed by the HTTP error status in the console.
+   - callback('Error: ' + self.http.status); 
+
+
+--------------------------------------
+app.js
+--------------------------------------
+- The app.js is used to test our EasyHTTP Ajax Library (i.e. easyhttp.js file) using https://jsonplaceholder.typicode.com/posts for fake API data to pass into our function. In our app.js file we tested:
+   GET Request - single post and multiple posts.
+
+   POST Request - our post method takes in 3 parameters. We used the url link. We created the const data object with properties as a dummy data. We used this const data variable to pass in as our data per our library second parameter. Finally, we used our callback function for asynchronous programming. We use the if statement to check for the error and if there is none we are going to console log the post.
+   > If we test this, we would see in the console the new data - but the data will have an id=101 which is created from https://jsonplaceholder.typicode.com/posts API on their server.
+
+   PUT Request - similar to the POST request method above. The URL requires the post id. It also requires data which we created a const data variable and this will be used as the second parameter to our PUT method per our EasyHttp Ajax library. The callback function is exactly the same as the above.
+
+   DELETE Request - similar to the GET request method, but we are deleting a post.
+
+- We commented out some of the methods, however, you can uncomment them to see how the EasyHTTP Ajax Library works within the browser JavaScript console.
+
+
+--------------------------------------
+Final Notes
+--------------------------------------
+This completes our EasyHttp Ajax library (using ES5 syntax) which can be used in any app.js file or projects. This makes writing HTTP request easier as the user does not have to write the full Ajax code which is the purpose of libraries (and this is similar to how libraries such as axios or superagent work but less depth as those libraries).
