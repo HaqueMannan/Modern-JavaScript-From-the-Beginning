@@ -1,0 +1,107 @@
+Section 6.11. The Fetch API:
+
+--------------------------------------
+The Fetch API
+--------------------------------------
+- The Fetch API is the newer standard for dealing with HTTP Request.
+- We can do the same things as the Ajax and XML HTTP request Object using the Fetch API.
+- if we type window in the JavaScript console, Fetch is now part of the window object.
+
+Please view the js_sandbox_6.11 folder for example of the Fetch API.
+
+- In our index.html file we have 3 buttons:
+Button 1: Fetches plain text files
+Button 2: Fetches JSON files
+Button 3: Fetches External API Data
+
+We have a sample.txt and posts.json files within our local directory.
+
+Our app.js file has three EventListeners on each buttons which will listen to the click event and trigger the different event functions which uses the Fetch API. These three event functions are described below.
+
+
+--------------------------------------
+Button 1: Get Local text file data (function getText())
+--------------------------------------
+- Use the Fetch function and in the parameter put whatever the data it is that you wish to get i.e. the sample.txt file.
+   > fetch('sample.txt')
+
+- Fetch returns promises and therefore we must use the .then keyword.
+   > .then(function(res)
+
+- The res object has different properties and methods (we can view them using console.log(res) which will show properties such as status 200(OK) and the __proto__ functions such as text() and json() etc.) - we are dealing with a text file so we used the text() function which returns a promise.
+   > return res.text();
+
+- We need to use another .then() on the promise data from the above - we can show the data in the console.
+   > .then(function(data)
+   > console.log(data);
+
+- We added the data in the innerHTML of the <div id="output"> element.
+   > document.getElementById('output').innerHTML = data;
+
+- We can catch the error by using the .catch keyword. We console.log the err.
+   > .catch(function(err)
+   > console.log(err);
+
+
+--------------------------------------
+Button 2: Get local json data (function getJson())
+--------------------------------------
+- Use the Fetch function and in the parameter put whatever the data it is that you wish to get i.e. the post.json file.
+   > fetch('posts.json')
+
+- Same as the above function, the fetch returns promises and therefore we must use the .then keyword.
+   > .then(function(res)
+
+- Same as above but instead we want to use the json() function because we are dealing with a JSON file.
+   > return res.json();
+
+- Same as the above function, we need to use another .then() on the promise data from the above - we can show the data in the console. The console will return the data as an JSON object.
+   > .then(function(data)
+   > console.log(data);
+
+- looping through the data array object to print out each data within our posts.json file.
+- let output variable created for the loop.
+   > let output = '';
+
+- Using forEach loop on our our data and passing in post as our iteration parameter which will be used as our key value.
+   > data.forEach(function(post)
+
+- The output variable will be updated each time the iteration passes. We use the object literal to create the <li> element with the post.title (0.title = Post One, 1.title = Post Two, 2.title = Post Three). Each iteration we are appending the current iteration output value to the previous output value.
+   > output += `<li>${post.title}</li>`;
+
+- We added the output variable value in the innerHTML of the <div id="output"> element.
+   > document.getElementById('output').innerHTML = output;
+
+- Same as above function, we can catch the error by using the .catch keyword. We console.log the err.
+   > .catch(function(err){
+   > console.log(err);
+
+
+--------------------------------------
+Button 3: Get from external API (function getExternal())
+--------------------------------------
+- Use the Fetch function and in the parameter put whatever the data it is that you wish to get i.e. the url for the external API data.
+   > fetch('https://api.github.com/users')
+
+- Same as the above function, the fetch returns promises and therefore we must use the .then keyword.
+   > .then(function(res)
+
+- Same as above, most external API return JSON file and therefore we will use the json() function.
+   >return res.json();
+
+- Same as the above function, we need to use another .then() on the promise data from the above - we can show the data in the console. The console will return the data as an JSON object.
+   > .then(function(data) {
+   > console.log(data);
+
+- The loop is exactly the same as Button 2, we are using the forEach loop to loop through the array object and using the object literal we are appending the let output variable to create a string value of all the <li> elements. The user is our iterator for the forEach loop and we want the login value from the API JSON object. The output variable value is then passed in the innerHTML of the <div id="output"> element.
+   > let output = '';
+   > data.forEach(function(user)
+   > output += `<li>${user.login}</li>`;
+   > document.getElementById('output').innerHTML = output;
+
+- Same as above function, we can catch the error by using the .catch keyword. We console.log the err.
+   > .catch(function(err)
+   > console.log(err)
+
+
+Github Users API Link: https://api.github.com/users
