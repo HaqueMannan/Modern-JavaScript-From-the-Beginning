@@ -1,0 +1,93 @@
+Section 6.12. Arrow Functions:
+
+--------------------------------------
+Arrow Functions
+--------------------------------------
+- Arrow Functions give us the benefit of writing less lines of code and making your code look much neater and provides lexical this.
+
+To create an arrow function:
+- from function(){...} remove the function keyword, leaving the () brackets remaining.
+- inbetween the ) and { add the arrow function => for example:
+   = () => {
+- we no longer need to use the {} curly braces and can write our function in one line e.g.
+   = () => console.log()
+
+Please view js_sandbox_6.12a folder for examples of using the arrow function.
+
+
+--------------------------------------
+Regular Function vs Arrow Functions
+--------------------------------------
+1) Regular Function:
+   const sayHello = function() {
+      console.log('Hello');
+   }
+
+2) Arrow Function:
+   const sayHello = () => {
+      console.log('Hello');
+   }
+
+3) Arrow Function (one line and no curly braces):
+   const sayHello = () => console.log('Hello');
+
+The above three functions create the same sayHello() function but with different syntax. As you can see the arrow function allow us to write shorter, neater and more readable code.
+
+--------------------------------------
+Regular Return Function vs Arrow Return Function
+--------------------------------------
+1) Regular Return Function:
+   const sayHello = function() {
+      return 'Hello';
+   }
+
+2) Arrow Return Function:
+   const sayHello = () => 'Hello';
+
+A return function does nothing, you either need to console.log() the function or set a variable value to the return function to display the return i.e. console.log(sayHello()); 
+Again the arrow function is much neater and shorter to write.
+
+--------------------------------------
+Arrow and Objects
+--------------------------------------
+1) The problem you will have with arrow functions and objects:
+   sayWelcome = () => { msg: 'Hello' };
+The console.log(sayWelcome()); will return undefined because it sees { msg: 'Hello' } as the function body. 
+
+To fix this issue we need to wrap everything within () brackets to indicate everything inside the parentheses is the body:
+   sayWelcome = () => ({ msg: 'Hello' });
+
+2) An Object Literal which has one parameter does not require parentheses () for example:
+   const sayHello = name => console.log(`Hello ${name}`);
+   sayHello("Tom");
+
+3) An Object Literal which has more than one parameter requires parentheses () for example:
+   const sayHello = (firstName, lastName) => console.log(`Hello ${firstName} ${lastName}`);
+   sayHello(Tom, Hardy);
+
+--------------------------------------
+Arrow Functions as Callbacks
+--------------------------------------
+1) Regular Function and Callbacks:
+   const nameLengths = users.map(function(name) {
+      return name.length;
+   });
+
+2) Arrow Function used as Callbacks:
+   const nameLengths = users.map((name) => {
+      return name.length;
+   });
+
+3) Arrow Function used as Callbacks (Alternative Syntax):
+   const nameLengths = users.map(name => name.length);
+
+   console.log(nameLengths);
+
+The map() is used for mapping different things, in this instance we are mapping the name lengths.
+As you can see the Arrow function can also be used for callbacks and allows for even shorter and neater coding syntax compared to the regular function.
+
+
+--------------------------------------
+Updating Fetch Example
+--------------------------------------
+Please view js_sandbox_6.12b folder which updates the code of the Fetch API from the previous section 6.11 The Fetch API, but now using the arrow functions syntax to tidy up the code.
