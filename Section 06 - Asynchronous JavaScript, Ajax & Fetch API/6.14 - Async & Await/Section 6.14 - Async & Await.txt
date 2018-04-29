@@ -1,0 +1,9 @@
+Section 6.14. Async & Await:
+
+--------------------------------------
+Async & Await
+--------------------------------------
+- We are going to look at a feature called Async Await which is part of ES7 (ES2016) standard but it is fully implemented in Chrome.
+- If you are going to use this feature in production you may wish to compile your code down to ES5 (using webpack & babel) to make sure it works in all browsers.
+
+Please view the js_sandbox_6.14 folder for example and commentary on the Async & Await ES7 feature.
