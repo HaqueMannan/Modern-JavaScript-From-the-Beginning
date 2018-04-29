@@ -1,0 +1,133 @@
+Section 6.13. Custom HTTP Library (Fetch With Promises) Part 3:
+
+--------------------------------------
+Custom HTTP Library (Fetch With Promises) Part 3
+--------------------------------------
+- The example
+- This library does the same thing as before but it has been updated to use new technologies. The EasyHTTP Library has been updated to use ES6 Classes, Fetch API and Promises and arrow functions.
+
+Please view the js_sandbox_6.13 folder for example of the updated Library.
+
+
+--------------------------------------
+index.html
+--------------------------------------
+- The index.html remains the same as the previous library (nothing has changed).
+- There is nothing in the body as everything will be tested in the JavaScript console of the browser.
+
+--------------------------------------
+easyhttp.js
+--------------------------------------
+> Comment block for the Application:
+   * EasyHTTP Library
+   * Library for making HTTP requests
+   *
+   * @version 2.0.0
+   * @author  Abdul-Haque Mannan
+   * @license MIT
+
+> Created a ES6 Class where we going to store all our methods within:
+   - class EasyHTTP {...}
+
+GET:
+> First method is the HTTP GET Request Method:
+   - get(url) {...
+   > takes in a url as a parameter.
+Asynchronous Code:
+   - return new Promise((resolve, reject) => {
+   > We are wrapping our fetch in a Promise and promise takes in resolve (what we want to do when it processes) and reject (what we want to do if it errors) parameters.
+   - fetch(url)
+   > fetch itself returns promises and this takes in the url as the parameter.
+   - .then(res => res.json())
+   > map the res to a json file as we are using JSON data using json() function.
+   - .then(data => resolve(data))
+   > taking the data and we are going to show the data in the console when it resolves.
+   - .catch(err => reject(err));
+   > If we catch an error we going to show the error in the console when it rejects.
+The app.js uses this Class Method to call the users data.
+
+POST:
+> Second method is the HTTP POST Request Method:
+   post(url, data) {...
+   > takes in a url and data as parameters.
+Asynchronous Code:
+   > wrapping our fetch code in a new Promise which takes in a function(resolve, reject). Arrow functions means we do not need to use the function keyword.
+      - return new Promise((resolve, reject) => {
+
+   > fetch takes in the url and also an object.
+      - fetch(url, {
+
+   > The HTTP method i.e. POST
+      - method: 'POST',
+
+   > The header takes in an object to identify the type of data i.e. json.
+      - headers: {'Content-type': 'application/json' }
+
+   > we need to turn the data object into a JSON sting using JSON.stringify method.
+      - body: JSON.stringify(data)})
+
+The rest of the code follows the same as the GET method using the .then and .catch methods for the reject and resolve.
+
+
+PUT (Update):
+> Third method is the HTTP PUT Request Method, which is written exactly the same as the POST method above but the only difference is that the method: is 'PUT':
+   - method: 'PUT',
+
+DELETE:
+> Final method is the HTTP DELETE Request Method - this is the same as the GET method above i.e. it takes in the url as a parameter. The only difference is that we pass in the method DELETE as well as the header:
+   - delete(url) {
+   - return new Promise((resolve, reject) => {
+   - fetch(url, {
+   - method: 'DELETE',
+   - headers: {
+   - 'Content-type': 'application/json' }
+   - })
+> The code follows the same resolve and reject as all the above methods. However, when it resolves it prints the message 'Resource Deleted...' in the console.
+
+
+--------------------------------------
+app.js
+--------------------------------------
+The app.js is used to test our EasyHTTP library and logs everything in the JavaScript Console. We are using https://jsonplaceholder.typicode.com/users but are retrieving users rather than posts.
+
+We create a const http variable as a new class object of EasyHTTP.
+
+Asynchronous way of getting the users from the API using the EasyHTTP GET Method:
+   http.get('https://jsonplaceholder.typicode.com/users')
+   .then(data => console.log(data))
+   .catch(err => console.log(err));
+> Using the get method we pass in the URL for the users API. With the promise we console.log(data) else if there is an error we console.log(err).
+> This should log the 10 Users data in the console from the external API.
+
+
+Asynchronous way of Creating a new user using the EasyHTTP POST Method:
+   http.post('https://jsonplaceholder.typicode.com/users', data)
+   .then(data => console.log(data))
+   .catch(err => console.log(err));
+> Using the post method and passed in the url for the users API. Passed in the data which we created and saved as const data variable.
+   const data = {
+      name: 'John Doe',
+      username: 'johndoe',
+      email: 'jdoe@gmail.com'
+   }
+> This console.log the new user and gives it an id=11 which indicates to us tha a new user has been added to the users.
+
+
+Asynchronous way of Updating an existing user data by using the EasyHTTP PUT Method:
+   http.put('https://jsonplaceholder.typicode.com/users/2', data)
+   .then(data => console.log(data))
+   .catch(err => console.log(err));
+> It updates the user with id=2 with the data we stored in the const data variable.
+   const data = {
+      name: 'John Doe',
+      username: 'johndoe',
+      email: 'jdoe@gmail.com'
+   }
+> The console.log will return the updated id=2 object data.
+
+
+Asynchronous way of Deleting an existing user data by using the EasyHTTP DELETE Method:
+   http.delete('https://jsonplaceholder.typicode.com/users/2')
+   .then(data => console.log(data))
+   .catch(err => console.log(err));
+> Deletes user with the id=2 and prints in the console 'Resource Deleted...' when process is successful.
