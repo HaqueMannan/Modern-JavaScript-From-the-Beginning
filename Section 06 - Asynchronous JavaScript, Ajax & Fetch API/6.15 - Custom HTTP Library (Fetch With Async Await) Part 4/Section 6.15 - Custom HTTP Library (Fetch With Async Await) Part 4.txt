@@ -1,0 +1,65 @@
+Section 6.15. Custom HTTP Library (Fetch With Async Await) Part 4:
+
+--------------------------------------
+Custom HTTP Library (Fetch With Async Await) Part 4
+--------------------------------------
+- This library does the same thing as before but it has been updated with ES7 Async Await.
+
+Please view the js_sandbox_6.15 folder for example of the updated Library.
+
+
+--------------------------------------
+index.html
+--------------------------------------
+- The index.html remains the same as the previous library (nothing has changed).
+- There is nothing in the body as everything will be tested in the JavaScript console of the browser.
+
+--------------------------------------
+easyhttp.js
+--------------------------------------
+> GET Method:
+   - async get(url) {
+   > Update functions into Asyc functions so that we do not need to create new promises.
+
+   - const response = await fetch(url);
+   > we await for fetch(url) and store it in response. We no longer require the .then keywords
+
+   - const resData = await response.json();
+   > We await for the response data to be converted into a .json file with the .json() object function.
+
+   - return resData;}
+   > return the resData.
+
+> POST Method:
+   - async post(url, data) {
+   > Async the post(url, data) and no longer require a new promise.
+   
+   - const response = await fetch(url,
+   - {method: 'POST',
+   - headers: {'Content-type': 'application/json'}, body: JSON.stringify(data)});
+   > const response and wait for the fetch POST method.
+
+   - const resData = await response.json();
+   > const resDara which awaits for the response.json() process to complete.
+
+   - return resData;}
+   > return resData.
+
+> PUT Method (Update):
+   - {method: 'PUT', 
+   > Same as the POST method above but with method as PUT.
+
+> DELETE Method:
+   - {method: 'DELETE', 
+   > Same as the GET method above but with method as PUT.
+
+   - const resData = await 'Resource Deleted...';
+   > Instead of returning a empty object we want to print 'Resource Deleted...' in the console.
+
+
+--------------------------------------
+app.js
+--------------------------------------
+The app.js is used to test our EasyHTTP library and logs everything in the JavaScript Console. We are using https://jsonplaceholder.typicode.com/users but are retrieving users rather than posts.
+
+Nothing has changed in this file,the syntax remains the same and the code is still Asynchronous.
