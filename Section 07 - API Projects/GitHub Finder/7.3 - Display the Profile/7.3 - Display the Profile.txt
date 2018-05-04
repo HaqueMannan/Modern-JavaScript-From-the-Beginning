@@ -1,0 +1,33 @@
+Section 7.3. API Project - GitHub Finder:
+
+--------------------------------------
+Display the Profile- index.html
+--------------------------------------
+> Added <script src=""> tags for ui.js - all are in specific order of:
+   github.js
+   ui.js
+   app.js
+
+
+--------------------------------------
+Display the Profile - github.js
+--------------------------------------
+> Remains the same as before, nothing new added.
+
+
+--------------------------------------
+Display the Profile - ui.js
+--------------------------------------
+> Created a constructor object which would assign the elementByID profile to the profile variable.
+   - class UI {
+   - constructor() {
+   - this.profile = document.getElementById('profile');}
+
+> Created a showProfile(user) method which takes in the user as a parameter and then stores a object literal of html elements of the profile within the innerHTML. This innerHTML is used display the profile within our app.
+
+
+--------------------------------------
+Display the Profile - app.js
+--------------------------------------
+> Added showProfile function from the ui.js file to display the profile in the placeholder <div> element with the id of profile.
+   - ui.showProfile(data.profile);
