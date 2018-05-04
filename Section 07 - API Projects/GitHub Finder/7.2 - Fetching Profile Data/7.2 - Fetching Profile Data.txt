@@ -1,0 +1,69 @@
+Section 7.2. API Project - GitHub Finder:
+
+--------------------------------------
+Fetching Profile Data - index.html
+--------------------------------------
+- Added <script src=""> tags in specific order of:
+   github.js
+   app.js
+
+
+--------------------------------------
+Fetching Profile Data - github.js
+--------------------------------------
+> Create Github ES6 Class Object.
+> create a constructor object of client id and client secret. These will be used to store the API Key and API Secret codes. 
+Note: You should get your own API key and secret from GitHub in order to use the GET request method without restrictions. The key in this project file may no longer work. It must be also noted that storing your API key and secret this way is not good practice especially for production because it will be visible in the browser by your users. This is OK for now as we are learning and not deploying an app.
+   - class Github {
+   - constructor() {
+   - this.client_id = 'd9308aacf8b204d361fd';
+   - this.client_secret = '84969aeef73956f4ec9e8716d1840532802bb81b';}
+
+> Create getUser(user) method which takes in the user as a paramter. Async used instead of new Promise.
+> variable profileResponse to await the fetch GET method - dynamically passing in object literals in the https string for the user, client_id and client_secret.
+   - async getUser(user) {
+   - const profileResponse = await fetch(`https://api.github.com/users/${user}?client_id=${this.client_id}&client_secret=${this.client_secret}`);
+
+> await the profileResponse to complete and then use the .json() function to convert the profileResponse into a JSON object which is stored in the variable profile.
+   - const profile = await profileResponse.json();
+
+> Return the Profile.
+   - return {profile}
+
+
+--------------------------------------
+Fetching Profile Data - app.js
+--------------------------------------
+> Create a new Github Class Object (instantiate/initialise a new Class Object).
+   - // Init Github
+   - const github = new Github;
+
+> Create a variable called searchUser which is assigned htmp element of searchUser.
+   - // Search input variable
+   - const searchUser = document.getElementById('searchUser');
+
+> Added event listener on the searchUser variable i.e. on the html element that has id = 'searchUser' to listen for the the keyup event (i.e. when a user presses a button and releases it up) 
+> Store the keyboard key value in the (e) event object parameter.
+> Take the user text input and store it in the userText variable.
+   - // Search input event listener
+   - searchUser.addEventListener('keyup', (e) => {
+   // Get input text
+   const userText = e.target.value;
+
+> If statement to check if the userText variable is not empty.
+> If statement is true then run the github.getUser method and pass in the userText as the parameter.
+   - if(userText !== ''){
+   - // Make http call
+   - github.getUser(userText)
+
+> The above will return a promise and so we will use the .then keyword on the returned data. We will use an arrow function to say what we want to do with the data.
+> If we console.log(data) this would return the profile. If a user did not exist the profile object would have a message of 'Not Found'. 
+> If statement to check if the profile.message is equal to 'Not Found'. If the statement is true we would want to show an alert else show the profile (this will occur in our ui.js file which we have not created yet but we are put the conditionals in for reference for now).
+   - .then(data => {
+   - if(data.profile.message === 'Not Found') {
+   - // Show alert} 
+   - else {// Show profile} })
+
+> Else statement to the first If statement above checking for userText is not equal to ''. If the statement is false then we want to clear the profile. If the search is empty we want to clear the profile; done through the ui.js file.
+   } else {
+      // Clear profile
