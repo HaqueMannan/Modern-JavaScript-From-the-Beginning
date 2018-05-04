@@ -1,0 +1,32 @@
+Section 7.4. API Project - GitHub Finder:
+
+--------------------------------------
+Show Alert Message - index.html
+--------------------------------------
+> Remains the same as before, nothing new added.
+
+
+--------------------------------------
+Show Alert Message - github.js
+--------------------------------------
+- Remains the same as before, nothing new added.
+
+
+--------------------------------------
+Show Alert Message - ui.js
+--------------------------------------
+> Created a showAlert(message, className) method which takes in the message and className as parameters and then creates a <div> element and adds a class to the element of the className. It appends the message to the <div> element and then inserts the alert message within the container element before the element with the class of search. The alert times out after 3 seconds and calls the clearAlert() method.
+
+> Created a clearAlert() method which checks the DOM for an element with a class of alert ans then assigns it to a variable called currentAlert. The if statement checks if there is currently a value for currentAlert and if the statement returns true then it will clear the element with the class of alert from the DOM.
+
+> Created a clearProfile() method which clears the innerHTML for the <div class=profile> element.
+
+
+--------------------------------------
+Show Alert Message - app.js
+--------------------------------------
+> Added showAlert function from the ui.js file to display the alert message.
+   - ui.showProfile(data.profile);
+
+> Added clearProfile function from the ui.js file to clear the <div> profile placeholder element.
+   - ui.clearProfile();
