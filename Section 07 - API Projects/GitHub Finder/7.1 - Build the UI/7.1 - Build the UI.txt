@@ -1,0 +1,23 @@
+Section 7.1. API Project - GitHub Finder:
+
+--------------------------------------
+Build the UI - index.html
+--------------------------------------
+- Bootswatch (https://bootswatch.com/) is used for the CSS.
+- Bootswatch provides variation of bootstrap templates. Used the Litera template.
+(bootswatch_litera_mins.css is a local copy of the link file in our index.html)
+- Bootstrap dependencies added as script tags at the bottom of the index.html in case required by the bootswatch css file.
+
+- Navbar with header of the application GitHub Finder.
+- Form which contains a <h1> and <p> description along with the search bar all wrapped in a <div> container.
+- A <div id="profile"> which will be used to display github user profiles.
+- Footer with the application name and copywrite © symbol.
+
+
+--------------------------------------
+Additional Notes:
+--------------------------------------
+- This project will use the GitHub API https://developer.github.com/v3/
+- The API has a restriction of 100 request per hour without an API Key.
+- Every time you press a key you will be making a request. You may want to register your application with GitHub to get a API Key and API secret on: https://github.com/settings/applications/new
+- You must have a GitHub account and logged in to register a new OAuth applications to get a API Key and API secret for your application.
