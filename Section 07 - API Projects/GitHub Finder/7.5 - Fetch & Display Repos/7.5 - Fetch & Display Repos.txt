@@ -1,0 +1,34 @@
+Section 7.5. API Project - GitHub Finder:
+
+--------------------------------------
+Fetch & Display Repos - index.html
+--------------------------------------
+> Remains the same as before, nothing new added.
+
+
+--------------------------------------
+Fetch & Display Repos - github.js
+--------------------------------------
+> Added to the Github class two more variables for the repos in the constructor object which will return the first 5 repositories and sort the repositories in ascending order:
+   - this.repos_count = 5;
+   - this.repos_sort = 'created: asc';
+
+> Added to the async getUsers(user) method another fetch http GET method to retrieve the repositories passing in the constructor variables within the object literal and storing it in a reposResponse variable.
+   - const repoResponse = await fetch(`https://api.github.com/users/${user}/repos?per_page=${this.repos_count}&sort=${this.repos_sort}&client_id=${this.client_id}&client_secret=${this.client_secret}`);
+> Await the reposResponse and then convert it into a JSON object using the json() function and then store the data in a variable called repos.
+   - const repos = await repoResponse.json();
+> Return repos, so now our getUsers class method will get the user profile as well as the 5 recent repositories for the user.
+   - return {profile, repos}
+
+
+--------------------------------------
+Fetch & Display Repos - ui.js
+--------------------------------------
+> Created a showRepos(repos) method takes in the repos as a parameter and then stores a object literal of html elements of the output within the innerHTML. This innerHTML is used display the repositories within our app.
+
+
+--------------------------------------
+Fetch & Display Repos - app.js
+--------------------------------------
+> Added showRepos function from the ui.js file to display the user's repositories.
+   - ui.showRepos(data.repos);
