@@ -1,0 +1,20 @@
+Section 7.6. API Project - WeatherJS:
+
+--------------------------------------
+Build the UI - index.html
+--------------------------------------
+- Bootswatch (https://bootswatch.com/) is used for the CSS.
+- Bootswatch provides variation of bootstrap templates. Used the Cerulean template.
+- Bootstrap dependencies added as script tags at the bottom of the index.html in case required by the bootswatch css file.
+
+- Placeholder for the weather information which will be populated by the API data requests.
+- Change location button which will open up a modal.
+- Modal form pops up so the user can enter the city and state details which will be used to select the city you wish to get the weather for which would also be stored in local storage.
+
+
+--------------------------------------
+Additional Notes:
+--------------------------------------
+- Weather Underground API used for this project - you will need to sign up to get a API Key.
+https://www.wunderground.com/weather/api
+
