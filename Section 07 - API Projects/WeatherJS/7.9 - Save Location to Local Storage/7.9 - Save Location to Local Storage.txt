@@ -1,0 +1,64 @@
+Section 7.9. API Project - WeatherJS:
+
+--------------------------------------
+Save Location to Local Storage - index.html
+--------------------------------------
+> Added script src tags for the JavaScript files in the specific order:
+   - <script src="storage.js"></script>
+   - <script src="weather.js"></script>
+   - <script src="ui.js"></script>
+   - <script src="app.js"></script>
+
+
+--------------------------------------
+Save Location to Local Storage - storage.js
+--------------------------------------
+> Created Storage class object and the constructor stores city, state, default city and default state.
+   - class Storage {
+   - constructor() {
+   - this.city;
+   - this.state;
+   - this.defaultCity = 'London';
+   - this.defaultState = 'UK';}
+
+> Object method getLocationData() will check for local storage for city and state. If there are no values then it will use the default city and state variable values.
+   - getLocationData()
+
+> Object method setLocationData(city, state) will set the city and state values based on getLocationData() method variables.
+
+
+--------------------------------------
+Save Location to Local Storage - weather.js
+--------------------------------------
+> Remains the same as before, nothing has been updated in the file.
+
+
+--------------------------------------
+Save Location to Local Storage - ui.js
+--------------------------------------
+> Remains the same as before, nothing has been updated in the file.
+
+
+--------------------------------------
+Save Location to Local Storage - app.js
+--------------------------------------
+> Initialised a new Storage class object.
+   - const storage = new Storage();
+> Called on object method getLocationData() to get location data from local storage.
+   - const weatherLocation = storage.getLocationData();
+
+> Updated the new Weather class object parameters to get the city and state from local storage rather than hard-coding the values.
+   - const weather = new Weather(weatherLocation.city, weatherLocation.state);
+
+> Added eventListener on the Change Location button click event which will store the city and state value from the modal form which will change the location and save it to local storage.
+   - document.getElementById('w-change-btn').addEventListener('click', (e) => {
+   - const city = document.getElementById('city').value;
+   - const state = document.getElementById('state').value;
+   - weather.changeLocation(city, state);
+   - storage.setLocationData(city, state);
+
+> Recall the getWeather function to update the UI data to the new city and state.
+   - getWeather();
+
+> Clear and hide the modal form - Bootstrap is dependant on jQuery to close the modal. This is the only line of code that uses jQuery syntax.
+   - $('#locModal').modal('hide');
