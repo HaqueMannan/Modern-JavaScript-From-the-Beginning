@@ -1,0 +1,51 @@
+Section 7.7. API Project - WeatherJS:
+
+--------------------------------------
+Fetch Weather From API - index.html
+--------------------------------------
+> Added script src tags for the JavaScript files in the specific order:
+   - <script src="weather.js"></script>
+   - <script src="app.js"></script>
+
+
+--------------------------------------
+Fetch Weather From API - weather.js
+--------------------------------------
+> New Class Object.
+   - class Weather
+
+> Constructor Object stores variables:
+   - this.apiKey = '99dfe35fcb7de1ee';
+   - this.city = city;
+   - this.state = state;
+
+getWeather() Method:
+> Fetch GET request method. Dynamically passes in API Key State and City into the http request object literal string.
+   - async getWeather()
+   - const response = await fetch(`http://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.state}/${this.city}.json`);
+
+> Returned request response converted into JSON Object using json() object method.
+   - const responseData = await response.json();
+
+> Return current_observation from the JSON data which is stored in responseData variable.
+   - return responseData.current_observation;
+
+changeLocation(city, state) Method:
+> Change the City and State variables by passing in the paramters.
+   - this.city = city;
+   - this.state = state;
+
+
+--------------------------------------
+Fetch Weather From API - app.js
+--------------------------------------
+> Created initialise new Weather class object and passed in the city and state parameters of London and UK.
+   - const weather = new Weather('London', 'UK');
+
+> Created eventListener on load for the getWeather() function.
+   - document.addEventListener('DOMContentLoaded', getWeather);
+
+> Currently logs the JSON object response (results) in the console.
+   - function getWeather()
+   - .then(results => {console.log(results);})
+   - .catch(err => console.log(err));
