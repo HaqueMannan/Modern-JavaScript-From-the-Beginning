@@ -1,0 +1,41 @@
+Section 7.8. API Project - WeatherJS:
+
+--------------------------------------
+Display the Weather - index.html
+--------------------------------------
+> Added script src tags for the JavaScript files in the specific order:
+   - <script src="weather.js"></script>
+   - <script src="ui.js"></script>
+   - <script src="app.js"></script>
+
+
+--------------------------------------
+Display the Weather - weather.js
+--------------------------------------
+> Remains the same as before, nothing has been updated in the file.
+
+
+--------------------------------------
+Display the Weather - ui.js
+--------------------------------------
+> Created new UI class object.
+   - class UI
+
+> Constructor Object stores all the various DOM elements in variables that we will use in our object method to update the data requested and retrieved from the weather API. For example:
+   - constructor() {
+   - this.location = document.getElementById('w-location');
+
+   - paint(weather) {
+   - this.location.textContent = weather.display_location.full;
+
+> This class is used to display the weather data in our applications.
+
+
+--------------------------------------
+Display the Weather - app.js
+--------------------------------------
+> Added initialiser for the UI object.
+   - const ui = new UI();
+
+> Updated the results to call on the paint object method to display the results from the UI object.
+   - .then(results => {ui.paint(results);}
