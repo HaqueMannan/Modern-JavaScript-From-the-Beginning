@@ -1,0 +1,34 @@
+Section 8.2. Regular Expressions [Part 1] - Evaluation Functions:
+
+--------------------------------------
+Regular Expressions - Evaluation Functions:
+--------------------------------------
+- In the next couple of sections we will be looking at regular expressions. This topic can get very complicated, so we will be keeping this topic between the beginner to intermediate level.
+- There are a lot of symbols and meta characters that mean a lot of things, and even for an experience developer, you will definitely need to lookup these things when it comes to regular expressions.
+- Regular Expression are possible in just about any languages and not just only in JavaScript. However, each language has their own flavour to regular expressions but they are similar and most things operate the same way.
+- Regular Expression is used to describe a pattern of characters.
+- It is used for pattern matching, searching, validation and extraction. For example email address, phone numbers, social security (NI) numbers and things that have a certain pattern in their formatting.
+- In this chapter we will look at the different JavaScript functions that are used to evaluate these regular expressions.
+
+
+--------------------------------------
+Regular Expression Syntax
+--------------------------------------
+To create a regular expression simply enter the string between two forward slashes for example:
+
+   RegEx = /Regular Expression/;
+
+Each character in the regular expression is seen as face value. This means the R is an R, e is an e, g is an g and so on. This is case sensitive.
+
+To make this case insensitive we can use a i flag after the regular expression for example:
+
+   RegEx = /Regular Expression/i;
+
+We can use basic evaluation functions with our regular expressions. Example evaluation function:
+- exec()
+- test()
+- match()
+- search()
+- replace()
+
+Please refer to the js_sandbox_8.2 folder for a full demonstration and explanation on evaluation functions.
