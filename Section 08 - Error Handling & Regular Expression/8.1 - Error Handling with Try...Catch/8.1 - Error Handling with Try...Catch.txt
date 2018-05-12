@@ -1,0 +1,49 @@
+Section 8.1. Error Handling with Try...Catch:
+
+--------------------------------------
+Error Handling with Try...Catch
+--------------------------------------
+- In this section we will look at error handling in JavaScript and what see what is a try...catch block.
+- A try block allows us to write a block of code and test for errors.
+- The catch block allows us to handle any errors in the test block.
+
+Refer to the js_sandbox_8.1 folder to see a demonstration of the try...catch block with explanations.
+
+
+--------------------------------------
+Syntax Logic:
+--------------------------------------
+The syntax for the try...catch is shown below:
+
+   try{
+      block of code to test.
+   } catch(err){
+      how to handle the error.
+   } finally {
+      run code no matter what occurs above.
+   }
+
+- The catch() function takes in an error object, this can be seen sometimes written as either e, err or error. It is personal preference as to what you use for the error object.
+
+- We can handle errors without stopping the entire script using the try...catch block. The code outside will continue to run. 
+
+- Without the try...catch block the script would error and the code will not continue to run until it is resolved. This allows us to handle errors within our code and continue to run the rest of the code.
+
+- The finally block will run no matter what occurs in the try and catch blocks above it, the code will continue to run.
+
+- We can use the throw keyword to create our own error handler messages.
+
+
+--------------------------------------
+Global/Core Error Types:
+--------------------------------------
+TypeError
+ReferenceError
+SyntaxError
+URIError
+
+
+--------------------------------------
+Creating Own Error
+--------------------------------------
+- We can create our own error messages using the throw keyword. We can also format it using the new SyntaxError object.
