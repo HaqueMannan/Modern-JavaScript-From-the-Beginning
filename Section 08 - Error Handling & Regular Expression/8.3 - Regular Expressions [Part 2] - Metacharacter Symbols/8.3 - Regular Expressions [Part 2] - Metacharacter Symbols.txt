@@ -1,0 +1,35 @@
+Section 8.3. Regular Expressions [Part 2] - Metacharacter Symbols:
+
+--------------------------------------
+Regular Expressions - Metacharacter Symbols
+--------------------------------------
+- Regular Expression strings must be contained within two forward slashes to create a Expression Literal for example:
+   /Hello/;
+
+- Regular Expression are case sensitive. To make a regular expression case insensitive we would use the i flag after the closing forward slash for example:
+   /Hello/i;
+
+
+- There are many different meta-characters symbols we can use within our regular expression string which have different results for example (this is not an exhaustive list):
+
+Symbol            Expression
+^                 Must start with
+$                 Must end with
+^ $               Must begin and end with
+.                 Matches any ONE character
+*                 Matches any character 0 or more times
+?                 Optional character
+\                 Escape characters
+
+Examples:
+Expression           Description
+/^h/i;               Must start with h
+/ d$/i;              Must end with d
+/^hello$/i;          Must start with h and end with o
+/H.llo/i;            Matches any one character i.e. Hillo or H£llo etc. would return true.
+/H*llo/i;            Matches any character 0 or more times i.e. Heeello or Hllo would return true.
+/Gre?y?/i;           The character before the ? symbol is an optional character i.e. e and y are optional.
+/Grey\?/i;           Escape character used so we want to match Grey? including the question mark.
+
+
+Please view the js_sandbox_8.3 folder to test the various mete-characters shown above to have an understanding of how these symbols can be used with Regular Expressions.
