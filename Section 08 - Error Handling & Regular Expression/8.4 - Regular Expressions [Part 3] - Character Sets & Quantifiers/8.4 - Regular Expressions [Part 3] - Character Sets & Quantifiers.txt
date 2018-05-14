@@ -1,0 +1,48 @@
+Section 8.4. Regular Expressions [Part 3] - Character Sets & Quantifiers:
+
+--------------------------------------
+Regular Expressions - Character Sets & Quantifiers
+--------------------------------------
+- Character sets are those within a square brackets []. These are at least one character within the square brackets that must be present for there to be match.
+- Quantifiers are those within curly brackets {} which quantifies the amount of time for the letter on the left of the brackets to appear for example l{2} means l must appear exactly 2 times i.e. ll for there to be a match.
+- Parentheses are those within a round brackets (). These are used for grouping.
+
+
+Character Sets    Expression
+[]                Must be one of the characters within the brackets.
+[^]               Match anything except the characters within the brackets.
+^[]               Has to begin with one of the characters within the brackets.
+[-]               Match a range of characters/numbers within the brackets.
+
+Examples:
+Expression        Description
+/gr[ae]y/i;       Must be either an a or an e and cannot by nothing e.g. gry will return no match.
+/[^GF]ray/i;      Anything except G or F.
+/^[GF]ray/i;      Must start with a G or F.
+/[A-Z]ray/i;      Match any characters between A-Z, case insensitive due to i flag.
+/[A-Za-z]ray/;    Match any characters between A-Z whether upper or lower case. 
+/[0-9]/;          Match any digit between 0-9.
+/[0-9][0-9]/;     Match any two digits that are between 0-9 and 0-9 e.g. 26.
+
+
+Quantifiers       Expression
+{x}               Must occur exactly x amount of times.
+{x,y}             Must occur exactly between x to y amount of times.
+{x,}              Must occur minimum x amount of time.
+
+Examples:
+Expression        Description
+/Hel{2}o/i;       The letter l must occur exactly 2 amount of amount of time.
+/Hel{2,4}/i;      The letter l must occur exactly between 2 to 4 amount of time.
+
+
+
+Parentheses       Expression
+()                Groupings.
+
+Examples:
+Expression        Description
+/^([0-9]x){3}$/   Grouping expression [0-9]x which must occur a exactly 3 amount of times (This is because we added the ^ must start with metacharacter. If we left the metachracter out then we can have any number of 3x for example 3x3x3x3x3x3x will return true).
+
+
+Please view the js_sandbox_8.4 folder to test the various mete-characters shown above to have an understanding of how these symbols can be used with Regular Expressions.
