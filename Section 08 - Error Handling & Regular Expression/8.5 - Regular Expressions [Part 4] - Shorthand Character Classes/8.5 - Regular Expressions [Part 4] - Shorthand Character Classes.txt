@@ -1,0 +1,25 @@
+Section 8.5. Regular Expressions [Part 4] - Shorthand Character Classes:
+
+--------------------------------------
+Regular Expressions - Shorthand Character Classes
+--------------------------------------
+- Assertions are kind of like conditionals.
+
+
+Character Classes    Expression
+\w                   Word character - alphanumeric or _
+\w+                  Checks one or more characters for alphanumeric or underscore _
+\W                   Non-Word character i.e. anything not a letter, number or underscore _
+\d                   Match any digit
+\d+                  Match any digit 0 or more times
+\D                   Match any non-digit i.e. anything that is not a number
+\s                   Match whitespace character i.e. space or tab
+\S                   Match non-whitespace character i.e. space or tab
+/Hell\b/i;           Word boundary i.e. find the word and not the word inside of another word.
+
+Assertions           Expression
+x(?=y)               Match x only if followed by y
+x(?!y)               Match x only if NOT followed by y
+
+
+Please view the js_sandbox_8.5 folder to test the various mete-characters shown above to have an understanding of how these symbols can be used with Regular Expressions.
