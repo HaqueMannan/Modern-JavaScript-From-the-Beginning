@@ -6,14 +6,14 @@
 
 
 /* HOW TO TEST REGULAR EXPRESSION WITH STRING FOR MATCHES:
-STEP 1) Change the Regular Expression on line 46 with your own expression.
+STEP 1) Change the Regular Expression on line 45 with your own expression.
 
 STEP 2) Change the const str variable value at line 51 to whatever string you wish to test, for example: const str = 'Hello'
 
 STEP 3) With Live Server running save this file and look at the JavaScript console to view the results to see if the String matches the Regular Expression. You will have 2 results one from the exec(str) function and the other from the reTest(re, str) function.
 
 STEP 4) Return to Default setup, save and close file once completed testing:
-Line 46 Default: re = /Change Me/i;
+Line 45 Default: re = /Change Me/i;
 Line 51 Default: const Str = 'Grey?';
 */
 
