@@ -1,0 +1,14 @@
+Section 9.1 - Iterators & Generators:
+
+--------------------------------------
+Iterators & Generators
+--------------------------------------
+- Iterators & Generators are both part of the ES6 standard.
+- Iterators & Generators are both different but are used in similar ways i.e. both used to iterate through something.
+- Iterators are kind of like advanced loops that can be paused.
+- Generators are functions that can be paused and can return multiple values.
+- To create a generator we must put a asterisk * after the function keyword to tell JavaScript the function is a generator for example:
+   function* generatorExample
+
+
+Please view the js_sandbox_9.1 folder for examples and explanation of Iterators and Generators.
