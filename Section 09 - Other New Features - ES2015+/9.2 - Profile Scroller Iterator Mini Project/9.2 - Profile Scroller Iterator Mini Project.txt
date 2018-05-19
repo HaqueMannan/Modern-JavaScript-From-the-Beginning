@@ -1,0 +1,35 @@
+Section 9.2. Profile Scroller Iterator Mini Project:
+
+--------------------------------------
+index.html
+--------------------------------------
+- Bootstrap cdn used for the CSS framework.
+- Bootstrap dependencies on jQuery, Popper.js and bootstrap.js in that particular order.
+- Boilerplate template can be found on Bootstrap webpage: https://getbootstrap.com/
+- <h1> element for Title.
+- <div> x2 element for the Profile Image and Profile Display.
+- Next button to view next profile i.e. EventListener to trigger functions from the app.js file.
+
+
+--------------------------------------
+app.js
+--------------------------------------
+> Data array holds the three different profile object which has both the profile data and profile images. This array will be used to iterate through the array object. Usually the data will come from an API or a backend database but we have hardcoded the data for this mini project.
+
+> The profiles variable initialises the profileIterator(data) which takes in the data profile array object.
+- const profiles = profileIterator(data);
+
+> When the application launches it calls on the nextProfile() function to load the first profile.
+
+> The nextProfile() function sets a variable of currentProfile which is set to profiles variable. 
+> The .next() function iterates through the data object and the .value will return the value of the iterated object.
+> If statement checks to see if the profiles.next().value does not return undefined. If true then it will use the template literal to generate the html elements to pass into the <div> elements for both the profile image and profile data. If the statement returns false then it will reload the page which will loop back to the first profile.
+
+> There is an eventListener for the click event on the Next button. When this event is triggered it calls on the nextProfile() function to load/switch to the next profile.
+
+> The profileIterator(profiles) is the iterator function. 
+- we want to use the next function to iterate and return an object. Using a ternary operator we will check to see if the index number is smaller than the profile.length (number of profiles within data i.e. less than 3).
+- If the statement is true it will return the object { value: profiles[nextIndex++], done: false}. We will use the nextProfile index number and iterate by +1 to select the value of the profiles object index position. 
+- If the statement is false then it will return an object of {done: true}. This will return a value of undefined which will trigger the page reload.
+
+This will allow the user to continuously switch/scroll between the 3 profiles using the next button.
