@@ -1,0 +1,12 @@
+Section 9.4. Destructuring:
+
+--------------------------------------
+Destructuring
+--------------------------------------
+- Introduced in ES6. It allows us to assign variables and extract variables from arrays and objects.
+- Framework such as React uses destructuring or any modular JavaScript uses destructuring.
+- In Rest Patterns the ...rest is known as the spread operator. This assigns whatever is left in an array to the variable called rest.
+- Destructuring can apply to both Arrays and Objects (although destructuring of arrays is not as useful compared to destructuring of objects).
+
+
+Please view the js_sandbox_9.4 folder for examples and explanation of destructuring.
