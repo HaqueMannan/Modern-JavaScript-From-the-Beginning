@@ -1,0 +1,10 @@
+Section 9.3. Symbols:
+
+--------------------------------------
+Symbols
+--------------------------------------
+- In Section 01 we looked at data types and briefly established that symbols were primitive data types. Symbols are part of the ES6 standard.
+- Every single symbols are unique which make them valuable in terms of object property identifiers. This is the main purpose of symbols i.e. their uniqueness.
+- Symbols are enumerable in for...in loops and symbols are ignored in JSON.stringify method.
+
+Please view the js_sandbox_9.3 folder for examples and explanation of Symbols.
