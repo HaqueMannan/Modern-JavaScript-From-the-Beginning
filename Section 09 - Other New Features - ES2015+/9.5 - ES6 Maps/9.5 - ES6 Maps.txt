@@ -1,0 +1,12 @@
+Section 9.5. Maps:
+
+--------------------------------------
+ES6 Maps
+--------------------------------------
+- Maps are a new object structure introduced in ES6.
+- A Map is an object that holds key value pairs and any value whether its an object reference type or primitive used as a key or value.
+- Maps are a constructor and we create it by setting a variable to new Map().
+- You can create an empty object as a key.
+
+
+Please view the js_sandbox_9.5 folder for examples and explanation of ES6 Maps.
