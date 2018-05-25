@@ -1,0 +1,15 @@
+Section 9.6. Maps:
+
+--------------------------------------
+ES6 Maps
+--------------------------------------
+- Sets are a list or set of unique values of any type whether it is primitive or reference.
+- They are always unique i.e. cannot have the same Sets twice.
+- To create a new set we would use the new Set() constructor.
+- To add values to a set there are two methods: 
+   > Add to the parameters of the new Set(value1, value2 etc.)
+   > Use the .add method to add values to the set.
+- To delete values from a set we would use the .delete() method passing in th value within the parenthesis.
+- We can iterate through a set using loops and also covert sets into arrays.
+
+Please view the js_sandbox_9.6 folder for examples and explanation of ES6 Sets.
