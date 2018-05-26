@@ -1,0 +1,53 @@
+Section 10.2. Module & Revealing Module Pattern:
+
+--------------------------------------
+Module & Revealing Module Pattern
+--------------------------------------
+- We will be looking at Module Pattern and the slight variation called the Revealing Module Pattern.
+- ES6 introduced actual module into JavaScript, meaning we can use separate files to export modules (which are custom pieces of code) and import them into a new file. However, this is not still supported in browsers and you will have to use a compiler like babel along with a module loader like webpack for that to work.
+- In ES5 we have something called the module pattern that allows us to breakup parts of our code into self contained modules with private properties/methods or private variables/functions.
+
+Please refer to the js_sandbox_10.2 folder for example of module pattern and revealing module pattern.
+
+
+--------------------------------------
+Module Pattern Base Structure
+--------------------------------------
+- Below is a Module that is going to be a IIFE (immediately-Invoked Function Expression), which means that the function will run right away. To do this we wrap the anonymous function in parenthesis to make it an expression and then put parenthesis afterwards to run the function immediately. For Example:
+
+   (function() {
+      // Private variables and functions
+
+      return{
+         // Public variable and functions
+      }
+   })();
+
+- The idea of the module pattern is to declare private variables and functions (private meaning that you cannot access it outside the module) followed by a return where we would declare public variables and functions (public meaning that it can be accessed outside the module). The return block of code can still access the private variables and functions as it is still within the module scope.
+- This is the blue print for module pattern.
+
+
+--------------------------------------
+Revealing Module Pattern
+--------------------------------------
+- This is very similar to the Module Pattern. The main difference is that instead of returning our own public function, you map object literals to the private functions you want to reveal. This is why it is called the revealing pattern because you can reveal certain methods from your modules.
+- Please note that you will sometimes see some codes that use underscores before the variable name for example:
+   _privateVariable
+- This is allowed, but should only be done if the variable is a private variable. This is entirely a programmers/coders preference.
+
+
+   (function() {
+      // Private variables and functions
+
+      return{
+         // Object literal: private variable and function
+      }
+   })();
+
+
+
+--------------------------------------
+Module Pattern vs Revealing Module Pattern
+--------------------------------------
+- Revealing Moldule Pattern looks more cleaner but you are limited to what is within the private function.
+- Module Pattern looks less cleaner but you can run more code within the public function without actually having it within your private function.
