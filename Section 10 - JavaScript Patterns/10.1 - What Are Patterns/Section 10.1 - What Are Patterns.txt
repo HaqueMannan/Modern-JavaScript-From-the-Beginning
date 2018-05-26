@@ -1,0 +1,21 @@
+Section 10.1. What Are Patterns:
+
+--------------------------------------
+Patterns Introduction
+--------------------------------------
+- In section 10 we are going to look at JavaScript Patterns.
+- All programming languages have a design patterns that are used in a wide variety of situations.
+- A re-usable solution that can be applied to occuring problems in software design (in this case we are talking about JavaScript Applications).
+- Can also be thought of as programming templates.
+- Situations vary significantly.
+
+--------------------------------------
+Patterns We Will Look At
+--------------------------------------
+> Module (used for overall structure)
+> Revealing Module Pattern (used for overall structure)
+> Singleton (variation of the module pattern to create a single object)
+> Factory (used to create many objects)
+> Observer (subscribe and unsubscribe to events)
+> Mediator (central mediator and colleagues)
+> State (certain state in the application and change that state)
