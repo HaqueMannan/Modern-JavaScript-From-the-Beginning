@@ -1,0 +1,19 @@
+Section 10.3. Singleton Pattern:
+
+--------------------------------------
+Singleton Pattern
+--------------------------------------
+- Singleton Pattern is another variation/manifestation of the module pattern. It is used to create objects, but you can only instantiate the object once.
+- A singleton object is an immediate anonymous function and it can only return one instance of an object at a time.
+- Repeated calls to the constructor will return the same instance.
+- Just like the Module Pattern, it maintains a private reference which nothing from the outside can access.
+- Example of why you would use a singleton, if you want one user object created at a time to prevent 2 users created at once.
+
+- Please refer to the js_sandbox_10.3 folder for example of Singleton Pattern.
+
+--------------------------------------
+Examples of using Singleton Pattern
+--------------------------------------
+- A common use for a singleton is to access a config file. There is only ever one config file, so every item that you want to access it (it = config), you want to access the same data. If you modify the data, you want the new version to be available everywhere.
+
+- Think about an application that allows multiple users to control volume. When one user sets the volume to 8, it is set globally throughout the application. If another user wants to control the volume, they will start from 8. If they change it to 4, the application updates the volume to 4 so all users get a volume of 4. Applications with such object model functionality are called singletons.

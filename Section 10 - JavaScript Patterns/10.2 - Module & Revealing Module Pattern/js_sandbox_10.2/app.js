@@ -14,7 +14,7 @@ Module & Revealing Module Pattern
 
    return {
       // Declare public var and functions
-  }
+   }
 })();
 
 
