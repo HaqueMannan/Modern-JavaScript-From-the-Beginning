@@ -1,0 +1,14 @@
+Section 10.5. Observer Pattern:
+
+--------------------------------------
+Observer Pattern
+--------------------------------------
+- Observer Pattern allows us to subscribe and unsubscribe to certain events and functionality.
+- It allows for a subscription model.
+- It can notify the DOM of certain elements to be updated (AngularJS relies heavily on this pattern).
+
+- Please refer to the js_sandbox_10.5 folder for example of Observer Pattern.
+- There are two JavaScript files: 
+   > app.js shows an example using prototypes.
+   > appES6.js shows an example using ES6 classes. This is exactly the same as app.js except it converts the prototype into ES6 classes.
+- We are creating buttons that will allow us to subscribe and unsubscribe to certain click events. The fire button will trigger the console log of either milliseconds or second based on what click event the user has subscribed to.
