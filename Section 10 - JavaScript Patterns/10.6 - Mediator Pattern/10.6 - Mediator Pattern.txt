@@ -1,0 +1,12 @@
+Section 10.6. Mediator Pattern:
+
+--------------------------------------
+Mediator Pattern
+--------------------------------------
+- Another behavioural pattern like the Observer Pattern. 
+- The logic behind this pattern is to have a mediator and colleagues.
+- Mediators is a interfaces for communicating with colleagues.
+- Colleagues are mediated objects.
+- The best example of a Mediator Pattern is a chatroom.
+
+- Please refer to the js_sandbox_10.6 folder for example of Mediator Pattern.
