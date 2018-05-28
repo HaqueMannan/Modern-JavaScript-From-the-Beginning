@@ -1,0 +1,10 @@
+Section 10.4. Factory Pattern:
+
+--------------------------------------
+Factory Pattern
+--------------------------------------
+- Factory Pattern (also known as factory method) is a way of creating interface for creating objects but we can let sub classes to define which classes to instantiate.
+- Often used to manage, maintain and manipulate collections of objects that are different but at the same time have many common characteristics for example a member/membership.
+- It is really useful when you have different objects but they share alot of the same properties and methods.
+
+- Please refer to the js_sandbox_10.4 folder for example of Factory Pattern.
