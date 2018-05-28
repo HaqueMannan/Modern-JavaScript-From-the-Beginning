@@ -1,0 +1,9 @@
+Section 10.7. State Pattern:
+
+--------------------------------------
+State Pattern
+--------------------------------------
+- The State Pattern is another behavioural pattern.
+- We have a state that we can change throughout our scripts so that if we want to do certain actions on certain states or display certain content we can do that using State Pattern.
+
+- Please refer to the js_sandbox_10.7 folder for example of State Pattern.
