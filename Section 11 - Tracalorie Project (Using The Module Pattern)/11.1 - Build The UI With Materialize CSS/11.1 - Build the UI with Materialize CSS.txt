@@ -1,0 +1,19 @@
+Section 11.1. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - index.html
+--------------------------------------
+- Using Materialize CSS framework
+https://materializecss.com/
+- Using Font-Awesome
+https://fontawesome.com/
+https://www.bootstrapcdn.com/fontawesome
+
+- jQuery and Materialize Javascript dependencies added at the bottom in that particular order.
+
+- Blue Navbar but no links. Only the Application name and a clear button.
+- Container to center content.
+- Form Card to hold the content i.e. the Add Meal/Food Item and Calorie.
+- Added all button i.e. Add Meal, Update Meal (commented out), Delete Meal (commented out) and Back button. All will appear in the Form Card, but not all will appear at the same time. We have commented out some of the buttons because they will be generated through the JavaScript.
+- Calorie Count added as a <h3> element to store the calorie count.
+- Finally the item list is recorded as an <ul> list that will sit below the form and calorie count. The <li> elements are hardcoded to see the markup; however, these will be auto-generated through JavaScript based on the user completing the form.
