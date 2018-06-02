@@ -1,0 +1,38 @@
+Section 11.3. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - index.html
+--------------------------------------
+- Added 'edit-item' to the <i class="fa fa-pencil"></i> element class to keep it consitent with our template literal below in our app.js file.
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - app.js
+--------------------------------------
+ItemCtrl Controller:
+- added to the public method of getItems() which will return the data.items ie. the items array property from the const data variable.
+
+
+UICtrl Controller:
+- Created a object called UISelectors which holds any html is or class names that we would use in a querySelector.
+- Created itemList within the UISelectors object to store the id #item-list.
+
+- PopulateItemList: function(items) method created which takes in items as a parameter. This will loop through the items and will make each item into a <li> list element and then insert it to the <ul> element.
+- initialize a let html variable and set it to nothing.
+- using a forEach loop to loop through the items. The forEach function takes in a callback function which has an identifier as a parameter which we named as item i.e.
+   > items.forEach(function(items))
+- We take the html variable and append to it using the += and then followed by the template literals (template strings) so that we can put variables within the string (rather than using ES5 concatenation).
+The variables we are using are from the ItemCtrl item property i.e. item.id, item.name and item.calories variables.
+   > `<li class="collection-item" id="item-${item.id}">
+   >     <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+   >        <a href="#" class="secondary-content">
+   >           <i class="edit-item fa fa-pencil"></i>
+   >        </a>
+   > </li>`;
+- Insert the above html variable (which now contains the template literal for each item from the data.items) and add it to the DOM. Using querySelector to select the element with the id of UISelector.itemList (which is essentially the same as saying "#item-list") and use the method of innerHTML = the html variable which holds the template string we created in the forEach loop.
+- If for some reason in the HTML file the id name was to change for the #item-list, all we need to do is update the itemList variable value within the UISelector (one place) and it will update all around the application, which makes our code more efficient and scalable.
+
+
+App Controller:
+- Removed the console.log('initializing App...')
+- Added to the App init method a const variable to hold the items and this variable calls on the ItemsCtrl.getItems() method we created in the ItemsCtrl controller. This will run when the application initializes.
+- Added to the App init method the UICtrl.PopulateItemList(items) method we created in the UICtrl controller. This takes in the items as a parameter from the method above which fetches the items data array. This will create the list of items within our application when it initializes.
