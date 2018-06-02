@@ -1,0 +1,54 @@
+Section 11.2. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - index.html
+--------------------------------------
+- Commented out the hardcoded <li> element items within the file.
+- Added script src element to link to app.js file.
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - app.js
+--------------------------------------
+- Using the Module Pattern for our controllers.
+- Storage Controller for local storage. Local Storage will be configured at the end.
+- Item Controller for the local data - this is for the food item, calorie etc.
+- UI Controller for anything that has to do with the UI of the app.
+- Main App Controller where everything will meet and also where we will have all our event listeners.
+- Initializer for the App.
+
+- Naming Convention for Controllers:
+   > ItemCtrl 
+   > UICtrl
+   > App
+- All the controllers = IIFE (Immediately Invoked Function Expression) - will run automatically right away.
+- The main controller is the App Controller and so the other controllers are passed into the App Controller (storage controller will be added later). These parameters will also need to be within the invoked parameter as well.
+   > const App = (function(ItemCtrl, UICtrl)){...})(ItemCtrl, UICtrl);
+
+ItemCtrl Controller:
+- When creating an Item using our html forms we need a constructor so that we can create and item and then we can add it to the state/data structure. This is where the ItemCtrl is used.
+- the item constructor takes in three parameters; id, name and calories.
+- constructor requires this.constructorName = the property being passed e.g.
+   > this.id = id
+   > this.name = name
+   > this.calories = calories
+Data Structure / State (think of an React Application when we think of State):
+- const data variable (can be called state) will hold 3 properties - items:[], currentItems:null and totalCalories:0
+   > items is an empty array.
+   > currentItems will be used when we want to update an item. The CurrentItem will be updated and will be displayed in the form ready for the user to update the item and calorie.
+   > totalCalories will hold the number value for the total calories which is set to 0 by default.
+- This is the build of our data structure or state for our application.
+- We added some items into the array which are hardcoded data to start with to test our application but later will remove.
+- In the Module Pattern everything above in the ItemCtrl is private and is not accessible from the web browser. In order to test this data we need a return from the module which will be made public. We created a logData() function within our return to output the data.
+   >  return {
+   >     logData: function(){
+   >     return data;
+   >  }
+- In the browser console if we type ItemCtrl.logData() this will return the hardcoded data within our Item constructor.
+
+UICtrl Controller:
+- This will be setup later but the purpose of the module is to control all the UI elements of the application.
+
+App Controller:
+- This will return one method which is the init for the app i.e. anything we need to run right away when the application loads that is what the App controller will hold.
+
+- The important function of the init method is that it is going to call on a method called getItems which will get all of the items from the ItemCtrl controller and then use the UICtrl controller to populate the list. All these modules are going to work closely together and we will see that when we start to form this application.
