@@ -1,0 +1,23 @@
+Section 11.5. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - index.html
+--------------------------------------
+- Updated calories input type from text to number. This will force the user to enter a number for the calories and will not accept string letters as an input.
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Commented out the hardcoded data structure items.
+
+UICtrl Controller:
+- Added 3 new methods: addListitem(item), clearInput() and hideList()
+- addListitem(item) takes in the item as a parameter and creates a <li> element in the DOM.
+- clearInput() will clear the form.
+- hideList() is used to hide the <ul> element when there is nothing within the list. This is a tidyup of the User Interface to not show the break line after the Total Calories when there is no list below.
+
+
+App Controller:
+- Updated loadEventListener method to add item to the UI list (UICtrl.addListitem(NewItem)) and clear form input (UICtrl.clearInput()) within the if statement.
+- Updated the init method to add an if statement to check if there are any items. If there are no items then it will call on the UICtrl.hideList() function else it will call on the UICtrl.populateItemList(items) function.
