@@ -1,0 +1,41 @@
+Section 11.4. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Build UI with Material CSS - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Created addItem method in the public methods. This takes in the name and calories as parameters.
+- addItem will generate the ID data for the item using logic and parse the calories from a string to a number value.
+- If statement to check if the .length of items within data is greater than 0. If true then: then set the ID to [data.items.length - 1].id which will get the last ID number and then +1 to increment the new ID number for the new object. Else: set the ID = 0.
+- Parse calories from a string to a number.
+- Create a new Item using the item constructor. This takes in the parameters of ID, Name and Calories.
+- We want to push the new item into the const data array (data structure).
+- Return the newItem.
+
+
+UICtrl Controller:
+- created public method called getSelectors (which returns UISelectors) to allow the App controller to call on i.e. have access to the UISelector objects.
+- Updated UISelector to add more id and classes variables within the object.
+- created a public method called getItemInput which returns the name and calories from the form using querySelector and passing in the id/class from the UISelector object and returning the value as an object.
+
+
+App Controller
+- Created a private function expression called loadEventListeners. All our events will go inside here.
+- App controller cannot access the UISelector directly because it is a private method of UICtrl; however, we have made a public method in the UICtrl to allow the App controller to have access to these UISelectors which we have stored in a variable called UISelectors.
+- Created Event that listens to the click of the add button which will call on the itemAddSubmit.
+- ItemAddSubmit method goes below the loadEventListeners method. This method
+- To validate an item within the form input, the App controller will call on the UICtrl getItemInput and store this within the const input variable.
+- If statement to check for both name and calorie input have been completed.
+- we want to prevent the default behaviour using the e.preventDefault() method.
+- Updated the init method to call on loadEventListeners
+
+
+Important Note:
+- When we click on the Add Item button nothing will happen in the UI. What is actually happening is that he new Item is being added to the data structure. If we type in the browser console:
+   > ItemCtrl.logData();
+This will return the data structure which should have your added item to the hardcoded list array.
