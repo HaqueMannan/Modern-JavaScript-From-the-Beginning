@@ -46,7 +46,7 @@ const ItemCtrl = (function(){
 
          // Create new item
          newItem = new Item(ID, name, calories);
-
+         
          // Add to items array
          data.items.push(newItem);
 
@@ -78,13 +78,13 @@ const UICtrl = (function(){
          items.forEach(function(item){
             html += 
             `<li class="collection-item" id="item-${item.id}">
-               <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
-                  <a href="#" class="secondary-content">
-                     <i class="edit-item fa fa-pencil"></i>
-                  </a>
+            <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+            <a href="#" class="secondary-content">
+            <i class="edit-item fa fa-pencil"></i>
+            </a>
             </li>`;
          });
-   
+
          // Insert list items
          document.querySelector(UISelectors.itemList).innerHTML = html;
       },
@@ -93,7 +93,7 @@ const UICtrl = (function(){
             name:document.querySelector(UISelectors.itemNameInput).value,
             calories:document.querySelector(UISelectors.itemCaloriesInput).value
          }
-       },
+      },
       getSelectors: function(){
          return UISelectors;
       }
@@ -118,27 +118,27 @@ const App = (function(ItemCtrl, UICtrl){
    const itemAddSubmit = function(e){
       // Get form input from UI Controller
       const input = UICtrl.getItemInput();
-
+      
       // Check for name and calorie input
       if(input.name !== '' && input.calories !== ''){
          // Add item
          const newItem = ItemCtrl.addItem(input.name, input.calories);
       }
 
-   e.preventDefault();
- }
+      e.preventDefault();
+   }
 
    // Public methods
    return {
       init: function(){
-      // Fetch items from data structure
-      const items = ItemCtrl.getItems();
+         // Fetch items from data structure
+         const items = ItemCtrl.getItems();
 
-      // Populate list with items
-      UICtrl.populateItemList(items);
+         // Populate list with items
+         UICtrl.populateItemList(items);
 
-      // Load event listeners
-      loadEventListeners();
+         // Load event listeners
+         loadEventListeners();
       }
    }
 
