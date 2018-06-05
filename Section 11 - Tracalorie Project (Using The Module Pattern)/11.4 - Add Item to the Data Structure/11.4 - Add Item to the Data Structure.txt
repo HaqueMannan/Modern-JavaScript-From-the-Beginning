@@ -1,12 +1,12 @@
 Section 11.4. Tracalorie Project (Using The Module Pattern):
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - index.html
+Tracalorie - Add Item to the Data Structure - index.html
 --------------------------------------
 - No changes made to this file.
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - app.js
+Tracalorie - Add Item to the Data Structure - app.js
 --------------------------------------
 ItemCtrl Controller:
 - Created addItem method in the public methods. This takes in the name and calories as parameters.

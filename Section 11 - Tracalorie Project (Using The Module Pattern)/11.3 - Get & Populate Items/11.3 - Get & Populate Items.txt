@@ -1,12 +1,12 @@
 Section 11.3. Tracalorie Project (Using The Module Pattern):
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - index.html
+Tracalorie - Get & Populate Items - index.html
 --------------------------------------
 - Added 'edit-item' to the <i class="fa fa-pencil"></i> element class to keep it consitent with our template literal below in our app.js file.
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - app.js
+Tracalorie - Get & Populate Items - app.js
 --------------------------------------
 ItemCtrl Controller:
 - added to the public method of getItems() which will return the data.items ie. the items array property from the const data variable.

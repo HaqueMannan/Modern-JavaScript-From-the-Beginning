@@ -1,13 +1,13 @@
 Section 11.2. Tracalorie Project (Using The Module Pattern):
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - index.html
+Tracalorie - Controllers & Data Structure - index.html
 --------------------------------------
 - Commented out the hardcoded <li> element items within the file.
 - Added script src element to link to app.js file.
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - app.js
+Tracalorie - Controllers & Data Structure - app.js
 --------------------------------------
 - Using the Module Pattern for our controllers.
 - Storage Controller for local storage. Local Storage will be configured at the end.

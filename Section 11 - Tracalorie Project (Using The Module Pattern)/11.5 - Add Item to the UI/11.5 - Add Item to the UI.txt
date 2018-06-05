@@ -1,12 +1,12 @@
 Section 11.5. Tracalorie Project (Using The Module Pattern):
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - index.html
+Tracalorie - Add Item to the UI - index.html
 --------------------------------------
 - Updated calories input type from text to number. This will force the user to enter a number for the calories and will not accept string letters as an input.
 
 --------------------------------------
-Tracalorie - Build UI with Material CSS - app.js
+Tracalorie - Add Item to the UI - app.js
 --------------------------------------
 ItemCtrl Controller:
 - Commented out the hardcoded data structure items.
