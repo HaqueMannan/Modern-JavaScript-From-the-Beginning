@@ -1,0 +1,23 @@
+Section 11.6. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Add Total Calories - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Add Total Calories - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Created getTotalCalories function in the public method which loops through the items and adds the calories and stores the value in the let total variable. We then set the data.totalCalories to the total value and return the data.totalCalories value in the public method which will be accessible by the App Controller.
+
+
+UICtrl Controller:
+- Updated UISelector to reference the totalCalories class/id within our HTML.
+- Created showTotalCalories function in our public method which will display the totalCalories as a text content within the DOM.
+
+
+App Controller:
+- Updated the itemAddSubmit function by creating a const totalCalories variable that is set to the ItemCtrl.getTotalCalories public function. 
+- UICtrl.showTotalCalories(totalCalories) takes in the above parameter to show the total calories within the UI of our applications, this calls on the UICtrl public function. 
+- We added the above two functions within the public method because if items were stored in local storage, we would want to calculate the calories when the application initializes else the total will always euqal 0 on initialize of the app.
