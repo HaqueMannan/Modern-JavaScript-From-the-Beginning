@@ -1,0 +1,35 @@
+Section 11.7. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Working with the Edit State - index.html
+--------------------------------------
+- Uncommented the Update and Delete button. 
+
+--------------------------------------
+Tracalorie - Working with the Edit State - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Added getItemById, setCurrentItem and getCurrentItem functions within the public method.
+- getItemById function loops through the items and match the id. This will get the object that we want to edit.
+- setCurrentItem function sets the data.getCurrentItem to the item value passed in as a parameter.
+- getCurrentItem function to return the data.currentItem.
+
+
+UICtrl Controller:
+- Updated UISelector to include the Update, Delete and Back button id/class in variables.
+- Created addItemToForm, showEditState and clearEditState function the the UICtrl public function.
+- addItemToForm will add the current item data in the form using a querySelector to select the form element and set the value by calling on the ItemCtrl.getCurrentItem function to get the current item name and calories.
+- clearEditState calls on the clearInput function to clear the form and then changes the style of the update, delete and back button to none and the add button to inline. This will hide all the buttons except the Add button.
+- showEditState is the opposite of the clearEditState.
+
+
+App Controller:
+- Created an event listener for the edit pencil icon to call on the itemUpdateSubmit function. Important note: because we are inserting the items in the DOM (i.e. the edit button is not orignally there) we cannot get it directly using the querySelector, instead we need to use delegation through a parent element to check to make sure we are selecting/clicking on the the edit pencil button.
+- Below the itemAddSubmit function we created the itemUpdateSubmit function. To target the edit pencil button we used an if statement on the e event object to check that the target.classList.contains() has the class edit-item.
+   > This will then get the id from the parent parent node of the clicked item e.g. item-0 
+   > This will split the text using the hyphen (-) as the delimiter and store it in an array called listIdArr.
+   > We would only want the number from the array and so the number will always be stored in index 1 (remember 0 indexing) of the listIdArr. We will store this value in id but before storing the value we would want to parse the text as a number.
+   > We will then call on the function getItemById from the ItemCtrl controller and pass in the id variable which will be stored in a itemToEdit variable.
+   > We will then call on the function setCurrentItem from the ItemCtrl controller and pass in the itemToEdit variable value.
+   > Finally we will add the selected item data to the form by calling on the UICtrl.addItemToForm
+- Updated public init method to include the UICtrl.clearEditState public function i.e. set the initial state/clear edit state of the application.
