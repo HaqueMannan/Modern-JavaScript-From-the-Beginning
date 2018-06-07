@@ -1,0 +1,33 @@
+Section 11.8. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Updating Items & Total Calories - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Updating Items & Total Calories - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Added updateItem function to the ItemCtrl public methods which take in the name and calories as parameters.
+   > Convert the calories to number using parseInt()
+   > forEach loop through items and do an if statement to check if the item.id matches the currentItem.id then set the item.name value to the name that is passed in the parameter and the same for calories. This will be stored in a variable called found.
+   > Return the variable found.
+- This will update the values within the data structure and not the UI.
+
+
+UICtrl Controller:
+- Updated the UISelectors to add listItems variable to reference the id/class of the html element.
+- Created updateListItem function to the UICtrl public method below the addListItem. 
+   > This takes in the item as a parameter. 
+   > querySelector for all list items with id of 'item-list li' and store in listItems variable.
+   > We then convert the node list into an array so that we can perform a forEach loop as we cannot loop through a node list.
+   > We will get the id attribute from the listItem and store it in itemID variable and then do a forEach loop to check for the itemID matches the template string which will resemble the html element id i.e. item-0, item-1 etc. If the statement returns true, then we have the element we want to actually update.
+   > We then set the innerHTML to the template string to update the item.
+
+
+App Controller:
+- Updated Edit click event listener, event function name from itemUpdateSubmit to itemEditClick.
+- Added event listener for the click on the update button to call on the itemUpdateSubmit event function.
+- itemUpdateSubmit function created which will update the form with the updated item. This function will also update the total calories using the ItemCtrl.getTotalCalories() and UICtrl.showTotalCalories(totalCalories) functions and then clear the edit state using the UICtrl.clearEditState.
+- In the load event listeners created a functionality to disable the enter key on the keyboard being able to submit the form. Important e.which is for older browsers that do not support the e.keyCode method.
