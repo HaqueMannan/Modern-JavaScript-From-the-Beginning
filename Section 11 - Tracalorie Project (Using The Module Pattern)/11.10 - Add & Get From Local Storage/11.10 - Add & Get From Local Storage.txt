@@ -1,0 +1,29 @@
+Section 11.10. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Add & Get From Local Storage - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Add & Get From Local Storage - app.js
+--------------------------------------
+StorageCtrl Controller:
+- StorageCtrl is an IIFE function and will call on itself immediately.
+- Created storeItem and getItemsFromSotrage public methods.
+- storeItem will store the item when the +ADD MEAL button is clicked. This should store the item and calorie to local storage.
+
+
+ItemCtrl Controller:
+- Commented out Items:[...] from data structure to leave this as a example of the Items data structure.
+- Added StorageCtrl.getItemsFromStorage which will call on the public method from the StorageCtrl controller to retrieve the items data from local storage.
+
+
+UICtrl Controller:
+- No changes/updates made to this controller.
+
+
+App Controller:
+- Updated AppCtrl function parameter to include StorageCtrl
+- Added StorageCtrl to the public init method within the invoked parameter.
+- Updated the itemAddSubmit function to add StorageCtrl.storeItem(newItem) which will store the item to local storage. The newItem is coming from the ItemCtrl when we add the item to the list and return the value to the newItem variable.
