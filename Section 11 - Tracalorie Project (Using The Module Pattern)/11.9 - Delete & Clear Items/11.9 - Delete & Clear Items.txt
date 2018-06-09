@@ -1,0 +1,27 @@
+Section 11.9. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Delete & Clear Items - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Delete & Clear Items - app.js
+--------------------------------------
+ItemCtrl Controller:
+- Added deleteItem and clearAllItems functions in the public method.
+- deleteItem will remove the item that matches the id that is passed in as a parameter which is the currentItem id. This will remove the item from the data structure.
+- clearAllItems will clear the whole list by setting the data.item to an empty array.
+
+
+UICtrl Controller:
+- Added clearBtn to the UISelector to record the id/class name of the html element.
+- Added deleteListItem and removeItems functions to the public method. This will remove the item-id from the list items using the .remove() method.
+
+
+App Controller:
+- Added event listeners on the click event on the following buttons to call the following events/functions:
+   > deleteBtn - itemDeleteSubmit
+   > backBtn - UICtrl.clearEditState
+   > clearBtn - clearAllItemsClick
+- We created a function that would take in the e event object so that when we call on UICtrl.clearEditState first and the prevent the default button behaviour of the page refreshing itself.
