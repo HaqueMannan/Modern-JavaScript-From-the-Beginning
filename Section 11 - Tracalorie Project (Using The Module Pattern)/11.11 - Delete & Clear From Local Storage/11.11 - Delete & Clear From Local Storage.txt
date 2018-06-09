@@ -1,0 +1,32 @@
+Section 11.11. Tracalorie Project (Using The Module Pattern):
+
+--------------------------------------
+Tracalorie - Delete & Clear From Local Storage - index.html
+--------------------------------------
+- No changes made to this file.
+
+--------------------------------------
+Tracalorie - Delete & Clear From Local Storage - app.js
+--------------------------------------
+StorageCtrl Controller:
+- Created updatedItemStorage, deleteItemFromStorage and clearItemsFromStorage functions in the public method.
+- The updateItemStorage and deleteItemFromStorage are identical in function but the only difference is that we are not passing in the updatedItem as a parameter within the deleteItemFromStorage function.
+   > let items variable will parse the JSON string data from local storage into an array object.
+   > use a forEach loop to iterate through the array object passing in item as the iterator, index and updateItem (for the updatedItemStorage function) as parameters.
+   > if statement to check if the id matches the index parameter. If true we will splice (remove) the object out 1 from the index - either deleting it or updating it with the updatedItem value.
+   > finally reset the local storage by converting the array object into a JSON string.
+- The clearItemsFromStorage function simply calls on the localStorage.removeItem('items') and we pass in the Key items which will clear the whole local storage.
+
+
+ItemCtrl Controller:
+- No changes/updates made to this controller.
+
+
+UICtrl Controller:
+- No changes/updates made to this controller.
+
+
+App Controller:
+- Updated the itemUpdateSubmit function to add StorageCtrl.updateItemStorage(updatedItem) function which will pass in the updatedItem as he parameter which comes from when we call on the ItemCtrl.updateItem public method to store the value in the updatedItem variable.
+- Updated the itemDeleteSubmit function to add StorageCtrl.deleteItemFromStorage(currentItem.id) function which will pass in the currentItem.id as he parameter. We are doing the same thing as the Update function above.
+- Updated the clearAllItemsClick function to add StorageCtrl.clearItemsFromStorage() function.
