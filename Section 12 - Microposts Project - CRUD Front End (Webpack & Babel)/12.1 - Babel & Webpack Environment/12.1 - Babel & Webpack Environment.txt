@@ -1,0 +1,40 @@
+Section 12.1. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Babel & Webpack Environment Setup
+--------------------------------------
+- Modules have not been implemented into browsers yet and so we would need some help compiling our modules into a single file.
+- Babel is used to transpile ES2015+ code down to regular ES5 code. We need to do this in order to use modules. More on Babel can be found on:
+   https://babeljs.io/
+- Webpack gives us a nice workflow so that we can use npm, create static assets and use something called the webpack dev server that will allow us to run an autoload server in the browser while we create our application.
+- We will require node.js and so will need to download and install it from:
+   https://nodejs.org/en/
+(download the LST recommended file)
+- If you are on windows you should use bit bash instead of the regular windows terminal - which can be downloaded from:
+   https://git-scm.com/
+- The Babel_Webpack_Starter files can be found on:
+   https://github.com/bradtraversy/babel_webpack_starter
+
+- Go into the terminal with your project folder and type in:
+   > $ npm install
+- This will install all the dependencies and create a node_modules folder within your project folder. We will never touch this file.
+
+- In our package.json file we have two commands that we can run in our terminal to do two different things:
+
+1. npm run build
+   This will run webpack and compile our code down to ES5. Our main app.js file will be in the src folder and this is the file that will be compiled down to ES5 when we run npn run build command and put the file into a folder called build. This will create a JavaScript file called app_bundle.js which is the compiled ES5 JavaScript file.
+   This command will create the build folder and files.
+
+   Note: in our index.html file the script tag is pointing towards our app.bundle.js file (which is the compiled ES5 JavaScript code file).
+
+2. npm start
+   This will run our server and it will tell us which localhost port it has opened on e.g.
+   http://localhost:8080/
+
+   You can type in your browser localhost:8080 (or whatever the port may be) to view your application on your web browser.
+
+   You may want to keep your vscode integrated terminal freed up for other terminal commands and so you may wish to run npm start on your operating system terminal for your dev server.
+
+   keyboard keys: ctrl + c in the terminal will stop the server running.
+
+We have now setup our Babel & Webpack Dev Environment ready to use ES2015 modules.
