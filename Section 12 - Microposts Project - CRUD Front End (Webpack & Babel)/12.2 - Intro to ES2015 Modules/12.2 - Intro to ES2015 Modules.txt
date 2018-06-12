@@ -1,0 +1,50 @@
+Section 12.2. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Intro to ES2015 Modules
+--------------------------------------
+- In JavaScript there are different types of modules. you have:
+   > Common JavaScript Modules (what node.js uses by default)
+   > ES2015 Modules
+
+- There are different syntaxes for modules but both are used to bring in modules which can be other JavaScript files. They can also be used to bring in other modules installed using npm (node module packager)
+
+- Modules can be anything i.e. a function, a object or an object full of function, a string etc.
+
+
+--------------------------------------
+Common JavaScript Modules.
+--------------------------------------
+- The mymodule1.js file is an example common JavaScript syntax. We use the keyword:
+   > module.exports = 
+- the module.exports is saying that whatever value we have after the equal (=) sign, we are making this available to other files. 
+- To bring this module into another file we would add the syntax:
+   > const x = require('./mymodule1')
+- The ./ means within the same directory which we follow by the file name. Note we do not need to add the file extension (example .js) at the end of the file name.
+- Note: this is how we will also bring in module we installed using nmp (i.e. these modules will go inside the node_modules folder). For instance if we installed Express framework using npm the syntax we would use to bring this module into our file is:
+   > const y = require('express')
+- We would not need to ad the ./ because it is an actual node module c.f. to a regular file where we would have to use the ./ along with the file name.
+
+
+--------------------------------------
+ES2015 JavaScript Modules.
+--------------------------------------
+- The mymodule2.js file is an example of ES2015 JavaScript syntax. We use the keyword:
+   > export
+- We can export as many things as we want. for example:
+   > export const person = {name="john"}
+- This const person object can now be accessible by any files outside of the mymodule2.js file.
+- To bring in a module into a file we will use the keyword:
+   > import { the thing we want to pull out from the module } from './fileName'
+   > import { person } from './mymodule2'
+- Destructuring allows us to bring in multiple things from a module for example:
+   > import { person, sayHello } from './mymodule2'
+- To make everything exported available without having to each thing within the module we can use the * symbol to specify all. The syntax is:
+   > import * as name from './fileName'
+- we are importing everything within a module as something for example:
+   > import * as mod from './mymodule2'
+- To access the thing from the module we will add the as name in front, for example"
+   > console.log(mod.person.name)
+- If in our module file we use the keyword default, then we do not need the curly braces when we are importing the module for example:
+   > export default greeting;
+   > import greeting from './mymodule2'
