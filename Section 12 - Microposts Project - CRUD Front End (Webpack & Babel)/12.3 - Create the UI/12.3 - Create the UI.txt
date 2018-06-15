@@ -1,0 +1,20 @@
+Section 12.3. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Create the UI
+--------------------------------------
+- Using bootswatch to create the User Interface (UI) for our application:
+https://bootswatch.com
+- Used the Cosmo theme for our project.
+- We also need font-awesome to use some of the icons within our web app:
+https://www.bootstrapcdn.com/fontawesome/
+- We did not use the bootstrap dependencies at the bottom of the body of our html file for this application because we do not need any of the dependencies for what we are building in this application. If you decide to use features such as dropdowns etc. then you should use the dependencies in your html file.
+- This is a simple page application which has:
+   > A simple navbar (that has no links) which has the application name, Microposts.
+   > We have a form with inputs for the Post Title and Post Body
+   > A hidden input which will act as our edit state and we will use DOM manipulation.
+   > A button to post our Microposts.
+   > A <span> element which will be used for the alert message when we post a new Microposts using DOM manipulation.
+   > After the form we have a break followed by a <div id='posts'> which will act as our placeholder for all ur Microposts.
+   > A simple footer for our application.
+- This application is a simple version of Twitter.
