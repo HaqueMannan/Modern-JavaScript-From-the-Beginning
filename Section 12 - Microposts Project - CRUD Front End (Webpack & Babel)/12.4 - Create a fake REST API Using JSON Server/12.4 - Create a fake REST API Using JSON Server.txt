@@ -1,0 +1,25 @@
+Section 12.4. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Create a fake REST API Using JSON Server
+--------------------------------------
+- We are using a tool called JSON Server as our back-end server. This tool allows us to mimic a REST API using a JSON file. We can run the server, stop the server and view our data.
+- Open up a terminal set to our Microposts project folder and type in:
+   > $ npm install json-server -- save
+- We use --save to make sure that it is saved to our package.json file. This will add json-server as a dependencies within our package.json file.
+- If you are using npm version 5 or later, you do not need the --save because it will automatically save it to your package.json file.
+- The json-server documentation can be found on:
+https://github.com/typicode/json-server
+- we need to create a file called db.json or whatever we want and then we can call in the terminal:
+   > $ json-server --watch db.json
+   (replace db.json with whatever you called your json file).
+- This will now act as your API and will also provide URL to use.
+- You can create any type of data structure you want e.g. users, posts, to do etc.
+- In our package.json file witin our scripts we added:
+   > "json:server": "json-server --watch api/db.json"
+- We can now run the command in our terminal to watch our db.json file which is located within an API folder:
+   > $ npm run json:server
+- This will open up a server on our localhost for our fake REST API.
+- We created a API folder in the root of our application folder and created the db.json file which has our initial structure of posts objects.
+- In json we must make sure our keys are wrapped in double quotes for example "id": is our key.
+- We now have a fake REST API server we can run in the background for our application.
