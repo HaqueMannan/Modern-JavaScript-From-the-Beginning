@@ -1,0 +1,68 @@
+Section 12.5. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Get & Display Posts
+--------------------------------------
+HTTP.JS MODULE:
+- We are going to use our easyHTTP library that we created in Section 6 - Asynchronous JavaScript, Ajax & Fetch API. The easyHttp library is going to be a module within our application i.e. within our src folder we have the http.js file which has the easyHTTP code.
+- In order to access the http.js methods/functions from another file we would need to export the http.js file by using:
+   > export const http = new EasyHTTP();
+- This code will be added to the bottom, below the other codes. We are instantiating the class. This will allow us to use http.get, http.delete etc. within our other JavaScript files.
+- In our main app.js file we are going to import the http.js methods/functions using:
+   > import { http } from './http';
+- We have now created the http module and imported it into our app.js file.
+
+
+UI.JS MODULE
+- We created a class called UI and added a constructor() object.
+- We assigned parts of the DOM to certain properties e.g.
+   > this.post = document.querySelector('#posts');
+   > this.title = document.querySelector('#title');
+   > ...
+   > this.formState = 'add';
+- We created a property in our constructor object called formState which we defaulted to add i.e. the default state to add a Microposts.
+- We created a method showPosts(posts) which takes care of displaying the post within the UI.
+- We used a forEach loop to loop through the posts and added the template literal to the let output variable which would append each time it loops. This output variable will then be used to insert in the innerHTML of our <div id="posts"> element (i.e. added to DOM/UI).
+- The ui.js module is exported so that the app.js file can use the method/functions from the ui.js module.
+   > export const ui = new UI();
+- In our main app.js file we are going to import the ui.js method/functions using:
+   > import { ui } from './ui';
+
+
+APP.JS FILE:
+- We added a addEvenListener on the load of the DOM content which will call on a function getPosts().
+- We created the function getPosts() which will use the http module:
+   > http.get('http://localhost:3000/posts')
+- Note when the json-server is running it will give the port the API is on which we pass as the parameter for our GET method to get the posts from our db.json file.
+- Since this is an Asynchronous method, the GET method will return a promise. To deal with promise we use the .then() and .catch() for the returned promise and any errors.
+- We can test what is returned as our promise from our GET method using:
+   > .then(data => console.log(data)) 
+   The data is our data from our url link we passed into the GET method. This will be displayed in the browser console as a array object.
+- With our GET Method:
+   > the .then() will return the data and use the ui.showPosts(data) function to display the posts in the DOM i.e. the UI of our application as posts.
+   > the .catch() will console.log the error.
+
+
+ASSETS FOLDER:
+- In the root of our project we created an assets folder to store our custom CSS file. The folder structure:
+   > assets
+      > css
+         > styles.css
+- In our styles.css file we set the .delete class colour to red (i.e. delete icon = red)
+
+
+INDEX.HTML FILE:
+- updated to add a link to our styles.css file.
+
+
+--------------------------------------
+IMPORTANT NOTE:
+- Babel & Webpack will convert all our modules/.js files into one ES5 JavaScript File which is called app.bundle.js which is located in a build folder. Our HTML <script> tag links to this file.
+- To Compile and Build the app.bundle.js file, open the Micropost project folder in terminal run the following command:
+   > npm run build
+- To run the Webpack dev server, open the Micropost project folder in terminal run the following command:
+   > $ npm start
+Note: whenever their is a change to a .js file this will trigger the Babel compile and build command and then refresh the dev server automatically so that you can view the updated changes in the browser.
+- To run the fake REST API server, open the Micropost project folder in terminal run the following command:
+   > $ npm run json:server
+--------------------------------------
