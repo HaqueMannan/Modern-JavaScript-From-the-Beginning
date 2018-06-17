@@ -1,0 +1,51 @@
+Section 12.6. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Add Post & Show Alert
+--------------------------------------
+APP.JS FILE:
+- Added a new event listener on the click on the button that has the class of .post-submit (Post It button) which will call on the submitPost function.
+- The submitPost will get the values from our form and use the HTTP module to to make a POST request passing in the data we pass in with the url.
+   > First we get the form data/values and store it in const title and body variables.
+   > Then create variable called data that is set as an object literal with the values above using ES2015 syntax i.e. title, body is the same as writing title: title, body: body - where the key and the value are the same we do not need to have the value.
+   > Then we create our POST request using our http.js module to call on the http.post() function. The parameters we pass in are:
+      > 'http://localhost:3000/posts' = the url, and
+      > data = the object literal above which holds the data for the title and body values.
+      - This will return a promise which we will use the:
+         > .then(data => {...}) to set a code block to:
+            1. ui.showAlert - show alert message that the post was added by calling on the UI module function. We passed in the alert message and the class name as parameters for this function to display the alert message in our application.
+            2. ui.clearFields - clear the form fields by calling on the UI module function.
+            3. call on getPost() function to get all the posts including the new submitted post in the UI.
+         > .catch(err => console.log(err)) = to console.log the error message.
+
+Important Note: When we use the Post It button to call on the submitPost function the json:server will add the new data to our db.json file and therefore if we refresh the application the new post will persist as it is now within our db.json file. As an example we added:
+   Title: Post Four
+   Body: This is post four
+The json:server has added this data in our db.json file along with providing a unique id of 4 automatically for our new post. This gives us a complete REST API.
+
+
+UI.JS FILE:
+- showAlert(message, className) - this function will:
+   > firstly clear any alert messages calling on the clearAlert() function, 
+   > then it will create our <div> element, 
+   > add our className which will be passed in from the function parameter, 
+   > add the alert message which will again be passed in from the function parameter,
+   > Get the Parent element called postsContainer
+   > get the Posts element called posts
+   > finally, inserting the alert div into the DOM by calling on the container and using the method insertBefore to pass the div and posts. This will insert the new alert div element within the container element before the posts element.
+   > the alert message will timeout by calling on the clearAlert() function after 3000ms i.e. 3 seconds.
+- clearAlert() - this function will set the currentAlert with anything that has the class of alert and test to see if there is an alert. If this returns true then we want to remove the currentAlert from the DOM.
+- clearFields() - this function will take the titleInput and bodyInput values and set it to nothing.
+
+
+--------------------------------------
+IMPORTANT NOTE:
+- Babel & Webpack will convert all our modules/.js files into one ES5 JavaScript File which is called app.bundle.js which is located in a build folder. Our HTML <script> tag links to this file.
+- To Compile and Build the app.bundle.js file, open the Micropost project folder in terminal run the following command:
+   > npm run build
+- To run the Webpack dev server, open the Micropost project folder in terminal run the following command:
+   > $ npm start
+Note: whenever their is a change to a .js file this will trigger the Babel compile and build command and then refresh the dev server automatically so that you can view the updated changes in the browser.
+- To run the fake REST API server, open the Micropost project folder in terminal run the following command:
+   > $ npm run json:server
+--------------------------------------
