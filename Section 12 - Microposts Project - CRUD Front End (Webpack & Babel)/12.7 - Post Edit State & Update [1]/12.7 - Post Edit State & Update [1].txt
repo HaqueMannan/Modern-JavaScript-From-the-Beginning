@@ -1,0 +1,47 @@
+Section 12.7. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Post Edit State & Update [1]
+--------------------------------------
+APP.JS FILE:
+- Added a new event listener on the click on the button that has the id of posts which will call on the deletePost function.
+- The deletePost(e) function passes in the e event object as a parameter. Using an if statement we are checking if the parent element contains the class of delete, if this returns true then:
+   > id = e.target.parentElement.dataset.id
+      - once we have the id number of the post we selected then we have another if statement to confirm the deletion of the post. If the user selects OK then:
+         > call on the http.delete function from the http.js module and pass in the url which also contains the post id using a string literal `http://localhost:3000/posts/${id}`. This will return a promise:
+         > the .then() will show an alert using the ui.alert() function and then call on the getPost() function to refresh the posts in the UI removing the deleted post.
+         > the .catch(err => console.log(err)) will log the error message in the console.
+         > we will also prevent the default behaviour of the e object.
+
+- Added another new event listener on the click on the button that has the id of posts which will call on the enableEdit function.
+- Both above uses event delegation when selecting the id posts before adding the eventListener.
+- The enableEdit(e) function passes in the e event object as a parameter. Using an if statement we are checking if the parent element contains the class of edit, if this returns true then:
+Note: we would write console.log(e.target.parentElement.dataset.id) to test for the returned id number of the post we select the edit pencil. We can also test traversing the DOM and console logging the result using e.target.parentElement.previousElementSibling.textContent etc before storing the values into variables to use in our function.
+   > id = e.target.parentElement.dataset.id
+   > title = e.target.parentElement.previousElementSibling.previousElementSibling.textContent
+      traversing the DOM to get the text content from the previous two elements above the target element i.e. the Post Title element.
+   > body = e.target.parentElement.previousElementSibling.textContent
+      traversing the DOM to get the text content from the previous elements above the target element i.e. the Post Body element.
+   > We then create a data object literal which will store the above variables values within the data object variable.
+   > Finally, we want to fill the form with the current post data using ui.fillForm(data) which will call on the function within the ui.js module.
+   > We also prevented the default behaviour of refreshing the page.
+
+
+UI.JS FILE:
+- Added the fillForm(data) function which will add the data object values within the each of the relevant fields within the UI form.
+
+
+Important Note: to test the delete button/icon worked we deleted Post 3 and 4 which json:server updated our db.json file to remove both post from our posts object within the file. In our testing of the edit button/icon this put the posts data within the form. In section 12.8 we will deal with the edit state and updating the post.
+
+
+--------------------------------------
+IMPORTANT NOTE:
+- Babel & Webpack will convert all our modules/.js files into one ES5 JavaScript File which is called app.bundle.js which is located in a build folder. Our HTML <script> tag links to this file.
+- To Compile and Build the app.bundle.js file, open the Micropost project folder in terminal run the following command:
+   > npm run build
+- To run the Webpack dev server, open the Micropost project folder in terminal run the following command:
+   > $ npm start
+Note: whenever their is a change to a .js file this will trigger the Babel compile and build command and then refresh the dev server automatically so that you can view the updated changes in the browser.
+- To run the fake REST API server, open the Micropost project folder in terminal run the following command:
+   > $ npm run json:server
+--------------------------------------
