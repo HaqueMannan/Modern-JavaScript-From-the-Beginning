@@ -1,0 +1,35 @@
+Section 12.8. Microposts Project - CRUD Front End (Webpack & Babel):
+
+--------------------------------------
+Microposts - Post Edit State & Update [2]
+--------------------------------------
+APP.JS FILE:
+- Updated the submitPost() function:
+   > added const id variable.
+   > if statement to check if title is equal to nothing or the body is equal to nothing then call on ui.showAlert which will show alert message. Else create the post. This will take care of the form validation rules. 
+   > added nested if statement which checks if id is equal to nothing then create the post using the http.post method, else update the post using the http.put method.
+- Added a new event listener on the click on the button that has the class of .card-form which will call on the cancelEdit function.
+- The cancelEdit(e) function uses an if statement to check if the e event object contains post-cancel in its class (targeting the cancel edit button) then call on the ui.changeFormState('add') passing in 'add' to change the form state back to the add state. We would also want to prevent the default behaviour of the cancel edit button from refreshing the page.
+
+
+UI.JS FILE:
+- Updated fillForm(data) function to add this.changeFormState('edit') which will call on the function and pass in 'edit' as the parameter.
+- Added clearIDInput() function which clears the idInput value to nothing.
+- Added changeFormState(type) function takes in a type which we pass in 'edit' above when we call on this function.
+   > If statement to check type is equal to edit. If true then change the Post It button text to Update Post and the colour to btn-warning (orange) by changing the class name, remembering to add the other classes as the .className method will update the whole class. 
+   We also want to create a Cancel Edit button below the Update Post button by inserting a new button element into the DOM. We insert the new button before the <span class="form-end"></span> element which is why we have this span element in our index.html file i.e. its purpose.
+   > Else, change the Post It button back to to its original state i.e. button text is Post It and button colour is btn-primary (blue).
+   If statement to remove the Cancel Edit button if it is in the DOM.
+   Finally we want to clear the ID from the hidden field using the clearIdInput() function and clear the form text fields using the clearFields() function which will change the form state to the 'add' state.
+
+--------------------------------------
+IMPORTANT NOTE:
+- Babel & Webpack will convert all our modules/.js files into one ES5 JavaScript File which is called app.bundle.js which is located in a build folder. Our HTML <script> tag links to this file.
+- To Compile and Build the app.bundle.js file, open the Micropost project folder in terminal run the following command:
+   > npm run build
+- To run the Webpack dev server, open the Micropost project folder in terminal run the following command:
+   > $ npm start
+Note: whenever their is a change to a .js file this will trigger the Babel compile and build command and then refresh the dev server automatically so that you can view the updated changes in the browser.
+- To run the fake REST API server, open the Micropost project folder in terminal run the following command:
+   > $ npm run json:server
+--------------------------------------
