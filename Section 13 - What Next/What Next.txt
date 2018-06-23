@@ -1,0 +1,27 @@
+--------------------------------------
+What you have Learned
+--------------------------------------
+- Basics & Fundamental
+- DOM Manipulation & UI Events
+- Object Oriented Programming - ES5 Prototypes & ES6 Classes
+- Async JS - Ajax, Fetch, Promises, Async/Await
+- Error Handling, Regular Expressions, LocalStorage
+- Programming Scope, Arrow Functions, Map, Set, Iterators
+- JavaScript Patterns
+- Real world projects with no Framework & Libraries
+
+
+--------------------------------------
+What's Next?
+--------------------------------------
+Learn a front-end framework:
+- React
+- Angular
+- Vue.js
+
+Learn Node.js or another server side language:
+Examples of backend frameworks for building backend APIs
+- Express
+- AdonisJS
+- Loopback
+- Swagger
